@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
+
+<chapter xml:id="chap_matrices_determinantes" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<title>Matrices y determinantes</title>
+	<introduction>
+		<p>
+		En este tema veremos que son y para que sirven las matrices y los determinantes.
+		</p>
+	</introduction>
+
+	<xi:include href="sec_definicion_matriz.ptx" />
+    <xi:include href="sec_tipos_matrices.ptx" />
+    <xi:include href="sec_operaciones_matrices.ptx" />
+
+</chapter>
