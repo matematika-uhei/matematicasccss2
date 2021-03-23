@@ -1,0 +1,73 @@
+\documentclass[xcolor=pdftex, x11names,table, oneside,11pt]{book}
+%\input{Diseno_Libro_D_RevistaMatematica_ITCR.tex}
+\input{../../../estiloLatex}
+%\usepackage{utf8]{inputenc}
+\usepackage[spanish]{minitoc}
+%\usepackage{matematicas}
+\usepackage{pdfpages}
+\usepackage{polynom}
+%\usepackage{sagetex}
+\usepackage[centering,text={16cm,22cm},a4paper,showframe=false]{geometry}
+\graphicspath{ {../} }
+
+\begin{document}
+% Insertar portada
+%\includepdf[pages=-]{images/Portada-1E-2016}
+%------------------------------------------------------------------------------
+%	Título
+%------------------------------------------------------------------------------
+\parindent=0mm    % Sangría
+\pagestyle{empty}
+\let\cleardoublepage\clearpage
+\titulo{% Autor(es) 
+	       \fhv{16}{Departamento de Matemáticas}\\[0.5cm]
+               \fhv{16}{UHEI - IVED}
+               %\fhv{9}{Ejercicios seleccionados}            
+        }{% pre-título
+          \fntb[phv][20]{\verde Matemáticas CC.SS: II\phantom{1}}
+        }{% Título principal
+            \begin{tabular}{r}
+  \fntb[phv][30]{\color{colordominante}Álgebra}\\[0.1cm]     
+  \fhv{12}{Resumen teórico y ejercicios con respuestas}\\[0.1cm]     
+  \end{tabular}
+        }{% Adicional
+        \fntb[phv][14]{\phantom{11}}
+      }
+
+\pagenumbering{roman}
+\date{} % sin fecha
+
+\dominitoc
+\mtcsettitle{minitoc}{}
+\nomtcrule
+
+%\mtcsetfeature{minitoc}{close}{\vspace{15cm}}
+%\dominitoc
+%\mtcsettitle{minitoc}{Indice}
+%\nomtcrule
+%\includepdf{images/ecuaciónsegundogrado}
+
+
+\parindent=0mm    % Sin sangría
+%\parskip=50mm
+
+\thispagestyle{empty}
+\noindent 
+
+\tableofcontents
+\thispagestyle{empty}
+\cleardoublepage
+\pagestyle{fancy}                      % Habilitar encabezados
+\pagenumbering{arabic}                 % Numeración arabiga
+\ansj=1    
+
+\chapter{Matrices y Determinantes}
+\input{matrices}
+%\chapter{Determinantes}
+%\input{determinantes}
+\chapter{Sistemas de Ecuaciones}
+\input{sistemas}
+\chapter{Programación Lineal}
+\input{programacion}
+
+\end{document}

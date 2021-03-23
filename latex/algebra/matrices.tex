@@ -1,0 +1,2263 @@
+\begin{indice}
+\minitoc
+\end{indice}
+
+\newpage 
+
+\section{Definiciones. Tipos de matrices}
+
+\subsection{Definiciones}
+
+
+\begin{definicion}
+Una {\bf matriz de dimensión $m \times n$}  es un conjunto de números ordenados en m filas y n columnas de la forma:
+ \[ A=\begin{pmatrix} 
+ a_{11} & a_{12} & \cdots & a_{1n} \\
+ a_{21} & a_{22} & \cdots & a_{2n} \\
+  \vdots  & \vdots  & \cdots & \vdots \\
+ a_{m1} & a_{m2} & \cdots & a_{mn} \\
+\end{pmatrix}
+\]
+\end{definicion}
+
+Cada elemento genérico de la matriz se designa por $a_{ij}$, donde $i$ es el número de fila que ocupa y $j$ es el número de fila.
+
+\begin{definicion}[Igualdad]
+Dos matrices de la misma dimensión $A_{mxn}=(a_{ij})$ y $B_{mxn}=(b_{ij})$ son iguales si $a_{ij}=b_{ij}\quad \forall i,j$
+\end{definicion}
+
+\begin{ejemplo}
+Dada la matriz
+$A= \begin{pmatrix}  -1 & 1  \\  2 & -3 \\  3 & -5 \\ \end{pmatrix}$ , escribir su dimensión y los elementos $a_{12}$, $a_{22}$ y $a_{31}$
+\tcblower
+La matriz tiene 3 filas y  2 columnas, luego su dimensión es $3x2$.
+
+$a_{12} = 1$, $a_{22}= -3$ y $a_{31}=3$
+\end{ejemplo}
+
+\begin{ejemplo}
+Hallar los valores de $x$ e $y$ para que las matrices $ \begin{pmatrix}  x & 1 \\  2 & y \\ \end{pmatrix}$, $ \begin{pmatrix}  3 & x-2 \\  y & x-1 \\ \end{pmatrix}$ sean iguales.
+\tcblower
+Para que sean iguales cada elemento de la primera matriz tiene que ser igual a su correspondiente de la segunda.
+
+Por lo tanto, $\begin{cases} x= 3 \cr 1= x-2 \cr 2= y \cr y=x-1 \end{cases}$
+ 
+Resolviendo tenemos que $x=3 $ e $ y=1$.
+\end{ejemplo}
+
+\subsection{Tipos de matrices}
+
+\begin{enumerate}[label={\alph* )}]
+	\item  {\bf Matriz fila}: es la matriz que solo tiene una fila $A_{1n}$.
+ 
+  		$A= \begin{pmatrix}  -1 & 1  & 2  \\ \end{pmatrix}$
+  
+    \item  {\bf Matriz columna}: es la matriz que solo tiene una fila $A_{m1}$
+   
+  		$A= \begin{pmatrix}  -1 \\  1  \\  2  \\  -3   \\\end{pmatrix}$
+
+  
+   \item  {\bf Matriz nula}: es la matriz en la que todos sus elementos son nulos.
+ 
+  $A= \begin{pmatrix}  0 & 0  \\  0  & 0 \\   0 & 0 \\\end{pmatrix}$
+
+ 	\item  {\bf Matriz rectangular}: es la matriz que tiene distinto número de filas que de columnas.
+ 
+  		$A= \begin{pmatrix}  -1 & 1  & 2  \\  -3  & 3 & -5 \\\end{pmatrix}$
+
+	\item {\bf Matriz cuadrada}: es la matriz que tiene igual número de filas que de columnas (m=n). En este caso podemos decir que la matriz es de orden n. 
+
+  	$B= \begin{pmatrix}  -1 & 1  & 2  \\  -3  & 3 & -5 \\  2  & 1 & 6 \\\end{pmatrix}$
+
+
+  	En una matriz cuadrada definimos:
+  \begin{enumerate}[label={\roman* )}]
+  \item {\bf Diagonal principal}: Son los elementos cuyo número de fila coincide con el de columna: $a_{ii}$
+  \item {\bf Diagonal secundaria}: Son todos los elementos tales que $i+j=n+1$.
+  \end{enumerate}
+  
+\end{enumerate}
+
+\[ \begin{array}{cc}
+\begin{tikzpicture}[baseline=(A.center)]
+\tikzset{BarreStyle/.style =   {opacity=.4,line width=4 mm,line cap=round,color=red}}
+  \matrix (A) [matrix of math nodes,ampersand replacement=\&,column sep=0 mm,left delimiter={(},right delimiter={)}] {a_{11} \& a_{12} \& \cdots \& a_{1n}  \\
+  a_{21} \& a_{22}  \& \cdots \& a_{2n}  \\
+  \cdots \& \cdots \& \vdots \& \vdots \\
+  a_{n1} \& a_{n2}  \& \cdots \& a_{nn}  \\ };
+\draw [BarreStyle] (A-1-1.north west)  to (A-4-4.south east) ;
+\end{tikzpicture} &  \begin{tikzpicture}[baseline=(A.center)]
+\tikzset{BarreStyle/.style =   {opacity=.4,line width=4 mm,line cap=round,color=blue}}
+  \matrix (A) [matrix of math nodes,ampersand replacement=\&,column sep=0 mm,left delimiter={(},right delimiter={)}] {a_{11} \& a_{12} \& \cdots \& a_{1n}  \\
+  a_{21} \& a_{22}  \& \cdots \& a_{2n}  \\
+  \cdots \& \cdots \& \vdots \& \vdots \\
+  a_{n1} \& a_{n2}  \& \cdots \& a_{nn}  \\ };
+\draw [BarreStyle] (A-1-4.north east)  to (A-4-1.south west) ;
+\end{tikzpicture} \\
+ \text{Diagonal principal}& \text{Diagonal secundaria}
+\end{array} \]
+
+\vspace{1cm}
+Dentro de las matrices cuadradas podemos distinguir las siguientes:
+
+ \textbf{Matrices triangular superior:} Son las que todos sus elementos por debajo de la diagonal principal son cero.
+
+\[ \begin{pmatrix} 
+1 & -1 & 3 & 0  \\
+  \color{red}0 & 3  & 1 & -1  \\
+ \color{red}0 & \color{red}0 & 2 & 1 \\
+  \color{red}0 & \color{red}0  & \color{red}0 & -4  \\ 
+\end{pmatrix} \]
+
+\textbf{Matrices triangular inferior:} Son las que todos sus elementos por encima de la diagonal principal son cero.
+
+\[
+  \begin{pmatrix}1 & \color{red}0 & \color{red}0 & \color{red}0  \\
+  -1 & 3  & \color{red}0 & \color{red}0  \\
+  1 & 2 & -2 & \color{red}0 \\
+ 4 & 0  & 6 & -2  \\ 
+\end{pmatrix} \]
+
+\textbf{Matrices diagonal:} Son las que todos sus elementos fuera de la diagonal principal son cero.
+
+\[
+  \begin{pmatrix} 1 & \color{red}0 & \color{red}0 & \color{red}0  \\
+  \color{red}0 & 3  & \color{red}0 & \color{red}0  \\
+  \color{red}0 & \color{red}0 & -2 & \color{red}0 \\
+ \color{red}0 & \color{red}0  & \color{red}0 & -2  \\ 
+\end{pmatrix}
+\] 
+
+ \textbf{Matrices escalar:} Son las que todos sus elementos  de la diagonal principal son iguales y el resto cero.
+
+\[
+  \begin{pmatrix} -2 & \color{red}0 & \color{red}0 & \color{red}0  \\
+  \color{red}0 & -2  & \color{red}0 & \color{red}0  \\
+  \color{red}0 & \color{red}0 & -2 & \color{red}0 \\
+ \color{red}0 & \color{red}0  & \color{red}0 & -2  \\ 
+\end{pmatrix}
+\] 
+
+\textbf{Matrices identidad:} Son las que todos sus elementos  de la diagonal principal son 1 y el resto cero.
+
+\[
+  \begin{pmatrix} 1 & \color{red}0 & \color{red}0 & \color{red}0  \\
+  \color{red}0 & 1  & \color{red}0 & \color{red}0  \\
+  \color{red}0 & \color{red}0 & 1 & \color{red}0 \\
+ \color{red}0 & \color{red}0  & \color{red}0 & 1  \\ 
+\end{pmatrix}
+\] 
+
+La matriz identidad se llama $I_n$, siendo $n$ el orden de la matriz.
+
+\section{Operaciones con matrices}
+
+
+\begin{definicion}[Suma]
+Dadas dos matrices de la misma dimensión $A=(a_{ij})$ y $B=(b_{ij})$ llamamos suma a otra matriz $C=(c_{ij})$ definida por 
+$$(c_{ij})=(a_{ij})+(b_{ij})=(a_{ij}+b_{ij})$$
+
+Y cumple las siguientes propiedades
+\begin{multicols}{2}
+	\begin{enumerate}
+		\item $A+B=B+A$
+		\item $A+(B+C)=(A+B)+C$
+		\item$A+0=A$
+		\item $A-A=0$
+	\end{enumerate}
+	\end{multicols}
+\end{definicion}
+
+\begin{ejemplo}
+Sumar $$   \begin{pmatrix}
+	2 & 1 \\
+	1 & 1 \\
+	3 & 2
+\end{pmatrix} 
+     +
+     \begin{pmatrix}
+	1 & 0 \\
+	-1 & -2 \\
+	2 & 3
+\end{pmatrix}    $$
+\tcblower
+$$   \begin{pmatrix}
+	2 & 1 \\
+	1 & 1 \\
+	3 & 2
+\end{pmatrix} 
+     +
+     \begin{pmatrix}
+	1 & 0 \\
+	-1 & -2 \\
+	2 & 3
+\end{pmatrix}    = \begin{pmatrix}
+	3 & 1 \\
+	0 &-1 \\
+	5 & 5
+\end{pmatrix}    $$
+\end{ejemplo}
+
+
+\begin{definicion}[Producto por un número real]
+Dados un número real $k\in \R$ y una matriz $A=(a_{ij})$ se define el producto de $k\cdot A$ de la siguiente manera:\\
+$$k\cdot A=k\cdot (a_{ij})= (k\cdot a_{ij})$$
+ $$5\cdot\begin{pmatrix}
+	2 & 1 \\
+	1 & 1 \\
+	3 & 2
+\end{pmatrix}= \begin{pmatrix}
+	10 & 5 \\
+	5 & 5 \\
+	15 & 10
+\end{pmatrix}  $$
+\end{definicion}
+
+\begin{definicion}[Producto de matrices]
+Dos matrices $A$ y $B$ se pueden multiplicar si el número de columnas de $A$ es igual al número de filas de $B$, en tal caso, se define la multiplicación de la siguiente manera
+$${A \atop m\ast n}\cdot {B \atop n\ast p}$$
+$$\underbrace{A}_{m \ast n} \cdot \underbrace{B}_{n\ast p}=\underbrace{C}_{m\ast p}$$
+Para calcular el elemento $c_{ij}$ hay que utilizar la fila $i$ de $A$ y la columna $j$ de B.
+$$\begin{pmatrix}
+	a_{i1} & a_{i2}&a_{i3}& \cdots &a_{in} \\
+\end{pmatrix}\cdot \begin{pmatrix}
+	a_{j1} \\ a_{j2}\\a_{j3}\\ \cdots \\a_{jn} \\
+\end{pmatrix}=a_{i1}\cdot a_{j1}+ a_{i2} \cdot a_{2j} + \cdots +a_{in}\cdot a_{nj}$$
+$$\begin{pmatrix}
+	2 & 1 \\
+	1 & 1 \\
+	3 & 2
+\end{pmatrix}\cdot \begin{pmatrix}
+	10 & 5 &5\\
+	5 & 5 &-2
+\end{pmatrix}=\begin{pmatrix}
+	2\cdot 10 + 1 \cdot 5 & 2\cdot 5 + 1 \cdot 5 & 2\cdot 5 + 1 \cdot (-2)\\
+	1\cdot 10 + 1 \cdot 5 & 1\cdot 5 + 1 \cdot 5 & 1\cdot 5 + 1 \cdot (-2)\\
+	3\cdot 10 + 2 \cdot 5 & 3\cdot 5 + 2 \cdot 5 & 3\cdot 5 + 2 \cdot (-2)
+\end{pmatrix} = \begin{pmatrix}
+	25 & 15& 8)\\
+	15 & 10 & 3\\
+	40 & 25 & 11
+\end{pmatrix}  $$\\
+\textbf{{\Large El producto de matrices no es conmutativo $A \cdot B \neq B\cdot A$}}
+
+\end{definicion}
+
+\begin{ejemplo}
+Dadas las matrices 
+\[A=\begin{pmatrix}
+	2&2&-1 \\
+	-1&-1&1 \\
+	-1&-2&2
+\end{pmatrix}
+\qquad
+I=\begin{pmatrix}
+	1&0&0 \\
+	0&1&0 \\
+	0&0&1
+\end{pmatrix} \]
+
+se pide:
+
+ Calcular la matriz $(A-I)^2$
+
+\tcblower
+
+ Primero calculamos $A-I=\begin{pmatrix}
+	2&2&-1 \\
+	-1&-1&1 \\
+	-1&-2&2
+\end{pmatrix}
+-\begin{pmatrix}
+	1&0&0 \\
+	0&1&0 \\
+	0&0&1
+\end{pmatrix}=
+\begin{pmatrix}
+	1 & 2 & -1 \\
+	-1&-2&1 		\\
+	-1&-2 & 1
+\end{pmatrix} $ 
+
+Ahora calculamos $(A-I)^2=\begin{pmatrix}
+	1 & 2 & -1 \\
+	-1&-2&1 		\\
+	-1&-2 & 1
+\end{pmatrix} \cdot\begin{pmatrix}
+	1 & 2 & -1 \\
+	-1&-2&1 		\\
+	-1&-2 & 1
+\end{pmatrix} =
+\begin{pmatrix}
+	0 & 0 & 0 \\
+	0&0&0 		\\
+	0&0 & 0
+\end{pmatrix} $
+
+\end{ejemplo}
+
+\begin{ejemplo}
+Sea $A=\begin{pmatrix}
+1 & 0 \\
+-1 & 1
+\end{pmatrix}$. Se pide:
+\begin{enumerate}[label={\alph* ) }]
+\item Demostrar que $A^2=2A-I$, donde $I$ es la matriz identidad de orden 2.
+\item Expresar $A^3$ y $A^4$ en función de $A$.
+\item Calcular $A^{100}$
+\end{enumerate}
+
+
+\tcblower
+
+\begin{enumerate}[label={\alph* ) }]
+\item Calculamos $A^2$
+
+$A^2=\begin{pmatrix}
+1 & 0 \\
+-1 & 1
+\end{pmatrix} \cdot\begin{pmatrix}
+1 & 0 \\
+-1 & 1
+\end{pmatrix}= \begin{pmatrix}
+1 & 0 \\
+-2 & 1
+\end{pmatrix}$
+
+Ahora calculamos $2A-I=2\begin{pmatrix}
+1 & 0 \\
+-1 & 1
+\end{pmatrix}-
+\begin{pmatrix}
+1 & 0 \\
+0 & 1
+\end{pmatrix}=\begin{pmatrix}
+1 & 0 \\
+-2 & 1
+\end{pmatrix}$
+
+Como vemos son iguales.
+
+\item
+
+$A^3=A^2\cdot A= (2A-I)\cdot A= 2A^2-I\cdot A=2A^2-A=2(2A-I)-A=3A-2I$
+
+$A^4=A^3\cdot A=(3A-2I)\cdot A=3A^2-2I\cdot A= 3(2A-I)-2A=4A-3I$ 
+\item 
+
+$A^{100}=100A-99I=100\begin{pmatrix}
+1 & 0 \\
+-1 & 1
+\end{pmatrix}-
+99\begin{pmatrix}
+1 & 0 \\
+0 & 1
+\end{pmatrix}=
+\begin{pmatrix}
+1 & 0 \\
+-100 & 1
+\end{pmatrix}$
+\end{enumerate}
+
+\end{ejemplo}
+
+\begin{ejemplo}
+Dada la matriz $A=\begin{pmatrix}
+ 0 & 0 & 1 \\
+ 0 & a & 0 \\
+ -1 & 0 & -2 
+\end{pmatrix}
+ $, se pide:
+
+Determínese el valor o los valores del parámetro $a$ para que se verifique que $A^2+2A+I=O$, siendo $I$ la matriz unidad y $O$ la matriz nula, ambas de orden 3.
+
+\tcblower
+
+Calculamos $A^2$
+\[ A^2=\begin{pmatrix}
+ 0 & 0 & 1 \\
+ 0 & a & 0 \\
+ -1 & 0 & -2 
+\end{pmatrix}\cdot
+\begin{pmatrix}
+ 0 & 0 & 1 \\
+ 0 & a & 0 \\
+ -1 & 0 & -2 
+\end{pmatrix}= 
+\begin{pmatrix}
+ -1 & 0 & -2 \\
+ 0 & a^2 & 0 \\
+ 2 & 0 & 3 
+\end{pmatrix}\]
+
+Ahora calculamos $A^2+2A+I$
+\[ \begin{pmatrix}
+ -1 & 0 & -2 \\
+ 0 & a^2 & 0 \\
+ 2 & 0 & 3 
+\end{pmatrix} +
+2\begin{pmatrix}
+ 0 & 0 & 1 \\
+ 0 & a & 0 \\
+ -1 & 0 & -2 
+\end{pmatrix}+
+\begin{pmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{pmatrix}=
+\begin{pmatrix}
+ 0 & 0 & 0 \\
+ 0 & a^2+2a+1 & 0 \\
+ 0 & 0 & 0 
+\end{pmatrix} \]
+
+Igualando a la matriz nula:
+
+\[
+\begin{pmatrix}
+0 & 0 & 0 \\
+ 0 & a^2+2a+1 & 0 \\
+ 0 & 0 & 0 
+\end{pmatrix}=
+\begin{pmatrix}
+0 & 0 & 0 \\
+0 & 0 & 0 \\
+0 & 0 & 0
+\end{pmatrix}
+\]
+
+Luego: $a^2+2a+1=0 \Rightarrow a=-1$
+
+\end{ejemplo}
+
+\begin{ejemplo}
+Sean las matrices 
+$A=\begin{pmatrix}
+	2 & 1 \\
+	1 & 1
+\end{pmatrix}$, 
+$B=\begin{pmatrix}
+ 	1 & x \\ 
+ 	x & 0
+\end{pmatrix}$ y  
+$C=\begin{pmatrix}
+	0 & -1 \\
+	-1 & 2
+\end{pmatrix}
+$
+
+\begin{enumerate}[label=\alph*)]
+\item Encuentre el valor o los valores de $x$ de forma que $B^2=A$
+\item Determine $x$ para que $A+B+C=3I_2$
+\end{enumerate}
+
+\tcblower
+
+\begin{enumerate}[label=\alph*) ]
+\item Hallamos $B^2$. 
+\[ \begin{pmatrix}
+	1 & x \\
+	x & 0 
+\end{pmatrix} \cdot 
+\begin{pmatrix}
+	1 & x \\
+	x & 0 
+\end{pmatrix}=
+\begin{pmatrix}
+	x^2+1 & x \\
+	x & x^2
+\end{pmatrix}
+\]
+
+Igualamos las dos matrices : 
+\[ \begin{pmatrix}
+	x^2+1 & x \\
+	x & x^2
+\end{pmatrix} =
+\begin{pmatrix}
+	2 & 1 \\
+	1 & 1
+\end{pmatrix} \]
+De aquí obtenemos el siguiente sistema de ecuaciones:
+\[
+\left\lbrace
+\begin{array}{l}
+x^2+1=2 \\
+x=1 \\
+x=1 \\
+x^2=1
+\end{array}
+\right. \Rightarrow x=1 \]
+
+\item Hallamos $A+B+C$
+
+\[ 
+\begin{pmatrix}
+	2 & 1 \\
+	1 & 1
+\end{pmatrix} +  
+\begin{pmatrix}
+ 	1 & x \\ 
+ 	x & 0
+\end{pmatrix}
++\begin{pmatrix}
+	0 & -1 \\
+	-1 & 2
+\end{pmatrix}=
+\begin{pmatrix}
+	3 & x \\
+	x & 3
+\end{pmatrix}
+\]
+
+Igualando esta matriz a $3I_2$ obtenemos:
+\[
+\begin{pmatrix}
+	3 & x \\
+	x & 3
+\end{pmatrix}=
+\begin{pmatrix}
+	3 & 0 \\
+	0 & 3
+\end{pmatrix}
+ \Rightarrow \left\lbrace
+\begin{array}{l}
+3=3 \\
+x=0 \\
+x=0 \\
+3=3
+\end{array}
+\right. \Rightarrow x=0 \]
+
+\end{enumerate}
+
+\end{ejemplo}
+
+\begin{ejer}
+ Dadas  las matrices
+
+$A=\begin{pmatrix}
+ 2 & 1 \\
+ 1 &  2 \\
+ 0 & 1
+\end{pmatrix} $
+, 
+$B=\begin{pmatrix}
+ 2 & 0 & 1 \\
+ 3 & 2 & -1 \\
+ 1 & 1 & 1
+\end{pmatrix} $,
+ $C=\begin{pmatrix}
+ 3 & 2 & 1 \\
+ -2 & -1 & 0
+\end{pmatrix} $, 
+$D=\begin{pmatrix}
+ 5 & 1 \\
+ 1 & 3
+\end{pmatrix} $.
+
+Indicar todos los posibles productos entre ellas y calcular el elemento (2,1) de cada producto.
+
+\begin{solu}
+
+Productos posibles:
+$\begin{cases} 
+A \cdot C & (A \cdot C)_{21}=-1 \\ 
+A \cdot D & (A \cdot D)_{21}=7 \\ 
+B \cdot A & (B \cdot A)_{21}=8 \\
+C \cdot A & (C \cdot A)_{21}=-5 \\
+D \cdot C & (D \cdot C)_{21}=-3 
+\end{cases} $
+
+\end{solu}
+\end{ejer}
+
+\begin{ejer}
+Dadas las matrices:
+$A=\begin{pmatrix}
+ a & 2 \\
+ 1 & b
+\end{pmatrix} $, 
+$B=\begin{pmatrix}
+ 1 & 1 \\
+ 1 & 2
+\end{pmatrix} $, 
+$C=\begin{pmatrix}
+ -1 \\
+ 1 
+\end{pmatrix} $, hallar:
+\begin{enumerate}[label=\alph*)]
+\item Las matrices $BAC$ y $A^tC$ (donde $A^t$ es la traspuesta de $A$).
+\item Los valores que deben tener $a$ y $b$ para que se cumpla $BAC=A^tC$.
+\end{enumerate}
+\begin{solu}
+\begin{enumerate}[label=\alph*)]
+\item $B\cdot A \cdot C= \begin{pmatrix} -a+b+1 \\ 2b-a \end{pmatrix} \qquad A^t \cdot C= \begin{pmatrix} -a+1 \\ b-2 \end{pmatrix}$
+\item $a=2 \qquad b=0$
+\end{enumerate}
+\end{solu}
+\end{ejer}
+
+\begin{ejer}
+Sea $A$ la matriz $A=\begin{pmatrix}
+1 & a \\
+0 & 1
+\end{pmatrix}$
+
+Para cada número natural $a$, hallar $A^n$. Calcular $A^{22}-2A^2+2A$
+\begin{solu}
+
+$A^n= \begin{pmatrix}
+1 & na \\
+0 & 1
+\end{pmatrix} \qquad A^{22}-2A^2+2A=\begin{pmatrix}
+1 & 20a \\
+0 & 1
+\end{pmatrix}$
+\end{solu}
+\end{ejer}
+
+\begin{ejer}
+Sean A y B la matrices dadas por:
+\[A=\begin{pmatrix}
+0 & 1 & 1 \\
+1 & 1 & 0 \\
+1 & 0 & 0
+\end{pmatrix}
+\qquad
+B=\begin{pmatrix}
+6 & -3 & -4 \\
+-3 & 2 & 1 \\
+-4 & 1 & 5
+\end{pmatrix} \]
+Contestar razonadamente a la siguiente pregunta. ¿Existe algún valor de $\lambda \in \R$ tal que la igualdad $(A-\lambda I)^2=B$ sea cierta?. En caso afirmativo hallar dicho valor de $\lambda $. $I$ es la matriz identidad de orden 3. 
+\begin{solu}
+$a=2$
+\end{solu}
+\end{ejer}
+
+\begin{ejer}
+ Sean $A$ y $M$ las matrices:
+\[ A=\begin{pmatrix}
+3 & 2 \\
+1 & 3
+\end{pmatrix}
+\qquad
+M=\begin{pmatrix}
+m & n \\
+p & q
+\end{pmatrix} \]
+Encontrar las condiciones que deben cumplir $m$, $n$, $p$ y $q$ para que se verifique que el producto de ambas matrices efectuado en las dos formas posibles sea el mismo.
+\begin{solu}
+$ m= q \qquad n=2p$
+\end{solu}
+\end{ejer}
+
+\begin{ejer}
+ Dadas las matrices 
+\[ A=\begin{pmatrix}
+5 & 2 & 0 \\
+2 & 5 & 0 \\
+0 & 0 & 1
+\end{pmatrix}
+\qquad
+B=\begin{pmatrix}
+a & b & 0 \\
+c & c & 0 \\
+0 & 0 & 1
+\end{pmatrix}\]
+se pide:
+
+\begin{enumerate}[label=\alph*)]
+\item Encontrar las condiciones que deben cumplir $a$, $b$ y $c$ para que se verifique $A\cdot B = B \cdot A$
+\item Para $a=b=c=1$, calcular $B^{10}$
+\end{enumerate}
+\begin{solu}
+\begin{enumerate}[label=\alph*)]
+\item $a=b=c$
+\item $\begin{pmatrix} 512 & 512 & 0 \\ 512 & 512 & 0 \\ 0 & 0  1 \end{pmatrix}$
+\end{enumerate}
+
+\end{solu}
+\end{ejer}
+
+\begin{ejer} Sea la matriz 
+$A=\begin{pmatrix}
+5 & -4 & 2 \\ 
+ 2 & -1 & 1 \\ 
+-4 & 4 & -1
+\end{pmatrix}
+$
+
+\begin{enumerate}[label=\alph*)]
+\item Prueba que $A^2-2A+I=0$ donde $I$ es la matriz identidad y $0$ es una matriz con todos sus elementos iguales a 0.
+\item Calcula $A^3$
+\end{enumerate}
+\begin{solu}
+\begin{enumerate}[label=\alph*)]
+\item Operar para demostrar.
+\item $A^3=\begin{pmatrix} 13&-12&6 \\ 6&-5&3 \\ -12&12&-5 \end{pmatrix} $
+\end{enumerate}
+
+\end{solu}
+\end{ejer}
+
+\begin{ejer} Sea la matriz 
+$B=\begin{pmatrix}
+1 & 0 \\
+1 & b
+\end{pmatrix}$. 
+Calcule el valor de $b$ para que $B^2=I_2$
+\begin{solu}
+$b=-1$
+\end{solu}
+\end{ejer}
+
+\newpage
+
+\section{Determinantes}
+
+\begin{definicion}{Determinante de orden 2}
+Dada una matriz de orden 2,$A=\begin{pmatrix}
+a_{11}& a_{12}  \\
+a_{21} & a_{22} 
+\end{pmatrix}$, se llama determinante de $A$ al número real : 
+
+\[ det(A)= |A|= \begin{vmatrix}
+a_{11}& a_{12}  \\
+a_{21} & a_{22} 
+\end{vmatrix}=a_{11} \cdot a_{22}-a_{12}\cdot a_{21} \]
+\end{definicion}
+
+\begin{ejemplo}
+   $\begin{vmatrix}
+1& 3  \\
+2 &5 
+\end{vmatrix}=1\cdot 5-3\cdot 2=-1 $
+\end{ejemplo}
+
+\begin{definicion}{Determinante de orden 3}
+Dada una matriz de orden 3,$A=\begin{pmatrix}
+a_{11}& a_{12} & a_{13} \\
+a_{21} & a_{22} & a_{23} \\
+a_{31}& a_{32} & a_{33}
+\end{pmatrix}$, se llama determinante de $A$ al número real: 
+
+\[ det(A)= |A|= \begin{vmatrix}
+a_{11}& a_{12}  &a_{13} \\
+a_{21} & a_{22}&a_{23}\\
+a_{31} & a_{32}&a_{33}
+\end{vmatrix} = \]
+\[ =a_{11} \cdot a_{12} \cdot a_{13}+a_{12} \cdot a_{23} \cdot a_{31}+a_{13} \cdot a_{32} \cdot a_{21}-a_{13} \cdot a_{22} \cdot a_{31}-a_{23} \cdot a_{32} \cdot a_{21}-a_{33} \cdot a_{21} \cdot a_{12} \]
+\end{definicion}
+
+Para recordar estos productos podemos utilizar la regla de Sarrus:
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.7]{images/sarrus.jpg}
+\end{figure}
+
+
+\begin{ejemplo}
+Calcular el siguiente determinante:
+$\begin{vmatrix}1&2&3\\
+0&-1&2\\
+2&1&3
+\end{vmatrix}$
+
+\tcblower
+Aplicamos la regla de Sarrus:
+
+$\begin{vmatrix}1&2&3\\
+0&-1&2\\
+2&1&3
+\end{vmatrix}$ $=1\cdot (-1) \cdot 3$ $ +2\cdot 2 \cdot 2$ $+ 3\cdot 1 \cdot 0 $  $-3\cdot (-1)\cdot 2 $ $- 2\cdot 0\cdot 3 $ $- 1\cdot 1 \cdot 2$ $=9$
+
+\end{ejemplo}
+
+\section{Propiedades de los determinantes}
+
+\begin{enumerate}
+\item Estas propiedades son válidas para determinantes de cualquier orden pero en los ejemplos usaremos determinantes de orden$3$
+
+\item El determinante de una matriz y el de su traspuesta son iguales. Las propiedades valen indistintamente para filas o columnas.
+\[ \vert A \vert =\vert A^t \vert \]
+
+\item Si todos los elementos de una linea de un determinante son ceros, el determinante también es cero.
+\[ \begin{vmatrix}
+1&0&2\\
+2&0&4\\
+-1&0&3
+\end{vmatrix}=0 \]
+
+\item Si en un determinante se intercambian dos lineas, el determinante cambia de signo.
+\[ \begin{vmatrix}
+3&-2&5\\
+1&7&3\\
+4&1&0
+\end{vmatrix}=-168\longrightarrow \begin{vmatrix}
+1&7&3\\
+3&-2&5\\
+4&1&0
+\end{vmatrix}=-(-168)=168 \]
+
+\item Si en un determinante dos lineas son iguales, el determinante es cero.
+\[ \begin{vmatrix}
+1&2&1\\
+3&-5&3\\
+-2&6&-2
+\end{vmatrix}=0 \].
+
+\item Si los elementos de una linea se multiplican por un número, el determinante también se multiplica por ese número.
+\[ \begin{vmatrix}
+1&5\cdot 7&0\\
+-2&3\cdot 7 &4\\
+3&7\cdot 7& -1
+\end{vmatrix}=7\begin{vmatrix}
+1&5&0\\
+-2&3 &4\\
+3&7& -1
+\end{vmatrix} \]
+
+\item Si en un determinante dos lineas son proporcionales, el determinante es cero.
+\[ \begin{vmatrix}
+1&5&0\\
+-2&3 &4\\
+2&10& 0
+\end{vmatrix} \stackrel{F_{3}=2 \cdot F_{1}}{=}0 \]
+
+\item Si los elementos de una línea se pueden descomponer en dos sumandos,  su determinante es igual a la suma de dos determinantes que tienen iguales todas las líneas excepto la línea cuyos sumandos pasan, respectivamente, a cada uno de los determinantes. 
+\[ \begin{vmatrix}
+a_{11}& a_{12}+ a'_{12} &a_{13} \\
+a_{21} & a_{22}+a'_{22}&a_{23}\\
+a_{31} & a_{32}+a'_{32}&a_{33}
+\end{vmatrix}=\begin{vmatrix}
+a_{11}& a_{12} &a_{13} \\
+a_{21} & a_{22}&a_{23}\\
+a_{31} & a_{32}&a_{33}
+\end{vmatrix}+\begin{vmatrix}
+a_{11}&  a'_{12} &a_{13} \\
+a_{21} & a'_{22}&a_{23}\\
+a_{31} & a'_{32}&a_{33}
+\end{vmatrix} \]
+
+\item Si a una linea de un determinante se le suma una combinación lineal de las demás lineas, el valor del determinante no varía.
+\[ \begin{vmatrix}
+1&5&1\\
+-2&3 &4\\
+2&10& 3
+\end{vmatrix} \stackrel{C_{2}+C_{1}-C_{3}}{=}\begin{vmatrix}
+1&5&1\\
+-2&-3 &4\\
+2&9& 3
+\end{vmatrix} \]
+
+\item Si en una determinante una linea es combinación lineal de las demás el valor del determinante es cero.
+\[ \begin{vmatrix}
+1&3&4\\
+2&3 &5\\
+2&-3&-1
+\end{vmatrix} \stackrel{C_{3}=C_{1}+C_{2}}{=}0 \]
+
+\item El determinante del producto de dos matrices cuadradas es igual al producto de los determinantes de ambas matrices 
+\[ \vert A \cdot B\vert=\vert A \vert\cdot \vert B\vert  \]
+
+\end{enumerate}
+
+\begin{ejemplo}
+ Sabiendo que 
+ $ \begin{vmatrix}
+ a & b & c \\
+ 1 & 1 & 1 \\
+ 3 & 0 & 1
+ \end{vmatrix}= 2 $
+ calcula, usando las propiedades de los determinantes,
+$ \begin{vmatrix}
+ 3-a & -b & 1-c \\
+ 1+a & 1+b & 1+c \\
+ 3a & 3b & 3c 
+ \end{vmatrix}
+ \qquad \text{y} \qquad 
+ \begin{vmatrix}
+  2a & 2b & 2c \\
+ 30 & 0 & 10 \\
+  4 & 4 & 4
+ \end{vmatrix} $
+
+\tcblower
+$
+\begin{vmatrix}
+ 3-a & -b & 1-c \\
+ 1+a & 1+b & 1+c \\
+ 3a & 3b & 3c 
+ \end{vmatrix}
+ = 
+ \begin{vmatrix}
+ 3 & 0 & 1 \\
+ 1+a & 1+b & 1+c \\
+ 3a & 3b & 3c 
+ \end{vmatrix}+\begin{vmatrix}
+ -a & -b & -c \\
+ 1+a & 1+b & 1+c \\
+ 3a & 3b & 3c 
+ \end{vmatrix} =  
+ \begin{vmatrix}
+ 3 & 0 & 1 \\
+ 1+a & 1+b & 1+c \\
+ 3a & 3b & 3c 
+ \end{vmatrix} +  0 (F_3=-3F_1)
+ = 
+ \begin{vmatrix}
+ 3 & 0 & 1 \\
+ 1 & 1 & 1 \\
+ 3a & 3b & 3c 
+ \end{vmatrix}+ \begin{vmatrix}
+ 3 & 0 & 1 \\
+ a & b & c \\
+ 3a & 3b & 3c 
+ \end{vmatrix} 
+\begin{vmatrix}
+ 3 & 0 & 1 \\
+ 1 & 1 & 1 \\
+ 3a & 3b & 3c 
+ \end{vmatrix}+  0 (F_3=3F_2)
+  = 3\begin{vmatrix}
+ 3 & 0 & 1 \\
+ 1 & 1 & 1 \\
+ a & b & c 
+ \end{vmatrix}
+= -3 \begin{vmatrix}
+ a & b & c\\
+ 1 & 1 & 1 \\
+   3 & 0 & 1
+ \end{vmatrix} = -6 $
+
+$
+\begin{vmatrix}
+  2a & 2b & 2c \\
+  30 & 0 & 10 \\
+ 4 & 4 & 4
+ \end{vmatrix} =  2\cdot 10 \cdot 4 \begin{vmatrix}
+ a & b & c \\
+ 3 & 0 & 1 \\
+ 1 & 1 & 1
+ \end{vmatrix} = 800  
+$
+
+\end{ejemplo}
+
+\section{Matriz adjunta}
+
+\subsection{Menor complementario y adjunto}
+
+
+\begin{definicion}{Menor complementario}
+Dada una matriz cuadrada de orden $n$, $A=(a_{ij})$, se llama menor complementario del elemento $a_{ij}$ al determinante de orden $n-1$ que se obtiene al eliminar la fila $i$ y la columna $j$ de la matriz $A$. Se suele representar por $M_{ij}$.
+\end{definicion}
+
+\begin{ejemplo}
+Dada la matriz $A=\begin{pmatrix} 
+1 & -2 & 3 \\
+-1 & 0 & 2 \\
+-2 & 3 & -1 \\
+\end{pmatrix}$, hallar los menores complementarios $M_{12}$, $M_{22}$ y $M_{31}$
+\tcblower
+
+Para hallar los menores complementarios formamos los determinantes de orden $2$, ya que la matriz es de orden $3$, que resultan de eliminar la fila y la columna correspondiente.
+
+\[ 
+M_{12}=\begin{vmatrix}  -1 & 2 \\ -2 & -1 \\ \end{vmatrix}=5 \]
+\[ M_{22}=\begin{vmatrix}  1 & 3 \\ -2 & -1 \\ \end{vmatrix}=4 \]
+\[M_{31}=\begin{vmatrix}  -2 & 3 \\ 0 & 2 \\ \end{vmatrix}=-4
+\]
+\end{ejemplo}
+
+\begin{definicion}{Adjunto}
+Dada una matriz cuadrada de orden $n$, $A=(a_{ij})$, se llama adjunto del elemento $a_{ij}$ al menor complementario de dicho elemento precedido del signo $+$ o $-$, según si la suma de $i+j$ es par o impar. Se suele representar por $A_{ij}$.
+\[
+A_{ij}=(-1)^{i+j} \cdot M_{ij}
+\]
+\end{definicion}
+
+\begin{ejemplo}
+Dada la matriz $A=\begin{pmatrix} 
+ 1& -2& 3 \\
+ -1& 0& 2 \\
+ -2& 3& -1 \\
+\end{pmatrix}$, hallar los adjuntos $A_{12}$, $A_{22}$ y $A_{31}$
+
+\tcblower
+Para hallar los adjuntos anteponemos el signo $+$ o $-$ a los menores correspondientes (calculados en el ejemplo anterior).
+
+\[
+A_{12}=(-1)^{1+2} \cdot M_{12}=-5 \qquad A_{22}=(-1)^{2+2} \cdot M_{22}=4 \qquad A_{13}=(-1)^{1+3} \cdot M_{31}=-4
+\]
+\end{ejemplo}
+
+\subsection{Matriz adjunta}
+
+
+\begin{definicion}{Matriz adjunta}
+Se llama matriz adjunta de una matriz cuadrada $A(a_{ij})$ a la matriz que resulta de cambiar cada elemento $a_{ij}$ de la matriz por el adjunto de ese elemento $A_{ij}$. Se representa por $Adj(A)$.
+\end{definicion}
+
+\begin{ejemplo}
+Dada la matriz $A=\begin{pmatrix} 
+ 1& -2& 3 \\
+ -1& 0& 2 \\
+ -2& 3& -1 \\
+\end{pmatrix}$, hallar su matriz adjunta
+\tcblower
+Calculamos el adjunto de cada elemento.
+
+\[
+\begin{aligned}
+A_{11}= + \begin{vmatrix} 0& 2 \\ 3& -1 \\ \end{vmatrix} =   -6 \quad & 
+A_{12}= - \begin{vmatrix} -1& 2 \\ -2& -1 \\ \end{vmatrix} =   -5 & 
+A_{13}=  + \begin{vmatrix} -1& 0 \\ -2& 3 \\ \end{vmatrix} =   -3 \\
+A_{21}= - \begin{vmatrix} -2& 3 \\ 3& -1 \\ \end{vmatrix} =   7 \quad &  
+A_{22}= + \begin{vmatrix} 1& 3 \\ -2& -1 \\ \end{vmatrix} =   5 &  
+A_{23}= - \begin{vmatrix} 1& -2 \\ -2& 3 \\ \end{vmatrix} =   1 \\
+A_{31}= + \begin{vmatrix} -2& 3 \\ 0& 2 \\ \end{vmatrix} =   -4 \quad &
+A_{32}=- \begin{vmatrix} 1& 3 \\ -1& 2 \\ \end{vmatrix} =   -5 &
+A_{33} + \begin{vmatrix} 1& -2 \\ -1& 0 \\ \end{vmatrix} =   -2 \\
+\end{aligned}
+\]
+
+Para obtener la matriz adjunta cambiamos cada elemento por su adjunto.
+
+\[
+Adj(A)=
+\begin{pmatrix}
+  -6 &  -5  &  -3 \\
+  7 &  5&  1 \\
+  -4&  -5&  -2 \\
+\end{pmatrix}
+\]
+\end{ejemplo}
+
+
+\section{Desarrollo de un determinante por adjuntos}
+
+\begin{definicion}{Desarrollo determinantes por adjuntos}
+El determinante de una matriz cuadrada de orden $n$ es igual a la suma de los productos de cada elemento de esa fila por sus adjuntos respectivos.
+
+$det(A)= a_{i1}\cdot A_{i1}+a_{i2}\cdot A_{i2}+\cdots +a_{in}\cdot A_{in}$
+
+$det(A)= a_{1j}\cdot A_{1j}+a_{2j}\cdot A_{2j}+\cdots +a_{nj}\cdot A_{nj}$
+\end{definicion}
+
+
+
+\begin{ejemplo}
+Hallar el determinante de la matriz $A=\begin{pmatrix} 
+ 1& -2& 3 \\
+ 5& 0& 6 \\
+ -1& 2& -4 \\
+\end{pmatrix} $
+\begin{enumerate}[label=\alph* )]
+\item Por la regla de Sarrus.
+\item Desarrollando por la primera fila.
+\item Desarrollando por la segunda columna.
+\end{enumerate}
+
+\tcblower
+\begin{enumerate}[label=\alph* )]
+\item $det(A)= 0+12+30-0-12-40=-10$
+\item $det(A)=1\cdot \begin{vmatrix}& 0& 6 \\& 2& -4 \\ \end{vmatrix} -(-2)\cdot \begin{vmatrix}& 5& 6 \\& -1& -4 \\ \end{vmatrix} +3\cdot \begin{vmatrix}& 5& 0 \\& -1& 2 \\ \end{vmatrix}= -12-28+30=-10$
+\item $det(A)=-(-2)\cdot \begin{vmatrix}& 5& 6 \\& -1& -4 \\ \end{vmatrix} +0\cdot \begin{vmatrix}& 1& 3 \\& -1& -4 \\ \end{vmatrix} -2\cdot \begin{vmatrix}& 1& 3 \\& 5& 6 \\ \end{vmatrix}= -28+0+18=-10$
+
+En la practica, antes de calcular el determinante, hacemos cero el mayor número posible de elementos de una fila,utilizando las propiedades de los determinantes, y desarrollamos por los elementos de esa fila.
+
+\end{enumerate}
+
+\end{ejemplo}
+
+\begin{ejemplo}
+Hallar el determinante de la matriz $A=\begin{pmatrix} 
+ 2& 5& -3& -2 \\
+ -2& -3& 2& -5 \\
+ 1& 3& -2& 2 \\
+ -1& -6& 4& 3 \\
+\end{pmatrix} $
+haciendo ceros.
+
+\tcblower
+$det(A)=\begin{vmatrix} 
+2 & 5 & -3 & -2 \\
+-2 & -3 & 2 & -5 \\
+1 & 3 & -2 & 2 \\
+-1 & -6 & 4 & 3 \\ \end{vmatrix} 
+{\color{red}\begin{array}{l} F_1  = F_1+2F_4 \\ F_2=F_2-2F_4 \\ F_3=F_3+F_4 \end{array}} =  \begin{vmatrix} 
+0 & -7 & 5 & 4 \\
+0 & 9 & -6 & -11 \\
+0 & -3 & 2 & 5 \\
+-1 & -6 & 4 & 3 \\ 
+\end{vmatrix}  = 
+(-1)(-1)^{4+1}\begin{vmatrix} 
+-7 & 5 & 4 \\
+9 & -6 & -11 \\
+-3 & 2 & 5 \\ 
+\end{vmatrix}  {\color{red}F_2=F_2+3F_3}  = 
+\begin{vmatrix} 
+-7 & 5 & 4 \\
+0 & 0 & 4 \\
+-3 & 2 & 5 \\ 
+\end{vmatrix} = 4\cdot (-1)^{2+3} \begin{vmatrix} 
+-7 & 5  \\
+-3 & 2  \\ 
+\end{vmatrix} = -4(-14+15)=-4
+$
+\end{ejemplo}
+
+
+
+
+\section{Inversa de una matriz}
+
+\begin{definicion}
+La matriz inversa de una matriz cuadrada $A$ de orden $n$ es otra matriz $A^{-1}$ de orden $n$ que verifica:
+\[
+A\cdot A^{-1}=A^{-1} \cdot A = I
+\]
+Las matrices que tienen inversa se llaman \textbf{matrices regulares} y las que no tienen inversa se llaman \textbf{matrices singulares}.
+\end{definicion}
+
+Para calcular la matriz inversa vamos a utilizar tres procedimientos:
+\begin{enumerate}
+\item Mediante la definición.
+\item Método de Gauss-Jordan.
+\item Por determinantes.
+\end{enumerate}
+
+\subsection{Calculo mediante la definición}
+
+En este procedimiento escribiremos cada elemento de la matriz inversa como una incógnita y mediante la definición de matriz inversa plantearemos un sistema de ecuaciones que luego resolveremos calculando de esta manera cada uno de los elementos de la matriz inversa.
+
+\begin{ejemplo}
+Dada la matriz    $A= \begin{pmatrix} 
+ 2& -1 \\
+ -7& 4 \\
+\end{pmatrix}$, hallar su inversa, si existe.
+
+\tcblower
+La matriz $A$ es de orden $2$, por lo tanto, la inversa también será de orden $2$.
+
+Es decir, $A^{-1}=\begin{pmatrix} 
+ x& y \\
+ z& t \\ 
+\end{pmatrix}$
+
+Utilizaremos ahora la definición de matriz inversa y calcularemos las incógnitas y la matriz inversa.
+
+$A\cdot A^{-1}= I \Leftrightarrow \begin{pmatrix} 
+ 2& -1 \\
+ -7& 4 \\
+\end{pmatrix} 
+\begin{pmatrix} 
+ x& y \\
+ z& t \\ 
+\end{pmatrix}
+=\begin{pmatrix} 
+ 1& 0 \\
+ 0& 1 \\ 
+\end{pmatrix}$
+
+Operando e igualando las dos matrices:
+
+$\begin{pmatrix} 
+ 2x-z& 2y-t \\
+ -7x+4z& -7y+4t \\ 
+\end{pmatrix}=\begin{pmatrix} 
+ 1& 0 \\
+ 0& 1 \\ 
+\end{pmatrix} \Leftrightarrow
+\left. 
+\begin{array}{l}
+ 2x-z = 1 \\
+ 2y-t = 0 \\
+ -7x+4z = 0 \\
+ -7y+4t = 1 \\
+\end{array}
+\right\rbrace
+\Rightarrow 
+\begin{array}{l}
+ x = 4 \\
+ y =1 \\
+ z =7 \\
+ t = 2 \\
+\end{array} $
+
+Luego la matriz inversa de $A=\begin{pmatrix} 
+ 2& -1 \\
+ -7& 4 \\
+\end{pmatrix}$ es:
+$A^{-1}= \begin{pmatrix}
+ 4& 1 \\
+ 7& 2 \\
+\end{pmatrix}$
+\end{ejemplo}
+
+\subsection{Calculo de la matriz inversa por el método de Gauss-Jordan}
+
+En este método calcularemos la matriz inversa de una matriz mediante transformaciones elementales.
+
+Este método consiste en lo siguiente:
+
+\begin{itemize}
+\item Tomamos una matriz formada por la matriz $A$ y la matriz identidad del mismo orden. Esta matriz la simbolizaremos por $\left( \begin{array}{c | c}
+A &  I 
+\end{array} \right) $
+\item Realizamos transformaciones elementales para llegar a la matriz: $\left( \begin{array}{c | c} I & B 
+\end{array} \right) $
+\end{itemize}
+
+La matriz $B$ es la inversa de la matriz $A$, es decir $A^{-1}$
+
+
+Las transformaciones elementales son las siguientes:
+
+\begin{enumerate}
+\item Intercambiar dos filas. $F_i \leftrightarrow F_j$
+\item Multiplicar una fila por un número distinto de cero. $F_i \rightarrow kF_i$
+\item Sumar dos filas multiplicadas por sendos números y sustituir una de estas filas por el resultado. $F_i \rightarrow kF_i+tF_j$.
+\end{enumerate}
+
+\begin{ejemplo}
+ Hallar la inversa de  la matriz:$\begin{pmatrix}
+1 & 2  \\
+2 & 3   \end{pmatrix}$.
+
+\tcblower
+
+$
+\begin{gaussjordandos}
+1 & 2  & 1& 0 \\
+  2& 3  & 0& 1 \\
+\end{gaussjordandos}
+\begin{array}{l}
+F_2=F_2-2F_1 \\
+F_2=F_2-2F_1
+\end{array}
+$
+
+$
+\begin{gaussjordandos}
+ 1& 2  & 1& 0 \\
+ 0& -1  & -2& 1 \\
+\end{gaussjordandos}
+\begin{array}{l}
+F_1=F_1+2F_1 \\
+\\
+\end{array}
+\begin{gaussjordandos}
+ 1& 0  & -3& 2 \\
+ 0& -1  & -2& 1 \\
+\end{gaussjordandos}
+\begin{array}{l}
+\\
+F_2=-F_2 
+\end{array}
+$
+
+$
+\begin{gaussjordandos}
+ 1& 0 &  -3& 2 \\
+ 0& 1  & 2& -1 \\
+\end{gaussjordandos}
+$
+
+Luego la matriz inversa de $A$ es $A^{-1}=\begin{pmatrix}
+  -3& 2 \\
+  2& -1 \\
+\end{pmatrix}$
+
+\end{ejemplo}
+
+\begin{ejemplo}
+Hallar la inversa de la matriz $B=\begin{pmatrix}
+1 & -1 & 1 \\
+2 & 0 & 1 \\
+-1 & 1 & 1
+\end{pmatrix}$
+
+\tcblower
+$ \begin{gaussjordantres} 
+1 & -1 & 1 & 1 & 0 &0 \\
+2 & 0 & 1 & 0 & 1 & 0 \\
+-1 & 1 & 1 & 0 & 0 & 1
+\end{gaussjordantres} $
+
+$\begin{array}{l}  \\  \rightarrow f_2=f_2-2f_1 \\  \rightarrow f_3=f_3+f_1 \end{array}$
+
+$\begin{gaussjordantres} 
+1 & -1 & 1 & 1 & 0 &0 \\
+0 & 2 & -1 & -2 & 1 & 0 \\
+0 & 0 & 2 & 1 & 0 & 1
+\end{gaussjordantres}$
+$\begin{array}{l} \rightarrow f_1=2f_1+f_2 \\ \\ \\ \end{array}$
+
+$\begin{gaussjordantres} 
+2 & 0 & 1 & 0 & 1 &0 \\
+0 & 2 & -1 & -2 & 1 & 0 \\
+0 & 0 & 2 & 1 & 0 & 1
+\end{gaussjordantres} $
+
+$\begin{array}{l} \rightarrow f_1=2f_1-f_3 \\ \rightarrow f_2=2f_2+f_3 \\ \\ \end{array} $
+
+$\begin{gaussjordantres} 
+4 & 0 & 0 & -1 & 2 & -1 \\
+0 & 4 & 0 & -3 & 2 & 1 \\
+0 & 0 & 2 & 1 & 0 & 1
+\end{gaussjordantres}$
+
+$\begin{array}{l} \rightarrow f_1=f_1/4 \\ \rightarrow f_2=f_2/4 \\ \rightarrow f_3=f_3/2 \end{array}  $
+
+$\begin{gaussjordantres} 
+1 & 0 & 0 & -1/4 & 1/2 & -1/4 \\
+0 & 1 & 0 & -3/4 & 1/2 & 1/4 \\
+0 & 0 & 1 & 1/2 & 0 & 1/2
+\end{gaussjordantres} $
+
+$B^{-1}=\begin{pmatrix}
+-1/4 & 1/2 & -1/4 \\
+ -3/4 & 1/2 & 1/4 \\
+ 1/2 & 0 & 1/2
+\end{pmatrix} $
+
+\end{ejemplo}
+\subsection{Cálculo de la matriz inversa por determinantes}
+
+\begin{definicion}
+La condición necesaria y suficiente para que una matriz tenga inversa es que su determinante sea distinto de cero.
+\[ \exists A^{-1} \Leftrightarrow |A| \neq 0 \]
+
+Si existe la matriz inversa se puede calcular de la siguiente forma:
+
+
+\resaltado{
+$ A^{-1}= \dfrac{1}{|A|}\cdot \left[ Adj (A) \right]^t = \dfrac{1}{|A|}\cdot Adj  \left( A^t \right) $} 
+
+\end{definicion}
+
+
+\begin{ejemplo}
+Hallar la matriz inversa de :
+$A=\begin{pmatrix}
+1 & 0 & 0 \\
+0 & 0 & -1 \\
+2 & -1 & 1
+\end{pmatrix} $
+
+\tcblower
+Hallamos el determinante de $A$. $|A|=0+0+0-0-1-0=-1 $
+
+Como el determinante es distinto de cero la matriz tiene inversa.
+
+Hallamos la matriz adjunta de $A$.
+
+$\begin{matrix}
+A_ {11}=\begin{vmatrix}
+0 & -1 \\
+-1 & 1
+\end{vmatrix}=-1 &  A_ {12}=-\begin{vmatrix}
+0 & -1 \\
+2 & 1
+\end{vmatrix}=-2 & A_ {13}=\begin{vmatrix}
+0 & 0 \\
+2 & -1
+\end{vmatrix}=0 \\
+A_ {21}=-\begin{vmatrix}
+0 & 0 \\
+-1 & 1
+\end{vmatrix}=0 & A_ {22}=\begin{vmatrix}
+1 & 0 \\
+2 & 1
+\end{vmatrix}=1 & A_ {23}=-\begin{vmatrix}
+1 & 0 \\
+2 & -1
+\end{vmatrix}=1 \\
+A_ {31}=\begin{vmatrix}
+0 & 0 \\
+0 & -1
+\end{vmatrix}=0 & A_ {32}=-\begin{vmatrix}
+1 & 0 \\
+0 & -1
+\end{vmatrix}=1 & A_ {33}=\begin{vmatrix}
+1 & 0 \\
+0 & 0
+\end{vmatrix}=0
+\end{matrix} $
+
+$(Adj A)= \begin{pmatrix}
+-1 & -2 & 0 \\
+0 & 1 & 1 \\
+0 & 1 & 0
+\end{pmatrix} \qquad \left( Adj A \right)^t=\begin{pmatrix}
+-1 & 0 & 0 \\
+-2 & 1 & 1 \\
+0 & 1 & 0
+\end{pmatrix}  $
+
+\resultado{
+$A^{-1}= \dfrac{\left( Adj A \right)^t}{|A|}=\begin{pmatrix}
+1 & 0 & 0 \\
+2 & -1 & -1 \\
+0 & -1 & 0
+\end{pmatrix}  $ 
+}
+\end{ejemplo}
+
+\begin{ejemplo}
+Sea $m$ un número real y considerese la matriz 
+\[ A=\begin{pmatrix}
+1 & 0 & m \\
+m & 0 & -1 \\
+2 & -1 & 1
+\end{pmatrix} \]
+\begin{enumerate}[label=\alph* )]
+\item Determine todos los valores de $m$ para los que la matriz $A$ tiene inversa.
+\item Determine, si existe, la inversa de $A$ cuando $m=0$
+\item Determine, si existe, la inversa de $A^2$ cuando $m=0$
+\end{enumerate}
+
+\tcblower
+
+\begin{enumerate}[label=\alph* )]
+\item $\exists A^{-1} $ si $|A| \neq 0$
+
+$|A|=\begin{vmatrix}
+1 & 0 & m \\
+m & 0 & -1 \\
+2 & -1 & 1
+\end{vmatrix}=-m^2-1$
+
+$-m^2-1 =0 \Rightarrow $ No tiene solución, por lo tanto, $|A| \neq 0$ para $\forall m \in \R$
+
+Luego la matriz siempre tiene inversa.
+\item Para $m=0 \qquad A=\begin{pmatrix}
+1 & 0 & 0 \\
+0 & 0 & -1 \\
+2 & -1 & 1
+\end{pmatrix} $
+
+$|A|=-1 $
+
+Hallamos la matriz adjunta de $A$.
+
+$\begin{matrix}
+A_ {11}=\begin{vmatrix}
+0 & -1 \\
+-1 & 1
+\end{vmatrix}=-1 & A_ {12}=-\begin{vmatrix}
+0 & -1 \\
+2 & 1
+0\end{vmatrix}=-2 & A_ {13}=\begin{vmatrix}
+0 & 0 \\
+2 & -1
+\end{vmatrix}=0 \\
+A_ {21}=-\begin{vmatrix}
+0 & 0 \\
+-1 & 1
+\end{vmatrix}=0 & A_ {22}=\begin{vmatrix}
+1 & 0 \\
+2 & 1
+\end{vmatrix}=1 & A_ {23}=-\begin{vmatrix}
+1 & 0 \\
+2 & -1
+\end{vmatrix}=1 \\
+A_ {31}=\begin{vmatrix}
+0 & 0 \\
+0 & -1
+\end{vmatrix}=0 & A_ {32}=-\begin{vmatrix}
+1 & 0 \\
+0 & -1
+\end{vmatrix}=1 & A_ {33}=\begin{vmatrix}
+1 & 0 \\
+0 & 0
+\end{vmatrix}=0
+\end{matrix} $
+
+$(Adj A)= \begin{pmatrix}
+-1 & -2 & 0 \\
+0 & 1 & 1 \\
+0 & 1 & 0
+\end{pmatrix} $
+
+$\left( Adj A \right)^t=\begin{pmatrix}
+-1 & 0 & 0 \\
+-2 & 1 & 1 \\
+0 & 1 & 0
+\end{pmatrix}  $
+
+$A^{-1}= \dfrac{\left( Adj A \right)^t}{|A|}=\begin{pmatrix}
+1 & 0 & 0 \\
+2 & -1 & -1 \\
+0 & -1 & 0
+\end{pmatrix}  $
+\item $\left( A^2 \right)^{-1}= (A \cdot A)^{-1}=A^{-1} \cdot A^{-1}=\begin{pmatrix}
+1 & 0 & 0 \\
+2 & -1 & -1 \\
+0 & -1 & 0
+\end{pmatrix} \cdot \begin{pmatrix}
+1 & 0 & 0 \\
+2 & -1 & -1 \\
+0 & -1 & 0
+\end{pmatrix} = \begin{pmatrix}
+1 & 0 & 0 \\
+0 & 2 & 1 \\
+-2 & 1 & 1
+\end{pmatrix} $
+\end{enumerate}
+
+\end{ejemplo}
+
+
+\begin{ejer}
+\bex
+\itemps {Discute, en función del parámetro $m \in \R $, el rango de la matriz:
+\[ \begin{pmatrix}
+1 & 3 & -1 \\
+m+1 & 3 & m-1 \\
+m-1 & m+3 & -1
+\end{pmatrix} \] }{$\begin{array}{l} m \in \R - \left\lbrace 0,1 \right\rbrace \Rightarrow  \text{rango}(A)=3 \\
+m=0 \Rightarrow  \text{rango}(A)=2 \\
+m=1 \Rightarrow  \text{rango}(A)=2. \end{array}$}
+
+\itemps {¿Para qué valores del parámetro $m \in \R $ existe la matriz inversa de $A$?}{$m \in \R - \left\lbrace 0,1 \right\rbrace  $}
+\eex
+\end{ejer}
+
+\begin{ejer}
+Considerese la matriz $M=\begin{pmatrix}
+1 & a & a^2 \\
+1 & a+1 & (a+1)^2 \\
+1 & a-1 & (a-1)^2
+\end{pmatrix} $, para $a \in \R$.
+\bex
+\itemps {Calcule el rango de la matriz $M$ en función de los valores del parámetro $a$.}{}
+\itemps {Discuta y resuelva el sistema de ecuaciones lineales
+\[ M \cdot \begin{pmatrix}
+x \\
+y \\
+z 
+\end{pmatrix} = \begin{pmatrix}
+1 \\
+1 \\
+1
+\end{pmatrix} \]
+según los valores del parámetro $a$.}{}
+\eex
+\end{ejer}
+
+\section{Rango de una matriz}
+
+\begin{definicion}
+Una fila (o columna) de una matriz $F_i$ (o $C_i$) depende linealmente de otras si existen números reales $a_1$, $a_2$, $\cdots$, $a_n$ tales que $F_i$ (o $C_i$) se pueden expresar como:
+\[ F_i=a_1 \cdot F_1+a_2 \cdot F_2+\cdots + a_n \cdot F_n \qquad C_i=a_1\cdot C_1+a_2 \cdot C_2+\cdots + a_n \cdot C_n \]
+\end{definicion}
+
+\begin{definicion}
+El \textbf{rango de una matriz} es el número de filas o de columnas linelamente independientes.
+\end{definicion}
+
+Se puede demostrar que el número de filas linealmente independientes coincide con el número de columnas linalmente independiente. Por lo tanto, el rango de una matriz de orden $m \times n$ siempre será menor o igual que el número más pequeño entre $m$ y $n$.
+
+\begin{ejemplo}
+Dada la matriz $A=\begin{pmatrix}
+-1 & 2 & 4 & 0 \\
+3 & 2 & 1 & -2 \\
+7 & 2 & -2 & -4 
+\end{pmatrix}$.
+
+Comprueba que la tercera fila es combinación lineal de las dos primeras. ¿Cuál es el rango de $A$?.
+\tcblower
+Si la tercera fila es combinación lineal de la primera entonces: $F_3=aF_1+bF_1$.
+
+Aplicando la igualdad anterior tenemos:
+
+$\begin{cases} -a+3b=7 \\ 2a+2b=2 \\ 4a+b=-2 \\ -2b=-4 \end{cases}$
+
+Resolviendo el sistema obtenemos $a=-1$, $b=2$. Es decir, $F_3=-F_1+2F_2$
+
+Como la primera fila y la segunda son independientes el rango de la matriz $A$ será $2$.
+\end{ejemplo}
+
+\subsection{Calculo del rango de una matriz escalonando la matriz}
+\begin{definicion}
+Una matriz se dice que es una \textbf{matriz escalonada} si en ella se cumple:
+\begin{itemize}
+\item Si hay filas nulas, están situadas en la parte inferior de la matriz.
+\item En las filas no nulas, el primer elemento diferente de cero de una fila está situado más a la derecha que el primer elemento no nulo de la fila inmediatamente superior.
+\end{itemize}
+
+El rango de una matriz escalonada es el número de filas no nulas de ella. Lo denotaremos por $ran(A)$.
+\end{definicion}
+
+Las siguientes matrices son matrices escalonadas:
+
+$A=\begin{pmatrix}
+3 & -1 & 1 \\ 0 & 2 & 5 
+\end{pmatrix}
+$, $B=\begin{pmatrix}
+1 & 2 & 3 & 4 \\
+0 & 3 & -2 & 1 \\
+0 & 0 & -1 & 2 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 0 & 0 
+\end{pmatrix}$
+
+
+\begin{definicion}
+Dos matrices son equivalentes si una de ellas se obtiene a partir de la otra mediante transformaciones elementales.
+
+El rango de una matriz A es el rango de una matriz escalonada equivalente a ella.
+\end{definicion}
+
+\begin{ejemplo}
+
+Calcula el rango de la matriz:
+$ 
+\begin{pmatrix}
+	1 & 2 & 5 & 6 \\
+	-1 & -2 & 0 & 1 \\
+	3 & 4 & 5 & 3 \\
+	-3 & -4 & 0 & 0  
+\end{pmatrix}
+$
+
+\tcblower
+
+Escalonamos la matriz haciendo ceros en todos los elementos por debajo de la diagonal:
+
+\[
+\begin{pmatrix}
+	1 & 2 & 5 & 6 \\
+	-1 & -2 & 0 & 1 \\
+	3 & 4 & 5 & 3 \\
+	-3 & -4 & 0 & 0  
+\end{pmatrix} 
+\xLongrightarrow{\begin{array}{c} f_2=f_2+f_1 \\ f_3=f_3-3f_1 \\  f_4=f_4+3f_1 \end{array}}
+\begin{pmatrix}
+	1 & 2 & 5 & 6 \\
+	-0 & 0 & 5 & 7 \\
+	0 & -2 & -10 & -15 \\
+	-0 & 2 & 15 & 18  
+\end{pmatrix} 
+\xLongrightarrow{\begin{array}{c} f_2\leftrightarrow f_3  \end{array}}
+\]
+\[
+\begin{pmatrix}
+	1 & 2 & 5 & 6 \\
+	0 & -2 & -10 & -15 \\
+	0 & 0 & 5 & 7 \\
+	0 & 2 & 15 & 18  
+\end{pmatrix} 
+\xLongrightarrow{\begin{array}{c} f_4=f_4+f_2  \end{array}}
+\begin{pmatrix}
+	1 & 2 & 5 & 6 \\
+	0 & -2 & -10 & -15 \\
+	0 & 0 & 5 & 7 \\
+	0 & 0 & 5 & 3 
+\end{pmatrix} 
+\xLongrightarrow{\begin{array}{c} f_4=f_4-f_3  \end{array}}
+\]
+\[
+\begin{pmatrix}
+	1 & 2 & 5 & 6 \\
+	0 & -2 & -10 & -15 \\
+	0 & 0 & 5 & 7 \\
+	0 & 0 & 0 & -4  
+\end{pmatrix} 
+\]
+
+Nos quedan cuatro filas, por lo tanto, el rango es 4.
+
+\end{ejemplo}
+\subsection{Calculo del rango de una matriz por determinantes}
+
+\begin{definicion}
+Se llama menor de orden $k$ de una matriz $A$, de cualquier dimensión, al determinante de la matriz formada por elementos que perteneces a $k$ filas y $k$ columnas de la matriz A.
+\end{definicion}
+
+\begin{ejemplo}
+Hallar un menor de orden 2 y otro de orden 3 de la matriz: $A=\begin{pmatrix}
+1 & 0 & 2 & -3 \\
+3 & 3 & 1 & 2 \\
+0 & -1 & 2 & -3
+\end{pmatrix}$
+\tcblower
+Para hallar un menor de orden 2 de esta matriz elegimos dos filas y dos columnas de dicha matriz. Por ejemplo, elegimos la fila 2 y la fila 3 y la columna 1 y la columna 4 y obtenemos:
+
+$\begin{vmatrix}
+3 & 2 \\
+0 & -3
+\end{vmatrix}= -9$
+
+Para hallar un menor de orden 3 cogemos tres filas, por ejemplo, las filas 1, 2 y 3 y tres columnas, por ejemplo las columnas 1,2 y 4. De esta manera obtenemso:
+
+$\begin{vmatrix}
+1 & 0 & -3 \\
+3 & 3 & 2 \\
+0 & -1 & -3
+\end{vmatrix}= 2$
+\end{ejemplo}
+
+\begin{definicion}
+El rango de una matriz es el orden del mayor menor no nulo de la matriz.
+\end{definicion}
+
+Para calcular el rango de una matriz mediante determinantes procederemos de la siguiente forma:
+
+\begin{itemize}
+\item Si la matriz $A$ es la matriz nula el rango será 0. En caso contrario buscamos un menor de orden 2 que sea distinto de cero. Si no hay ninguno el rango será 1.
+\item Si hay algún menor de orden 2 distinto de cero el rango será mayor o igual a 2. En este caso orlamos el menor de orden 2 distinto de cero añadiendole otra fila y otra columna utilizando todas las posibilidades. Si todos son cero el rango será 2 en caso contrario el rango será mayor o igual que 3 y se sigue orlando el menor de orden 3 distinto de cero si esto es posible, es decir, si hay filas y columnas para añadirle.
+\end{itemize}
+El rango de la matriz será el orden del mayor menor no nulo.
+
+\begin{ejemplo}
+Hallar el rango de la matriz $A=\begin{pmatrix}
+-1 & 0 & 0 & 2 & -2 \\
+3 & 1 & -1 & 4 & 0 \\
+2 & 1 & -1 & 6 & -2 
+\end{pmatrix}$
+\tcblower
+Buscamos un menor de orden 2 no nulo. Para ello tomamos la primera y la segunda fila y la primera y la segunda columna.
+
+$\begin{vmatrix}
+-1 & 0 \\ 3 & 1
+\end{vmatrix}=-1 \neq 0 \Rightarrow \text{ran}(A) \geq 2 $
+
+Orlamos este menor añadiéndole otra fila y otra columna hasta encontrar un menor de orden 3 distinto de cero si lo hay.
+
+$ \begin{vNiceMatrix}[first-row,first-col]
+ &  & & \color{red}\underset{\downarrow}{C_3} \\
+ & -1 & 0 & 0 \\
+ & 3 & 1 & -1 \\
+\color{red} F_3 \rightarrow  & 2 & 1 & -1 
+\end{vNiceMatrix}=0 \qquad  
+\begin{vNiceMatrix}[first-row,first-col]
+ &  & & \color{red}\underset{\downarrow}{C_4} \\
+ & -1 & 0 & 2 \\
+ & 3 & 1 & 4 \\
+\color{red} F_3 \rightarrow  & 2 & 1 & 6
+\end{vNiceMatrix}=0 \qquad  
+\begin{vNiceMatrix}[first-row,first-col]
+ &  & & \color{red}\underset{\downarrow}{C_5} \\
+ & -1 & 0 & -2 \\
+ & 3 & 1 & 0 \\
+\color{red} F_3 \rightarrow  & 2 & 1 & -2
+\end{vNiceMatrix}=0$
+
+Por lo tanto, el rango de la matriz es $2$.
+\end{ejemplo}
+
+\begin{ejer}
+Utilizando el método de Gauss, halla el rango de la siguiente matriz:
+\[
+\begin{pmatrix}
+1 & 2& 5 & 6 \\
+-1 & -2 & 0 & 1 \\
+3 & 4 &5 & 3 \\
+-3 & -4 & 0 & 0
+\end{pmatrix} \]
+\begin{solu}
+ran$(A)=4$
+\end{solu}
+\end{ejer}
+
+\begin{ejer}
+ Calcula el rango de la matriz $\begin{pmatrix}
+-1 & -1 & -1 \\
+3 & 6 & 9 \\
+-5 & -10 & m
+\end{pmatrix}$ 
+según los valores del parámetro $m$.
+\begin{solu}
+$m \neq -15 \rightarrow $ rango = $3$ \\ $m = -15 \rightarrow $ rango= $2$
+\end{solu}
+\end{ejer}
+
+
+\section{Ecuaciones matriciales}
+
+\begin{ejemplo}
+Resolver la siguiente ecuación matricial $X \cdot A=B-C$, siendo:
+
+$A=\begin{pmatrix}
+5 & 2 \\
+3 & 1
+\end{pmatrix}$, $B=\begin{pmatrix}
+2 & 1 \\
+3 & -2
+\end{pmatrix}$ y $C=\begin{pmatrix}
+1 & -1 \\
+1 & 2
+\end{pmatrix}$
+
+\tcblower
+Primero despejamos la matriz incógnita $X$. Para ello utilizaremos la matriz inversa.
+
+$X \cdot A=B-C \Rightarrow  X \cdot A\cdot A^{-1}=(B-C)\cdot A^{-1} \Rightarrow X \cdot I=(B-C)\cdot A^{-1} \Rightarrow X=(B-C)\cdot A^{-1}$
+
+Calculamos la inversa de la matriz $A$ y luego realizamos las operaciones.
+
+$|A|=\begin{vmatrix}
+5 & 2 \\
+3 & 1
+\end{vmatrix}= -1$
+
+$\begin{matrix}
+A_{11}=|1|= 1 & A_{12}=-|3|=-3 \\
+A_{21}=-|2|= -2 & A_{22}=|5|=5 
+\end{matrix} $
+
+$adj (A)= \begin{pmatrix}
+1 & -3 \\
+-2 & 5
+\end{pmatrix} \Rightarrow \left( adj (A) \right)^t=\begin{pmatrix}
+1 & -2 \\
+-3 & 5
+\end{pmatrix}$
+
+$A^{-1}=\begin{pmatrix}
+-1 & 2 \\
+3 & -5
+\end{pmatrix}$
+
+$X=\left[ \begin{pmatrix}
+2 & 1 \\
+3 & -2
+\end{pmatrix} -\begin{pmatrix}
+1 & -1 \\
+1 & 2
+\end{pmatrix} \right]\begin{pmatrix}
+-1 & 2 \\
+3 & -5
+\end{pmatrix} = \begin{pmatrix}
+1 & 2 \\
+2 & -4
+\end{pmatrix} \begin{pmatrix}
+-1 & 2 \\
+3 & -5
+\end{pmatrix} = \begin{pmatrix}
+5 & -8 \\
+-14 & 24
+\end{pmatrix} $
+\end{ejemplo}
+
+\begin{ejemplo}
+Determina una matriz $X$ tal que $A+2\cdot X \cdot B=C$, siendo:
+\[ A=\begin{pmatrix}
+1 & -2 & 1 \\
+0 & 3 & 1 
+\end{pmatrix}
+\qquad
+B=\begin{pmatrix}
+1 & -1 & 1 \\
+2 & 0 & 1 \\
+-1 & 1 & 1
+\end{pmatrix}
+\qquad
+C=\begin{pmatrix}
+1 & 2 & 3 \\ 
+8 & -1 & -1 
+\end{pmatrix} \]
+
+\tcblower
+Primero despejamos la matriz $X$.
+
+\[ A+2\cdot X \cdot B=C \rightarrow 2\cdot X \cdot B=C - A \rightarrow  X \cdot B=\left(\dfrac{C-A}{2} \right) \rightarrow \]
+\[ \rightarrow X\cdot B \cdot B^{-1}=\left(\dfrac{C-A}{2} \right) \cdot B^{-1} \rightarrow X=\left(\dfrac{C-A}{2} \right) \cdot B^{-1} \]
+
+Calculamos la inversa de $B$
+
+\[ \begin{matrizgauss} 
+1 & -1 & 1 & 1 & 0 &0 \\
+2 & 0 & 1 & 0 & 1 & 0 \\
+-1 & 1 & 1 & 0 & 0 & 1
+\end{matrizgauss}
+\begin{array}{c}  \\ f_2=f_2-2f_1 \\ f_3=f_3+f_1 \end{array}
+\begin{matrizgauss} 
+1 & -1 & 1 & 1 & 0 &0 \\
+0 & 2 & -1 & -2 & 1 & 0 \\
+0 & 0 & 2 & 1 & 0 & 1
+\end{matrizgauss}
+\begin{array}{c} f_1=2f_1+f_2 \\ \\ \\ \end{array} \]
+\[ \begin{matrizgauss} 
+2 & 0 & 1 & 0 & 1 &0 \\
+0 & 2 & -1 & -2 & 1 & 0 \\
+0 & 0 & 2 & 1 & 0 & 1
+\end{matrizgauss} 
+\begin{array}{c} f_1=2f_1-f_3 \\ f_2=2f_2+f_3 \\ \\ \end{array} 
+\begin{matrizgauss} 
+4 & 0 & 0 & -1 & 2 & -1 \\
+0 & 4 & 0 & -3 & 2 & 1 \\
+0 & 0 & 2 & 1 & 0 & 1
+\end{matrizgauss}
+\begin{array}{c} f_1=f_1/4 \\ f_2=f_2/4 \\ f_3=f_3/2 \end{array}  
+ \]
+\[ \begin{matrizgauss} 
+1 & 0 & 0 & -1/4 & 1/2 & -1/4 \\
+0 & 4 & 0 & -3/4 & 1/2 & 1/4 \\
+0 & 0 & 2 & 1/2 & 0 & 1/2
+\end{matrizgauss} \]
+
+Luego $B^{-1}=\begin{pmatrix}
+-1/4 & 1/2 & -1/4 \\
+ -3/4 & 1/2 & 1/4 \\
+ 1/2 & 0 & 1/2
+\end{pmatrix} $
+
+Ahora calculamos $\left( \dfrac{C-A}{2} \right) = 
+\dfrac
+{\begin{pmatrix}
+1 & 2 & 3 \\ 
+8 & -1 & -1 
+\end{pmatrix} - 
+\begin{pmatrix}
+1 & -2 & 1 \\
+0 & 3 & 1 
+\end{pmatrix}}{2}= 
+\begin{pmatrix}
+0 & 2 & 1 \\
+4 & -2 & -1 
+\end{pmatrix}$
+
+Por tanto: $X=\begin{pmatrix}
+0 & 2 & 1 \\
+4 & -2 & -1 
+\end{pmatrix} 
+\cdot
+\begin{pmatrix}
+-1/4 & 1/2 & -1/4 \\
+ -3/4 & 1/2 & 1/4 \\
+ 1/2 & 0 & 1/2
+\end{pmatrix}=
+\begin{pmatrix}
+-1 & 1 & 1 \\
+0 & 1 & -2 
+\end{pmatrix}$
+\end{ejemplo}
+
+\begin{ejer}
+Dadas las matrices 
+$A=\begin{pmatrix}
+3 & 2 \\
+2 & 4
+\end{pmatrix} $ y 
+$B=\begin{pmatrix}
+2 & 5 \\
+-3 & 1
+\end{pmatrix}$, resuelve la ecuación matricial $A\cdot X+B^t=B$.
+\begin{solu}
+\end{solu}
+\end{ejer}
+
+\begin{ejer}
+ Sean las matrices :
+\[ A=\begin{pmatrix}
+-1 & 4 & -1 \\
+0 & -1 & 0 \\
+3 & 1 & 2 
+\end{pmatrix}
+\qquad
+B=\begin{pmatrix}
+-2 & 1 & 3 \\
+0 & 2 & -1 \\
+1 & 0 & 1 
+\end{pmatrix}
+\qquad
+C=\begin{pmatrix}
+5 & -2 & -6 \\
+0 & -3 & 2 \\
+-2 & 0 & -1 
+\end{pmatrix} \]
+Determine $X$ en la ecuación matricial $X \cdot A -2B=C$
+\begin{solu}
+\end{solu}
+\end{ejer}
+
+\begin{ejer}
+ Sean 
+$A=\begin{pmatrix}
+ 1 & 1 & 1 \\
+ 1 & 2 & 5 \\
+ 1 & 4 & 2
+\end{pmatrix} $ y 
+$B=\begin{pmatrix}
+ 1 & 1 & 0 \\
+ 1 & 0 & 1 \\
+ 0 & 1 & 1 
+\end{pmatrix} $
+\bex
+\itemps {Calcule $B^{-1}$}{}
+\itemps {Utilizando $B^{-1}$, calcule $X$ tal que $XB=A+B$}{}
+\eex 
+\begin{solu}
+\end{solu}
+\end{ejer}
+
+\begin{ejer}
+ Dada la ecuación matricial $I+A \cdot X-A^2\cdot X=B$. Se pide:
+\bex
+\itemps {Resuelve matricialmente la ecuación.}{}
+\itemps {Si $A=\begin{pmatrix}
+ 1 & 2 \\
+ -1 & 1
+\end{pmatrix} $, calcula la matriz $A-A^2$}{}
+\itemps {Siendo $A$ la matriz anterior, $B=\begin{pmatrix}
+ -3 & -4 \\
+ 7 & 11
+\end{pmatrix} $ e $I=\begin{pmatrix}
+ 1 & 0 \\
+ 0 & 1
+\end{pmatrix} $ calcula la matriz $X$.}{}
+\eex
+\end{ejer}
+
+
+\begin{ejer}
+Determinar la matriz $X$ solución de la ecuación matricial $A\cdot X -A \cdot B= B \cdot X$ donde:
+\[ A=\begin{pmatrix}
+ 2 & -1 \\
+ 1 & 0 
+\end{pmatrix}
+\qquad
+B=\begin{pmatrix}
+ 1 & -1 \\
+ -2 & 1 
+\end{pmatrix} \]
+\begin{solu}
+\end{solu}
+\end{ejer}
+
+
+\newpage
+
+\section{Problemas con matrices}
+
+%\tituloejercicios
+
+
+
+\begin{ejer} 
+Tres escritores presentan a un editor, al acabar una enciclopedia, la minuta siguiente:
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|} 
+\hline
+&Horas de trabajo & Conferencias dadas & Viajes \\
+\hline
+Escritor A & 40 & 10 & 5 \\ 
+\hline
+Escritor B & 80 & 15 & 8 \\
+\hline
+Escritor C & 100 & 25 & 10 
+\\
+\hline
+\end{tabular}
+\end{center}
+
+El editor paga la hora de trabajo a 75 euros, la conferencia a 30 euros y el viaje a 50 euros. Si solo piensa pagar, respectivamente, el 30\%, el 20\% y el 10 \% de lo que le corresponde a cada escritor, ¿qué gasto tendría el editor?. Resuelvelo con matrices.
+\begin{solu}
+\end{solu}
+\end{ejer}
+
+\begin{ejer} 
+ Una empresa de carpintería dispone de dos naves A y B donde se fabrican sillas y mesas de tres tipos de acabados: calidad extra E, calidad media M y calidad inferior I. Ambas naves tienen la misma producción mensual. La cantidad de sillas producidas mensualmente, en cada una de las naves, es de 100 del tipo E, 150 del M y 200 del tipo I; la producción mensual de mesas es de 100 de clase E, 50 de clase M y 300 de clase I. Se sabe que el porcentaje de sillas y mesas defectuosas es, en la nave A, de $0.01$ para los muebles de calidad E, de $0.02$ para los de calidad M y de $0.03$ para los de calidad I, mientras que en la nave B, los porcentajes son $0.02$ para la calidad E, $0.04$ para la calidad M y $0.01$ para la calidad I. Se pide:
+\bex
+\itemps {Obtener la matriz que representa la producción de sillas y mesas, de calidad extra, media e inferior en cada una de las naves.}{}
+\itemps {Obtener la matriz que representa el número de sillas y mesas defectuosas, en las tres calidades, procedentes de cada una de las naves y la matriz que da el número total de sillas y mesas defectuosas para cada calidad.}{}
+\eex
+
+\end{ejer}
+
+\begin{ejer} 
+En un colegio se imparten los cursos de 1º, 2º y 3º. Los profesores tienen asignado un número de horas de clase, tutorías y guardias de acuerdo con la siguiente matriz:
+
+$M=\bordermatrix{
+& C & G & T \cr
+1\g & 20 & 5 & 3 \cr
+2\g & 18 & 6 & 5 \cr
+3\g & 22 & 1 & 2 } $
+
+El colegio paga cada hora clase a 20 euros, cada hora de guardia a 5 euros y cada hora de tutoría a 10 euros, según la matriz: $C=\begin{pmatrix}
+20 \\
+5 \\
+10
+\end{pmatrix} $.
+
+El colegio dispone de 5 profesores para primer curso, 4 para segundo y 6 para tercero representados por la matriz $P=\begin{pmatrix}51-52
+5 & 4 & 6
+\end{pmatrix}$.
+
+Calcula cada uno de los siguientes productos de matrices e interpreta los resultados:
+
+\bex
+\itemps {$P\cdot M$}{}
+\item {$M \cdot C$}{}
+\item {$P \cdot M \cdot C$}{}
+\eex
+\end{ejer}
+
+\begin{ejer} 
+ Una cadena de hoteles posee tres hoteles en una ciudad: Excelsior, Palace y Oasis. Cada hotel dispone de tres tipos de habitaciones: de lujo, doble e individual. El Excelsior posee 6 habitaciones de lujo, 30 dobles y 10 individuales. El Palace 4, 50 y 10 respectivamente y el Oasis 4, 50 y 8. El precio por habitación y noche es 200 euros la de lujo, 100 la doble y 75 la individual.
+
+\bex
+\itemps {Recoge estos datos en dos matrices indicando qué significa cada fila y columna.}{}
+\itemps {Suponiendo que estuvieran completos una noche, expresar mediante una matriz los ingresos obtenidos por cada hotel.}{}
+\eex
+\end{ejer}
+
+\begin{ejer}  En un centro educativo los datos de matrícula por cursos son: en 1º 50 alumnos y 70 alumnas, en 2º 60 alumnos y 50 alumnas, en 3º 45 alumnos y 60 alumnas y en 4º 50 alumnos y 55 alumnas.
+
+Un estudio revela que cada alumno/a de 3º lee cada año 2 novelas, ningún libro de poesía y un libro de otros temas. En 2º 3 novelas, 1 libro de poesía y 2 de otros temas. En 3º 4 novelas, 2 libros de poesía y 1 de otros temas. En 4º 2 novelas, 1 libro de poesía y ninguno de otros temas.
+\bex
+\itemps {Disponer la información acerca de la matrícula y lectura en dos matrices.}{}
+\itemps {Explicar qué representan cada uno de los elementos de la matriz producto de las dos matrices anteriores.}{}
+\itemps {¿Cuántos libros de novela leen por curso todas las alumnas matriculadas en el centro?}{}
+\eex
+
+\end{ejer}
+
+
+\section{Problemas}
+
+\begin{ejer}
+Sea $A$ una matriz de orden 3 con sus elementos en los números reales tal que $A^{-1}=A^t$
+\bex
+\itemps {Obtenga los posibles valores del determinante de $A$}{$\pm 1 $}
+\itemps {Halle los posibles valores del determinante de $A^n$, cuando $n$ es un número natural}{$\pm 1$}
+\itemps {Determine los posibles valores del determinante de $A^{-1}$}{$\pm 1$}
+\eex
+\end{ejer}
+
+\begin{ejer}
+Dado el número real $a$ considere la matriz $A=\matriztres{1}{-1}{-a}{a}{3}{1}{-2}{a}{2a} $
+\bex
+\itemps {Obtenga los valores del número real $a$ para los cuales la matriz $A$ tiene inversa}{•}
+\itemps {Calcule, si es posible, la inversa de $A$ cuando $a=0$}{•}
+\eex
+\end{ejer}
+
+\begin{ejer}
+Dados los números reales $a$, $b$, $c$ y $x$ se considera la matriz $A=\matriztres{a}{b}{c}{a}{x}{c}{a}{b}{x} $
+\bex
+\itemps {Halle los valores de $x$ para los cuales el determinante de $A$ es nulo para cualesquiera valores de $a$, $b$ y $c$}{$x=b$, $x=c$}
+\itemps {Si $x=1$, $b=c=2$, halle los valores de $a$ para los cuales $A$ tiene inversa}{$a \neq 0$}
+\itemps {Halle, si es posible, la inversa de $A$ cuando $x=0$ y $a=b=c=1$}{$A^{-1}=\matriztres{-1}{1}{1}{1}{-1}{0}{1}{0}{-1}$}
+\eex
+\end{ejer}
+
+\begin{ejer}
+Determine la relación que debe existir entre los parámetros $x$ e $y$ para que las matrices $A=\begin{pmatrix}
+x & 1 \\ 1  & y 
+\end{pmatrix}$ y $B=\begin{pmatrix}
+1 & x \\ y & 1
+\end{pmatrix}$ conmuten, es decir, para que $A\cdot B=B\cdot A$		
+\begin{solu}
+$x=y$
+\end{solu}
+\end{ejer}
+
+\begin{ejer}
+Hallar $X$ e $Y$, matrices $2\times 2$, tales que:
+\[ \begin{cases}  X+\begin{pmatrix} 3 & -1 \\ 0 & 2 \end{pmatrix} Y= \begin{pmatrix} 2 & 1 \\ 1 & 3 \end{pmatrix} \\
+X+\begin{pmatrix} 1 & 0 \\ 1 & 1 \end{pmatrix} Y= \begin{pmatrix} 1 & 3 \\ 0 & 1 \end{pmatrix} \end{cases} \]
+\begin{solu}
+
+\end{solu}
+\end{ejer}
+\begin{ejer}
+Considere las siguientes matrices:
+\[ A=\begin{pmatrix}
+1 & 1 \\
+-1 & -1
+\end{pmatrix}	\qquad B=\begin{pmatrix}
+0 \\ 1
+\end{pmatrix} \]
+
+
+\bex
+\itemps {Calcular $C=A^t \cdot A - B \cdot B^t$, donde $A^t$ y $B^t$ denotan, respectivamente, las matrices traspuestas de $A$ y $B$.}{$C=\begin{pmatrix}
+2 & 2 \\
+2 & 1
+\end{pmatrix}$}
+\itemps {Halle una matriz $X$ tal que $X \cdot C=D$, siendo \[ D=\begin{pmatrix}
+2 & -2 \\
+-2 & 2 \\
+4 & 4 
+\end{pmatrix}\]}{$D=\begin{pmatrix} -3  & 4 \\ 3 & -4 \\ 2 & 0 \end{pmatrix}$}
+\eex
+\end{ejer}
+
+\begin{ejer}
+Se dice que una matriz cuadrada $A$ es idempotente si se cumple que $A^2=A$
+\bex
+\itemps {Si $A$ es una matriz idempotente, calcule razonadamente $A^{2015}$}{$A$}
+\itemps {Determine para qué valores de los parámetros $a$ y $B$ la siguiente matriz es idempotente \[ A=\begin{pmatrix}
+a & -a & 0 \\
+-a & a & 0 \\
+0 & 0 & b \end{pmatrix} \]}{•}
+\eex
+\end{ejer}
+
+\begin{ejer}
+Se dice que una matriz cuadrada $A$ es involutiva si cumple $A^2=I$, donde $I$ denota la matriz identidad.
+\bex
+\itemps {Justifique razonadamente que toda matriz involutiva es regular (o invertible)}{$A^{-1}\cdot A^2= A^{-1}\cdot I \rightarrow A=A^{-1}$}
+\itemps {Determine para qué valores de los parámetros $a$ y $b$ la siguiente matriz es involutiva:
+\[ \begin{pmatrix}
+a & a & 0 \\
+a & -a & 0 \\
+0 & 0 & b
+\end{pmatrix} \]}{$a=\pm \sqrt{\dfrac{1}{2}} \qquad b=\pm 1 $}
+\eex
+\end{ejer}
+\begin{ejer}
+Dada la matriz $A=\begin{pmatrix}
+x & -2 \\
+5 & -x
+\end{pmatrix} $, calcular qué valor debe tener $x$ para que la matriz inversa de $A$ coincida con la opuesta de $A$ (esto es, $A^{-1}=-A$).
+\begin{solu}
+$x=\pm 3 $
+\end{solu}
+\end{ejer}
+
+\begin{ejer}
+Se considera la matriz: $A = \begin{pmatrix}
+1 & -2 & 0 \\
+-2 & 2 & -1 \\
+0 & 1 & 1
+\end{pmatrix}$
+\begin{enumerate}[label=\alph*)]
+\item Razone si la matriz $A$ es simétrica.
+\item Calcule $A^{-1}$.
+\item Resuelva la ecuación matricial $2 \cdot X \cdot A - A^2 -3 \cdot I = O $.
+\end{enumerate}
+
+\begin{solu}
+\begin{tasks}(3)[label=\alph*)]
+\task No, ya que $A \neq A^t$
+\task $A^{-1}=\begin{pmatrix}
+-3 & -2 & -2 \\
+-2 & -1 & -1 \\
+2 6 1 & 2
+\end{pmatrix}$
+\task $X=\begin{pmatrix}
+-1 & -2 & -1 \\
+-2 & \frac{1}{2} & -1 \\
+1 & 1 & \frac{3}{2}
+\end{pmatrix}$
+\end{tasks}
+\end{solu}
+\end{ejer}
+
+
+\newpage
+
+\soluciones
+\solucionesCap{\thechapter}

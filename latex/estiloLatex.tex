@@ -1,0 +1,1516 @@
+%--------------------------------------------------------------------------
+% ARCHIVO .TEX DE DISEÑO
+% PAQUETES Y ESTILO DEL LIBRO 
+%--------------------------------------------------------------------------
+% Paquetes 
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage[utf8]{inputenc}                      % Entrada de acentos
+\usepackage[T1]{fontenc}
+\usepackage[autostyle, spanish = mexican]{csquotes}% manejo de comillas: " "
+\MakeOuterQuote{"}
+%--------------------------------------------------------%
+\usepackage{pslatex}                              % Fuentes finas postscript
+\usepackage[sc]{mathpazo}                         % Fuentes mathpazo
+%--------------------------------------------------------%
+\usepackage{helvet}
+\linespread{1.05}   
+\renewcommand{\baselinestretch}{1} 
+\renewcommand{\arraystretch}{1.5}                              % Fuente Palatino necesita espaciado
+%\usepackage[full]{textcomp}                        % Caracteres especiales como ' (recto)
+\usepackage{xcolor}                                % Color: X11names (en el documentclass)
+\usepackage[scaled=0.83]{beramono}
+\usepackage{chancery}
+
+\usepackage{sagetex}
+
+% COLORES personales---------------------------------------------------
+\definecolor{styrmitcrverdecomentario}{rgb}{0,0.5019,0}
+    \definecolor{colortitulo}{RGB}{0,0,122} % 
+    \definecolor{colordominante}{RGB}{0,0,122}
+    \definecolor{colordominanteF}{RGB}{68,0,170}
+    \definecolor{colordominanteD}{RGB}{137,46,55}
+    \definecolor{mostaza}{RGB}{231,196,25}
+    \definecolor{amarilloM}{RGB}{248,199,90}
+    \definecolor{amarilloD}{RGB}{251,237,121}
+    \definecolor{azulF}{rgb}{.0,.0,.3}
+    \definecolor{grisD}{rgb}{.3,.3,.3}
+    \definecolor{grisF}{rgb}{.6,.6,.6}
+    \definecolor{grisamarillo}{RGB}{248,248,245} 
+    \definecolor{miverde}{RGB}{59,93,43}
+    \definecolor{ocre}{RGB}{59,93,43}
+    \definecolor{verdep}{RGB}{139,179,106}
+    \definecolor{verdencabezado}{RGB}{166,206,58}
+    \definecolor{verdeF}{RGB}{101,152,59}
+    \colorlet{mygray}{black!20}
+  	\newcommand{\nverde}{\color{styrmitcrverdecomentario}}
+	\newcommand{\wverde}{\color{styrmitcrverdecomentario}}
+	\newcommand{\wVerdeComentario}{\color{styrmitcrverdecomentario}}
+	\newcommand{\wcvc}{\color{styrmitcrverdecomentario}}
+    \definecolor{azulF}{rgb}{.0,.0,.3}
+     \newcommand{\azulf}{\color{azulF}}
+    \newcommand{\verde}{\color{miverde}}
+    \definecolor{morado}{RGB}{80,12,207} % 
+     \newcommand{\mimorado}{\color{morado}}
+     \definecolor{moradoB}{RGB}{136,0,170}
+     \newcommand{\wmora}[1]{{\color{moradoB} #1}}
+% Fin COLORES personales-------------------------------------------------
+%\usepackage{psboxit}
+\usepackage{pstricks,fontawesome} %fontawesome for eyes
+\usepackage{xparse}
+\usepackage{tcolorbox} 
+\tcbuselibrary{skins,breakable} % Librerías tcolorbox
+\usepackage{tikz}% Cajas de Teoremas, ejemplos, etc.
+\usetikzlibrary{positioning,shadows,backgrounds,calc}%
+\usepackage{tikzpagenodes}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{matrix}
+\usetikzlibrary{calendar,decorations.markings} 
+\usetikzlibrary{shapes}
+\usepackage{tkz-tab,tkz-euclide,tkz-fct}
+\usetkzobj{all}
+
+\usepackage{xargs}                                 % Comandos con opciones
+\DeclareGraphicsExtensions{.pdf,.png,.jpg, .eps}
+\usepackage{multicol}
+% %\usepackage{epstopdf}% Conversión - Miktes 2.9 o inferior, TexLive 2009. o inferior
+\usepackage[small,bf]{caption}
+\usepackage[breaklinks,colorlinks=true, pdfstartview=FitV, linkcolor=azulF, citecolor=azulF, urlcolor=azulF]{hyperref}
+\usepackage{amsmath,amssymb,amsfonts,latexsym,cancel,stmaryrd,amsthm,extarrows,xfrac}%
+\usepackage[ruled,,vlined,lined,linesnumbered,algochapter]{algorithm2e}
+\usepackage{framed}
+\usepackage{titletoc}
+\usepackage{calc}
+\usepackage{colortbl} 
+\usepackage{tabularx}
+\newcounter{lasfilas}
+\renewcommand\thelasfilas{\alph{lasfilas}}
+\newenvironment{enumfilas}[1]
+{\setcounter{lasfilas}{0}
+\par\noindent\tabularx{\linewidth}[t]
+{*{#1}{>{\stepcounter{lasfilas}\makebox[1.8em][l]{\thelasfilas)\hfill}}X}} %
+}{\endtabularx}
+\usepackage{fancyvrb}
+\usepackage{array}
+\usepackage{wasysym}
+\usepackage{xtab}
+\usepackage{booktabs}
+\usepackage[shortlabels]{enumitem}
+\usepackage{textgreek}% ver abajo la definición de los contadores griegos
+%\usepackage{enumerate}
+\SetEnumitemKey{:roman}{label=\textup{(\roman*)}}
+\usepackage{esvect}
+
+\renewcommand{\thempfootnote}{\arabic{mpfootnote}} %footnote con n\'umeros
+
+%----------------------------------------------------------------------------------------
+% Fuentes
+%----------------------------------------------------------------------------------------
+% Comandos para fuentes especiales
+\newcommandx*{\fnte}[4][1=pag,2=9,3=n]{{\color{azulF}\fontfamily{#1}
+\fontsize{#2}{1}\fontshape{#3}\selectfont{#4}}}
+
+\newcommandx*{\fntb}[4][1=pag,2=11,3=n]{{\color{azulF}\fontfamily{#1}\fontsize{#2}{1}\fontseries{b}\fontshape{#3}\selectfont{#4}}}
+
+\newcommandx*{\fntg}[4][1=pag,2=9,3=n]{{\color{grisF}\fontfamily{#1}\fontsize{#2}{1}\fontshape{#3}\selectfont{#4}}}
+
+\newcommand{\fhv}[2]{{\fontfamily{pag}\fontsize{#1}{1}\selectfont{#2}}}
+
+\newcommand{\fhvb}[2]{{\fontfamily{pag}\fontseries{b}\fontsize{#1}{1}\selectfont{#2}}}
+% Fin fuentes----------------------------------------------------------
+
+%********************************** DISENO *************************************
+
+%----------------------------------------------------------------------------------------
+% Cabeceras
+%----------------------------------------------------------------------------------------
+%-----------------Cabeceras--------------------------------------------------------
+
+\newcommand{\helv}{\color{azulF}\fontfamily{phv}\fontsize{8}{11}\selectfont}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+ \renewcommand{\chaptermark}[1]{\markboth{#1}{#1}}
+ \fancyhf{} % borra cabecera y pie actuales
+ \fancyhead[LE,RO]{\bfseries \helv\thepage} %Left Even page - Right Odd page
+ %\fancyhead[R]{\bfseries \helv\thepage}  % Numeración siempre a la derecha
+ %\fancyhead[LO]{\helv\rightmark}
+ %\fancyhead[RE]{\helv\leftmark}
+ \fancyhead[LO,LE]{\helv \rightmark }
+
+ \renewcommand{\headrulewidth}{0.5pt} % Sin raya. Con raya?: cambiar {0} por {0.5pt}
+ \renewcommand{\footrulewidth}{0pt}
+ \setlength\headheight{14.5pt}
+ \fancyheadoffset[R]{0.0cm} %Numeración de página en el borde de la página
+  \addtolength{\headheight}{0.5pt} % espacio para la raya
+ \fancypagestyle{plain}{%
+ \fancyhead{} % elimina cabeceras y raya en páginas "plain"
+ \renewcommand{\headrulewidth}{0pt} }
+% Fin cabeceras -------------------------------------------------------------------
+
+
+
+%--------------------------------------------------------stiloLatex.tex--------------------------------
+% Título
+%----------------------------------------------------------------------------------------
+\newcommand*{\titulo}[4]{\begingroup%
+\raggedleft 
+\vspace*{\baselineskip} % Espacio en blanco en la parte superior de la página
+{#1}\\[0.167\textheight] % Autor
+{ #2}\\[\baselineskip] % pre-título
+{\textcolor{colortitulo}{#3}}\\ % Título
+{#4}\par % Descripción adicional
+\bigskip
+%1%
+
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+
+
+\vfill % Espacio en blanco entre el bloque de título y "la editorial"
+
+{\raggedright
+\begin{minipage}[c]{0.15\textwidth}
+\raisebox{-1.0cm}{\includegraphics[width=4cm]{images/logoa}}
+ \end{minipage}
+\  \ \hfill\begin{minipage}[t]{0.6\textwidth}
+{\color{gray}
+ \fhvb{9}{\color{azulF}Departamento de Matemáticas.}
+  \fntg[pag][8]{\color{grisF}
+  \href{https://ived.eus}{(https://ived.eus).}}}
+\end{minipage}          
+}%raggedright
+\vspace*{3\baselineskip} % Espacio en blanco antes del final de página
+\endgroup}
+% Fin Titulo--------------------------------------------------------
+
+
+%----------------------------------------------------------------------------------------
+%	MAIN TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+\usepackage{titletoc} % Required for manipulating the table of contents
+
+\contentsmargin{0cm} % Removes the default margin
+
+% Part text styling
+\titlecontents{part}[0cm]
+{\addvspace{20pt}\centering\large\bfseries}
+{}
+{}
+{}
+
+% Chapter text styling
+\titlecontents{chapter}[1.25cm] % Indentation
+{\addvspace{12pt}\large\sffamily\bfseries} % Spacing and font options for chapters
+{\color{ocre!60}\contentslabel[\Large\thecontentslabel]{1.25cm}\color{ocre}} % Chapter number
+{\color{ocre}}  
+{\color{ocre!60}\normalsize\;\titlerule*[.5pc]{.}\;\thecontentspage} % Page number
+
+% Section text styling
+\titlecontents{section}[1.25cm] % Indentation
+{\addvspace{3pt}\sffamily\bfseries} % Spacing and font options for sections
+{\contentslabel[\thecontentslabel]{1.25cm}} % Section number
+{}
+{\hfill\color{azulF}\thecontentspage} % Page number
+[]
+
+% Subsection text styling
+\titlecontents{subsection}[1.25cm] % Indentation
+{\addvspace{1pt}\sffamily\small} % Spacing and font options for subsections
+{\contentslabel[\thecontentslabel]{1.25cm}} % Subsection number
+{}
+{\ \titlerule*[.5pc]{.}\;\thecontentspage} % Page number
+[]
+
+% List of figures
+\titlecontents{figure}[0em]
+{\addvspace{-5pt}\sffamily}
+{\thecontentslabel\hspace*{1em}}
+{}
+{\ \titlerule*[.5pc]{.}\;\thecontentspage}
+[]
+
+% List of tables
+\titlecontents{table}[0em]
+{\addvspace{-5pt}\sffamily}
+{\thecontentslabel\hspace*{1em}}
+{}
+{\ \titlerule*[.5pc]{.}\;\thecontentspage}
+[]
+
+%----------------------------------------------------------------------------------------
+%	MINI TABLE OF CONTENTS IN PART HEADS
+%----------------------------------------------------------------------------------------
+
+% Chapter text styling
+\titlecontents{lchapter}[0em] % Indenting
+{\addvspace{15pt}\large\sffamily\bfseries} % Spacing and font options for chapters
+{\color{ocre}\contentslabel[\Large\thecontentslabel]{1.25cm}\color{ocre}} % Chapter number
+{}  
+{\color{ocre}\normalsize\sffamily\bfseries\;\titlerule*[.5pc]{.}\;\thecontentspage} % Page number
+
+% Section text styling
+\titlecontents{lsection}[0em] % Indenting
+{\sffamily\small} % Spacing and font options for sections
+{\contentslabel[\thecontentslabel]{1.25cm}} % Section number
+{}
+{}
+
+% Subsection text styling
+\titlecontents{lsubsection}[.5em] % Indentation
+{\normalfont\footnotesize\sffamily} % Font settings
+{}
+{}
+{}
+
+%----------------------------------------------------------------------------------------
+% CAPITULO Estilo simple
+%----------------------------------------------------------------------------------------
+\usepackage[explicit]{titlesec}                                                 
+    \usepackage{titletoc}
+\usepackage{epigraph}
+\usepackage{xpatch}
+
+
+\newlength\ChapWd
+\settowidth\ChapWd{\huge\chaptertitlename}
+
+\definecolor{myblue}{RGB}{0,0,122}
+
+\titleformat{\chapter}[display]
+  {\normalfont\filleft\sffamily}
+  {\tikz[remember picture,overlay]
+    {
+    \node[fill=miverde,font=\fontsize{60}{72}\selectfont\color{white},anchor=north east,minimum size=\ChapWd] 
+      at ([xshift=-2.5cm,yshift=-50pt]current page.north east) 
+      (numb) {\thechapter};
+    \node[rotate=90,anchor=south,inner sep=0pt,font=\huge] at (numb.west) {\chaptertitlename};
+    }
+  }{0pt}{\fontsize{33}{40}\selectfont\color{miverde}#1}[]
+\titlespacing*{\chapter}
+  {0pt}{0pt}{10pt}
+
+
+\makeatletter
+\xpatchcmd{\ttl@printlist}{\endgroup}{{\noindent\color{myblue}\rule{\textwidth}{1.5pt}}\vskip30pt\endgroup}{}{}
+\makeatother
+
+\newcommand\DoPToC{%
+\startcontents[chapters]
+\printcontents[chapters]{}{1}{\noindent{\color{miverde}\rule{\textwidth}{1.5pt}}\par\medskip}%
+}
+
+\setlength\epigraphrule{0pt}
+\renewcommand\textflush{flushright}
+\renewcommand\epigraphsize{\normalsize\itshape}
+
+
+%-------------------CONTENIDO -----------------------------------------------------
+%\usepackage{kpfonts}
+%\usepackage{titletoc}
+\contentsmargin{0cm}
+\titlecontents{chapter}[0pc]
+{\addvspace{30pt}%
+\begin{tikzpicture}[remember picture, overlay]%
+\draw[fill=white,draw=white] (-4,-.1) rectangle (0.0,0.5);% rectángulo antes del "capítulo tal"
+\pgftext[left,x=-1.5 cm,y=0.2cm]{\color{verdeF}\Huge\sc\bfseries \ \thecontentslabel};%
+\end{tikzpicture}\color{verdeF}\large\sc\bfseries}%
+{}
+{}
+{\;\titlerule\;\large\sc\bfseries Página \thecontentspage
+\begin{tikzpicture}[remember picture, overlay]
+\draw[fill=white,draw=verdeF] (2pt,0) rectangle (6,0.1pt);
+\end{tikzpicture}}%
+\titlecontents{section}[2.4pc]
+{\addvspace{1pt}}
+{\contentslabel[\color{azulF}\thecontentslabel]{2.4pc}}
+{}
+{\hfill\small \color{azulF}\thecontentspage}
+[]
+\titlecontents{subsection}[4.8pc]
+{\addvspace{1pt}\small}
+{\contentslabel[\color{azulF}\thecontentslabel]{2.4pc}}
+{}
+{\hfill\small \color{azulF}\thecontentspage}
+[]
+
+\makeatletter
+\renewcommand{\tableofcontents}{%
+%Título: Indice General
+\chapter*{\contentsname}%
+\@starttoc{toc}}
+\makeatother
+
+% Fin Contenido -------------------------------------------------------------------
+
+
+
+
+
+%----------------------------------------------------------------------------------------
+%	Numeración de las secciones -- en el margen
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%	Numeración de las secciones -- en el margen
+%----------------------------------------------------------------------------------------
+%--Subsecciones-subsubsecciones-paragraph...apéndice------------------------------------
+%  TEORIA
+% \@startsection {NAME}{LEVEL}{INDENT}{BEFORESKIP}{AFTERSKIP}{STYLE} 
+%            optional * [ALTHEADING]{HEADING}
+%    Generic command to start a section.  
+%    NAME       : e.g., 'subsection'
+%    LEVEL      : a number, denoting depth of section -- e.g., chapter=1,
+%                 section = 2, etc.  A section number will be printed if
+%                 and only if LEVEL < or = the value of the secnumdepth
+%                 counter.
+%    INDENT     : Indentation of heading from left margin
+%    BEFORESKIP : Absolute value = skip to leave above the heading.  
+%                 If negative, then paragraph indent of text following 
+%                 heading is suppressed.
+%    AFTERSKIP  : if positive, then skip to leave below heading,
+%                       else - skip to leave to right of run-in heading.
+%    STYLE      : commands to set style
+%  If '*' missing, then increments the counter.  If it is present, then
+%  there should be no [ALTHEADING] argument.  A sectioning command
+%  is normally defined to \@startsection + its first six arguments.
+%
+%\RequirePackage{appendix}
+
+\makeatletter
+\renewcommand{\@seccntformat}[1]{\llap{\textcolor{miverde}{\csname the#1\endcsname}\hspace{1em}}}                    
+\renewcommand{\section}{\@startsection{section}
+{1}{0.9cm}%0.9 corre la numeración hacia adentro
+{-4ex \@plus -1ex \@minus -.4ex}
+{1ex \@plus.2ex }
+{\color{miverde}\normalfont\Large\sffamily\bfseries}}
+\renewcommand{\subsection}{\@startsection {subsection}{2}{1.1cm}
+{-3ex \@plus -0.1ex \@minus -.4ex}
+{0.5ex \@plus.2ex }
+{\color{miverde}\normalfont\large\sffamily\bfseries}}
+\renewcommand{\subsubsection}{\@startsection {subsubsection}{3}{\z@}
+{-2ex \@plus -0.1ex \@minus -.2ex}
+{0.2ex \@plus.2ex }
+{\color{miverde}\normalfont\small\sffamily\bfseries}}                        
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}
+{-2ex \@plus-.2ex \@minus .2ex}
+{0.1ex}
+{\normalfont\small\sffamily\bfseries}}
+\makeatother
+% Fin numeración secciones
+
+
+
+%---------------------------------------------------------------------------------
+%  Entornos:  Ejemplo, teorema, proposición, lema, lista de ejercicios, 
+%             caja interludio, caja simple  
+%---------------------------------------------------------------------------------
+
+%  Cajas con el paquete  tcbcolor
+%  CONTADORES: ejemplo, definicion, lema, teorema, corolario, proposicion,ejercicio 
+\newcounter{tcbteo}[chapter]
+\renewcommand{\thetcbteo}{\thechapter.\arabic{tcbteo}}
+
+\newcounter{tcbdefi}[chapter]
+\renewcommand{\thetcbdefi}{\thechapter.\arabic{tcbdefi}}
+
+\newcounter{tcblema}[chapter]
+\renewcommand{\thetcblema}{\thechapter.\arabic{tcblema}}
+
+\newcounter{tcbcoro}[chapter]
+\renewcommand{\thetcbcoro}{\thechapter.\arabic{tcbcoro}}
+
+%  \newcounter{tcbListaEjercicios}[chapter]
+%  \renewcommand{\thetcbListaEjercicios}{\thechapter.\arabic{tcbListaEjercicios}}
+
+\newcounter{tcbpropo}[chapter]
+\renewcommand{\thetcbpropo}{\thechapter.\arabic{tcbpropo}}
+
+\newcounter{tcbvoca}[chapter]
+\renewcommand{\thetcbvoca}{\thechapter.\arabic{tcbvoca}}
+
+\newlength{\examlen}
+\tikzset{
+    wnodeTeorema/.style={%
+         rectangle,  top color=gray!5, bottom color=gray!5,
+         inner sep=1mm,anchor=west,font=\small\bf\sffamily},
+   wnodeminimo/.style={%
+         rectangle,  top color=white, bottom color=white,
+         text=azulF,inner sep=1mm,anchor=west,font=\small\bf\sffamily}      
+}
+
+
+
+%\begin{teorema}  o \begin{teorema}[de tal] o \begin{teorema}[][ref]
+% Teorema -----------------------------------------------------
+\newtcolorbox{wwteorema}[3][]{%
+arc=0mm,breakable,enhanced,colback=gray!5,boxrule=0pt,top=7mm,drop fuzzy shadow,
+fontupper=\normalsize,step and label={tcbteo}{#3},
+overlay unbroken = {\draw[color=colordominanteF,line width=0.2pt] (frame.north west)--([xshift=0pt]frame.north east);
+%Caja de Título: teo --
+\node[wnodeTeorema](tituloteo) at ([xshift=0pt, yshift=-4mm]frame.north west)
+{\textbf{\color{colordominanteF} Teorema \thetcbteo \;#2}};
+%Borde superior --
+\draw[colordominanteF,line width=2.5cm] ([xshift=1.25cm, yshift=0cm]frame.north west)-- +(\examlen,3pt);
+},%
+overlay first = {\draw[color=colordominanteF,line width=0.2pt] (frame.north west)--([xshift=0pt]frame.north east);
+%Caja de Título: teo --
+\node[wnodeTeorema](tituloteo) at ([xshift=0pt, yshift=-4mm]frame.north west)
+{\textbf{\color{colordominanteF} Teorema \thetcbteo \;#2}};
+%Borde superior --
+\draw[colordominanteF,line width=2.5cm] ([xshift=1.25cm, yshift=0cm]frame.north west)-- +(\examlen,3pt);
+},%
+% Mantener borde en cambio de página 
+overlay last = {\draw[color=colordominanteF,line width=0.2pt] (frame.south west)--([xshift=0pt]frame.south east);
+                } 
+#1}
+%-
+\NewDocumentEnvironment{teorema}{O{} O{} O{}}{\smallskip\begin{wwteorema}{#1}{#2}%
+ #3}{\end{wwteorema}\smallskip }
+% TEOREMA---------------------------------------------------------
+
+
+
+%\begin{proposicion}  o \begin{proposicion}[de tal] o \begin{proposicion}[][ref]
+% Proposición-----------------------------------------------------
+\newtcolorbox{wwpropo}[3][]{%
+arc=0mm,breakable,enhanced,colback=gray!5,boxrule=0pt,top=7mm,drop fuzzy shadow,
+fontupper=\normalsize,step and label={tcbpropo}{#3},
+overlay first ={\draw[color=colordominante,line width=0.2pt] (frame.north west)--([xshift=0pt]frame.north east);
+%Caja de Título: propo --
+\node[wnodeTeorema](tituloteo) at ([xshift=0pt, yshift=-4mm]frame.north west)
+{\textbf{\color{colordominante} Proposición \thetcbpropo\;#2}};
+%Borde superior --
+\draw[colordominanteF,line width=2.5cm] ([xshift=1.25cm, yshift=0cm]frame.north west)-- +(\examlen,3pt);
+}, %
+overlay first ={\draw[color=colordominante,line width=0.2pt] (frame.north west)--([xshift=0pt]frame.north east);
+%Caja de Título: propo --
+\node[wnodeTeorema](tituloteo) at ([xshift=0pt, yshift=-4mm]frame.north west)
+{\textbf{\color{colordominante} Proposición \thetcbpropo\;#2}};
+%Borde superior --
+\draw[colordominanteF,line width=2.5cm] ([xshift=1.25cm, yshift=0cm]frame.north west)-- +(\examlen,3pt);
+}, %
+% Mantener borde en cambio de página 
+overlay last = {\draw[color=colordominanteF,line width=0.2pt] (frame.south west)--([xshift=0pt]frame.south east);
+                } 
+#1}
+%-
+\NewDocumentEnvironment{proposicion}{O{} O{} O{}}{\smallskip\begin{wwpropo}{#1}{#2}%
+ #3}{\end{wwpropo}\smallskip }
+% ---------------------------------------------------------
+
+
+
+% LEMA -----------------------------------------------------------
+ \newtcolorbox{wwlema}[3][]{%
+arc=0mm,breakable,enhanced,colback=gray!5,boxrule=0pt,drop fuzzy shadow,
+top=1mm, left=3pt,
+step and label={tcblema}{#3},
+fontupper={\small\bf\sffamily {\color{azulF}Lema \thetcblema \;#2}}~\normalfont, %"Lema..."+texto del cuerpo
+overlay unbroken  = {%barra vertical
+\draw[color=gray,line width=3pt] ([xshift=2pt] frame.north west)--([xshift=2pt] frame.south west);              
+         },%
+overlay first  = {%barra vertical
+\draw[color=gray,line width=3pt] ([xshift=2pt] frame.north west)--([xshift=2pt] frame.south west);              
+         },%
+% Mantener borde en cambio de página     
+overlay last ={\draw[color=gray,line width=3pt] ([xshift=2pt] frame.north west)--([xshift=2pt] frame.south west);   },    
+#1}
+%-
+\NewDocumentEnvironment{lema}{O{} O{} O{}}{\smallskip\begin{wwlema}{#1}{#2}%
+#3}{\end{wwlema}\smallskip }
+%LEMA--------------------------------------------------------------
+
+
+% % Corolario -------------------------------------------------------
+\newtcolorbox{wwcoro}[2][]{%
+arc=0mm,breakable,enhanced,colback=gray!5,boxrule=0pt,drop fuzzy shadow,
+top=1mm,left=3pt,
+fontupper={\small\bf\sffamily {\color{azulF}Corolario \thetcbcoro}\;}~\normalfont, 
+step and label={tcbcoro}{#2},
+overlay unbroken  = {%barra vertical
+\draw[color=gray,line width=3pt] ([xshift=2pt] frame.north west)--([xshift=2pt] frame.south west);                
+        },%
+overlay first  = {%barra vertical
+\draw[color=gray,line width=3pt] ([xshift=2pt] frame.north west)--([xshift=2pt] frame.south west);                
+        },%
+% Mantener borde en cambio de página     
+overlay last ={\draw[color=gray,line width=3pt] 
+                     ([xshift=2pt] frame.north west)--([xshift=2pt] frame.south west);
+              }     
+#1}
+%-
+\NewDocumentEnvironment{corolario}{O{} O{}}{\smallskip\begin{wwcoro}{#1}%
+}{\end{wwcoro}\smallskip }
+% Corolario------------------------------------------------------
+
+
+% % Definición---------------------------------------------------
+\newtcolorbox{wwdefinicion}[3][]{%
+arc=0mm,breakable,enhanced,colback=gray!5,boxrule=0pt,drop fuzzy shadow,
+top=6mm,fontupper=\normalsize,step and label={tcbdefi}{#3},
+overlay unbroken  = {
+%barra vertical
+\draw[color=miverde,line width=3pt] ([xshift=2pt] frame.north west)--([xshift=2pt] frame.south west);        
+%Caja de Título: defi --
+\node[wnodeTeorema](titulodefi) at ([xshift=4.5pt, yshift=-3mm]frame.north west)
+{\textbf{\fhv{12}{#2}}};
+                }, %overlay
+overlay first  = {
+%barra vertical
+\draw[color=miverde,line width=3pt] ([xshift=2pt] frame.north west)--([xshift=2pt] frame.south west);        
+%Caja de Título: defi --
+\node[wnodeTeorema](titulodefi) at ([xshift=4.5pt, yshift=-3mm]frame.north west)
+{\textbf{\fhv{12}{#2}}};
+                }, %overlay
+% Mantener borde en cambio de página
+overlay last    = {%barra vertical
+\draw[color=miverde,line width=3pt] ([xshift=2pt] frame.north west)--([xshift=2pt] frame.south west);}
+#1}
+%-
+\NewDocumentEnvironment{definicion}{O{} O{} O{}}{\smallskip\begin{wwdefinicion}{#1}{#2}%
+ #3}{\end{wwdefinicion}\smallskip }
+% %DEFINICION---------------------------------------------------------
+
+
+% Caja para Ejemplo --------------------------------------------------
+\newcounter{tcbejem}[chapter]
+\renewcommand{\thetcbejem}{\thechapter.\arabic{tcbejem}}
+\colorlet{colorfondoejemplo}{gray!5}
+\definecolor{colorejemplo}{rgb}{.0,.0,.3}
+% Ejemplo
+\newtcolorbox{wwejemplo}[1]{%
+skin=bicolor,breakable, colframe=miverde, colbacktitle=miverde ,fonttitle=\bfseries\color{white},colback=gray!20 ,colbacklower=white,fontupper=\sffamily , step=tcbejem,  title=\Large{Ejemplo \quad  \thetcbejem} \quad #1}
+%-
+\NewDocumentEnvironment{ejemplo}{O{} }{\smallskip\begin{wwejemplo}{#1}}{\end{wwejemplo}\smallskip }
+
+%Caja para ejemplo a dos columnas
+\newtcolorbox{wwejemplocolumna}[1]{%
+skin=bicolor,sidebyside, breakable, colframe=miverde, colbacktitle=miverde ,fonttitle=\bfseries\color{white},colback=gray!20 ,colbacklower=white,fontupper=\sffamily , step=tcbejem,  title=\Large{Ejemplo \quad  \thetcbejem} \quad #1}
+%-
+\NewDocumentEnvironment{ejemplocolumna}{O{} }{\smallskip\begin{wwejemplocolumna}{#1}}{\end{wwejemplocolumna}\smallskip }
+
+
+%PROBLEMA RESUELTO-----------------------------------------------------------------
+% Caja para Ejemplo --------------------------------------------------
+\newcounter{tcbresuelto}[chapter]
+\renewcommand{\thetcbresuelto}{\thechapter.\arabic{tcbresuelto}}
+\colorlet{colorfondoejemplo}{gray!5}
+\definecolor{colorejemplo}{rgb}{.0,.0,.3}
+% Ejemplo
+\newtcolorbox{wwresuelto}{%
+arc=0mm, breakable,enhanced, colback=white, colframe=verdep ,fonttitle=\bfseries\color{black},step=tcbresuelto,  title=Ejercicio resuelto \thetcbresuelto }
+%-
+\NewDocumentEnvironment{resuelto}{O{} }{\smallskip\begin{wwresuelto}{#1}}{\end{wwresuelto}\smallskip }
+
+%%Entorno indice de contenido en capitulo%%
+\newtcolorbox{wwindice}{%
+ breakable,enhanced, colback=white, colframe=colordominanteD ,fonttitle=\bfseries\color{white}, title=Contenido }
+%-
+\NewDocumentEnvironment{indice}{O{} }{\smallskip\begin{wwindice}{#1}}{\end{wwindice}\smallskip }
+%%Fin entorno indice%%%
+
+% CAJA (interludio, comentario...)---------------------------------------
+\definecolor{colrnodocaja}{RGB}{44,91,144}
+\definecolor{colrfondocaja}{RGB}{241,241,227}
+
+\newtcolorbox{wwcaja}[2][]{%
+arc=0mm,breakable,drop fuzzy shadow,
+enhanced,colback=gray!4,
+boxrule=0pt,
+top=3mm, %Separación vertical - inicia texto
+enlarge top by=\baselineskip/2+1mm,
+enlarge top at break by=0mm,pad at break=2mm,
+fontupper=\normalsize,
+%step and label={tcbca}{#3},
+%Borde
+overlay unbroken={\draw[color=gray!2,line width=0.2pt] (frame.north west)
+  --([xshift=0pt]frame.north east)
+  --([xshift=0pt]frame.south east)
+  --([xshift=0pt]frame.south west)--(frame.north west);
+% Caja de Título CAJA
+\node[ rectangle, %minimum width=0cm, minimum height=0.0cm,
+         top color=gray!30, bottom color=gray!30,
+         inner sep=0.5mm,anchor=west,font=\normalsize]at ([xshift=-0.5pt,  yshift=2.30mm]frame.north west){\fhvb{10}{ \bf #2}};
+         },
+%Borde
+overlay first={\draw[color=gray!2,line width=0.2pt] (frame.north west)
+  --([xshift=0pt]frame.north east)
+  --([xshift=0pt]frame.south east)
+  --([xshift=0pt]frame.south west)--(frame.north west);
+% Caja de Título CAJA
+\node[ rectangle, %minimum width=0cm, minimum height=0.0cm,
+         top color=grisamarillo, bottom color=grisamarillo,
+         inner sep=0.5mm,anchor=west,font=\normalsize]at ([xshift=-0.5pt,  yshift=2.30mm]frame.north west){\fhvb{10}{ \bf #2}};
+         },
+%Borde cambio de página
+overlay last={\draw[color=gray!2,line width=0.2pt] (frame.north west)
+  --([xshift=0pt]frame.north east)
+  --([xshift=0pt]frame.south east)
+  --([xshift=0pt]frame.south west)--(frame.north west);}
+#1}
+%-
+\NewDocumentEnvironment{caja}{O{} O{}}{\smallskip\begin{wwcaja}{#1}%
+ #2}{\end{wwcaja}\smallskip }
+% CAJA de comentario
+
+
+%CAJA simple---------------------------------------------------------------------
+\newtcolorbox{wwbox}[1][]{%
+arc=0mm,breakable,drop fuzzy shadow,
+enhanced,colback=grisamarillo,
+boxrule=0pt,
+top=3mm, %Separación vertical - inicia texto
+enlarge top by=\baselineskip/2+1mm,
+enlarge top at break by=0mm,pad at break=2mm,
+fontupper=\normalsize,
+%step and label={tcbca}{#3},
+%Borde
+overlay unbroken={\draw[color=grisamarillo,line width=0.5pt] (frame.north west)
+  --([xshift=0pt]frame.north east)
+  --([xshift=0pt]frame.south east)
+  --([xshift=0pt]frame.south west)--(frame.north west);
+        },
+%Borde
+overlay first={\draw[color=agrisamarillo,line width=0.5pt] (frame.north west)
+  --([xshift=0pt]frame.north east)
+  --([xshift=0pt]frame.south east)
+  --([xshift=0pt]frame.south west)--(frame.north west);
+        },
+%Borde cambio de página
+overlay last={\draw[color=grisamarillo,line width=0.5pt] (frame.north west)
+  --([xshift=0pt]frame.north east)
+  --([xshift=0pt]frame.south east)
+  --([xshift=0pt]frame.south west)--(frame.north west);}
+#1}
+
+ \newenvironment{scaja}[1][]{\bigskip\begin{wwbox}%
+ #1}{\end{wwbox}}	
+% Fin CAJA simple
+
+%CAJA vocabulario-------------------------------------------------------
+\newtcolorbox{vocabox}[3][]{%
+arc=0mm,breakable,enhanced,colback=white,boxrule=0pt,
+top=1mm, left=3pt,
+step and label={tcbvoca}{#3},
+fontupper={\small\bf\sffamily {\color{azulF}Vocabulario \thetcbvoca \;#2}}~\normalfont, %"Vocabulario..."+texto del cuerpo
+overlay unbroken  = {%barra vertical
+\draw[color=white,line width=3pt] ([xshift=2pt] frame.north west)--([xshift=2pt] frame.south west);                 
+         },%
+overlay first  = {%barra vertical
+\draw[color=white,line width=3pt] ([xshift=2pt] frame.north west)--([xshift=2pt] frame.south west);                 
+         },%
+% Mantener borde en cambio de página     
+overlay last ={\draw[color=white,line width=3pt] ([xshift=2pt] frame.north west)--([xshift=2pt] frame.south west);   },    
+#1}
+%-
+\NewDocumentEnvironment{vocabulario}{O{} O{} O{}}{\smallskip\begin{vocabox}{#1}{#2}%
+#3}{\end{vocabox}\smallskip }	
+% Fin vocabulario
+
+%CAJA nota-------------------------------------------------------
+\newtcolorbox{notabox}[1][]{%
+arc=0mm,breakable,
+enhanced,colback=white,
+boxrule=0pt,
+top=3mm, %Separación vertical - inicia texto
+left=25pt,
+enlarge top by=\baselineskip/2+1mm,
+enlarge top at break by=0mm,pad at break=2mm,
+fontupper={\begin{tikzpicture}[overlay]
+\node[draw=colordominanteF,line width=1pt,circle,fill=white,font=\sffamily\bfseries,inner sep=2pt,outer sep=0pt] at (-15pt,3pt){\textcolor{colordominanteF}{N}};\end{tikzpicture}}~\normalfont,  %"NOTA..."+texto del cuerpo
+%Borde y círculo
+overlay first={
+\draw[color=white,line width=0.5pt] (frame.north west)
+  --([xshift=0pt]frame.north east)
+  --([xshift=0pt]frame.south east)
+  --([xshift=0pt]frame.south west)--(frame.north west);
+        },
+%Borde y círculo
+overlay first={
+\draw[color=white,line width=0.5pt] (frame.north west)
+  --([xshift=0pt]frame.north east)
+  --([xshift=0pt]frame.south east)
+  --([xshift=0pt]frame.south west)--(frame.north west);
+        },
+%Borde cambio de página
+overlay last={\draw[color=white,line width=0.5pt] (frame.north west)
+  --([xshift=0pt]frame.north east)
+  --([xshift=0pt]frame.south east)
+  --([xshift=0pt]frame.south west)--(frame.north west);}
+#1}
+%-
+ \newenvironment{nota}[1][]{\bigskip\begin{notabox}%
+ #1}{\end{notabox}}	
+% Fin nota
+
+
+
+
+%--------------------------------------------------------------------------------
+% LISTAS DE EJERCICIOS
+%--------------------------------------------------------------------------------
+% \newtheoremstyle{exampstyle}
+%   {\topsep} % Space above
+%   {\topsep} % Space below
+%   {} % Body font
+%   {} % Indent amount
+%   {\bfseries} % Theorem head font
+%   {.} % Punctuation after theorem head
+%   {.5em} % Space after theorem head
+%   {} % Theorem head spec (can be left empty, meaning `normal')
+
+ \setenumerate[1]{label={\arabic*)}} %poner 1)
+ 
+ % Ligas entres pregunta y respuetsa
+ 
+%%\newtheorem{<name>}{<heading>}[<counter>]
+%%%will create an environment <name> for a theorem-like structure; the counter for this structure will be subordinated to <counter>. On the other &&&hand, using
+%%\newtheorem{<name>}[<counter>]{<heading>}
+%%%will create an environment <name> for a theorem-like structure; the counter 
+%%%for this structure will share the previously defined <counter> counter.
+ 
+\usepackage{answers}
+\newcommand{\imgRespuesta}[1]{%
+ \begin{tikzpicture}[baseline={(char.base)}]
+   \node (char) {#1};
+   \node[draw,line width=0.8mm,circle,color=amarilloM, minimum size=16pt,inner sep=0pt,overlay] (char.center){};
+ \end{tikzpicture}
+ }
+\newcommand{\devolverse}{\raisebox{-10pt}{\includegraphics[scale=0.4]{images/goback.pdf}}}
+\newtheoremstyle{numcolor}{}{}{\large}{}{\color{verdeF}\normalfont\large\sffamily\bfseries}{\;\;}{ }{}
+\theoremstyle{numcolor}
+
+%\newtheorem{exer}{...}[section]
+%%\newtheorem{<name>}{<heading>}[<counter>]
+\newtheorem{exer}{% Liga ejercicio a solución y viceversa
+%%-----------marca>1.1.1 >---------------------envía>{1.1.1}
+  \hspace{-30pt}\hyperlink{exer:\theexer}{\imgRespuesta{{\color{amarilloM}S}}\;\;}\hypertarget{solu:\theexer}{}%
+ }[chapter]
+
+\newenvironment{ejer}{\begin{exer}\phantomsection\label{\theexer} \normalfont}{\end{exer}}
+%\Newassociation{xxx}{yyy}{zzz}
+% where xxx is an environment in the document, 
+% and yyy is an environment which will surround the contents of xxx
+% when it is written to symbolic file handle zzz
+\Newassociation{solu}{Soln}{ans}
+% Lo que se quiere -Lee>{1.1.1} --envía>{1.1.1}, #1=1.1.1
+% Problema: Lee en subexer k >{{{k)}}} y envía>{{{1)}}} = pág 1
+% Corrección: Leer long string {{{k)}}} es 1  pero long strig {1.1.1} es >1
+\usepackage{xstring}  
+    \newcommand{\LeeNumEjercicio}[1]{
+       \StrLen{1}[\sOne] %\StrLen no es número, es String. arg [\sOne] se usa para almacenar como número
+       \StrLen{#1}[\sTwo]
+       \ifthenelse{\sOne<\sTwo}{
+        \par\bigskip\noindent{\hspace{-30pt}\bfseries\hyperlink{solu:#1}{ \imgRespuesta{{\color{amarilloM}E}}\hspace{12pt} #1} \hypertarget{exer:#1}{}}\quad
+       }{ 
+         #1
+       }
+    }
+\renewenvironment{Soln}[1]{\LeeNumEjercicio{#1} \;\;}
+
+
+%  Agregar nombre de sección o subseccion de ejercicios en respuestas:
+%  Uso: 
+%% \section{Limites}
+%% \seccionDeEjercicios{Limites}
+%% \subsection*{Lim trig}
+%% \subseccionDeEjercicios{Lim trig}
+\newcommand\mychaptername{}
+% to store the section name
+\newcommand\mysectionname{}
+\newcommand\mysubsectionname{}
+\newcommand{\seccionDeEjercicios}[1]{%
+  \Writetofile{ans}{\protect\paragraph*{%
+  {\large\azulf\hspace{-1mm}\thesection.\mysectionname\space  #1}
+                                       }   }}
+\newcommand{\subseccionDeEjercicios}[1]{%
+  \Writetofile{ans}{\protect\paragraph*{%
+  {\azulf\mysubsectionname\space  #1}
+                                       }   }}  
+
+% USO del entorno personalizado---------------------------------------------------
+%\begin{ejercicios} --- \end{ejercicios} para listas simples
+%\begin{cejercicios} --- \end{cejercicios} para listas en cajas
+
+\NewDocumentEnvironment{ejercicios}{O{}}{%
+\bigskip\begin{minipage}{\textwidth}{\bf\verde \fhvb{12}{Ejercicios}}
+                                     #1}{\end{minipage}\bigskip}
+
+
+
+\colorlet{color1}{gray!5!white}       % color fondo
+\definecolor{color2}{RGB}{117,184,68} % color del nodo
+% Caja --
+\newtcolorbox{wwlistaejercicios}[1][]{%
+  arc=0mm,breakable,enhanced,colback=white,boxrule=0pt,top=8mm, 
+  enlarge top by=\baselineskip/2+1mm, enlarge top at break by=0mm,
+  pad at break=2mm,fontupper=\normalsize,
+  overlay unbroken ={ % nodo rectangular  para "Ejercicios"
+  \node[rectangle, minimum width=4cm, 
+      top color=color2, bottom color=color2, 
+      inner sep=1mm,anchor=west,font=\normalsize] 
+   at ([xshift=0pt,yshift=-3mm]frame.north west)%
+{\textbf{Ejercicios}};},
+  overlay first ={ % nodo rectangular  para "Ejercicios"
+  \node[rectangle, minimum width=4cm, 
+      top color=color2, bottom color=color2, 
+      inner sep=1mm,anchor=west,font=\normalsize] 
+   at ([xshift=0pt,yshift=-3mm]frame.north west)%
+{\textbf{Ejercicios}};},
+overlay last ={ } % cambio de página, solo caja gris
+#1}
+
+% Nuevo entorno personalizado----------------------------------------
+\NewDocumentEnvironment{cejercicios}{O{}}{%
+\bigskip\begin{wwlistaejercicios}%
+ #1}{\end{wwlistaejercicios}\bigskip } % 
+% -------------------------------------------------------------------
+
+
+
+
+% Entorno con Caja para ejercicios-----------------------------------------
+%\begin{cajaejercicios}  o \begin{cajaejercicios}[de tal] 
+%                        o \begin{cajaejercicios}[][ref]
+% Entorno personalizado---------------------------------------------------
+\definecolor{colorejercicios}{RGB}{99,42,134}
+\newcounter{tcbejer}[chapter]
+\renewcommand{\thetcbejer}{\thechapter.\arabic{tcbejer}}
+
+\newtcolorbox{wwejercicios}[3][]{%
+arc=0mm,breakable,%drop fuzzy shadow,
+enhanced,colback=white,boxrule=0pt,top=7mm,
+fontupper=\normalsize,step and label={tcbejer}{#3},
+overlay unbroken = {
+%Borde grueso superior
+\draw[line width=0.2pt] (frame.north west)--([xshift=0pt]frame.north east);
+%Caja de Título: Ejer --
+\node[ draw=white, top color=white, bottom color=white,inner sep=1mm,anchor=west, font=\small\bf\sffamily](tituloejer) at ([xshift=5mm, yshift=0mm]frame.north west)
+{\textbf{\color{miverde}  Ejercicios \thetcbejer \;#2}};
+%borde línea inferior
+ \draw[color=white,line width=0.2pt] (frame.south west)--([xshift=0pt]frame.south east); 
+},%overlay
+overlay first = {
+%Borde grueso superior
+\draw[line width=0.2pt] (frame.north west)--([xshift=0pt]frame.north east);
+%Caja de Título: Ejer --
+\node[ draw=white, top color=white, bottom color=white, inner sep=1mm,anchor=west, font=\small\bf\sffamily](tituloejer) at ([xshift=5mm, yshift=0mm]frame.north west)
+{\textbf{\color{miverde}  Ejercicios \thetcbejer \;#2}};
+%borde línea inferior
+ \draw[color=white,line width=0.2pt] (frame.south west)--([xshift=0pt]frame.south east); 
+},%overlay
+% % Mantener borde en cambio de página 
+% overlay middle = {\draw[color=colordominante,line width=0.2pt] (frame.north west)--([xshift=0pt]frame.north east);
+%                 } 
+overlay middle ={},
+overlay last = { %borde línea inferior
+ \draw[color=white,line width=0.2pt] (frame.south west)--([xshift=0pt]frame.south east); 
+                } 
+#1}
+%-
+\NewDocumentEnvironment{cajaejercicios}{O{} O{} O{}}{\smallskip\begin{wwejercicios}{#1}{#2}%
+ #3}{\end{wwejercicios}\smallskip }
+% ejercicios---------------------------------------------------------
+
+
+% Comandos para paquete answers
+% pregunta-solución
+\newcommand{\exersol}[2]{
+\begin{ejer} 
+#1\scantokens{\begin{solu}#2\end{solu}}
+\end{ejer}}
+% listas \item pregunta-solución
+\newcommand{\itemps}[2]{\item #1\scantokens{\begin{solu} #2\end{solu}}}
+%\newcommand{\bex}{\scantokens{\begin{solu} 
+%\end{solu}}\begin{enumerate}[label=\alph*.)]}
+\newcommand{\bex}{\scantokens{\begin{solu}  \end{solu}}\begin{enumerate}}
+\newcommand{\eex}{\end{enumerate}}
+%\begin{sol} \end{sol}
+
+
+
+% Ejercicio - Caja para ejercicio solitario
+
+\newcounter{tcbejercicio}[chapter]
+\renewcommand{\thetcbejercicio}{\thechapter.\arabic{tcbejercicio}}
+
+\newtcolorbox{wwejercicio}[1][]{%
+arc=0mm,breakable,enhanced,colback=gray!5,boxrule=0pt,
+top=1mm,left=3pt,
+fontupper={\bf\sffamily {\color{miverde} \thetcbejercicio .}\;}~\normalfont, 
+overlay unbroken  = {%barra vertical
+\draw[color=miverde,line width=3pt] ([xshift=2pt] frame.north west)--([xshift=2pt] frame.south west);                 
+        },%
+overlay first  = {%barra vertical
+\draw[color=gray,line width=3pt] ([xshift=2pt] frame.north west)--([xshift=2pt] frame.south west);                 
+        },%
+% Mantener borde en cambio de página     
+overlay last ={\draw[color=gray,line width=3pt] 
+                     ([xshift=2pt] frame.north west)--([xshift=2pt] frame.south west);
+              }     
+#1}
+%-
+\NewDocumentEnvironment{ejercicio}{O{} O{}}{\smallskip\begin{wwejercicio}{#1}%
+}{\end{wwejercicio}\smallskip }
+% Ejercicio------------------------------------------------------
+
+
+
+% -- Soluciones al final del documento----------------------------
+\def\soluciones{
+\expandafter\ifx\csname Closesolutionfile\endcsname \relax\else
+\Closesolutionfile{ans}\fi
+}
+\def\solucionesCap#1{\section*{Soluciones del Cap\'{\i}tulo #1}
+%\begin{multicols}{2}
+\input{ans#1}
+%\end{multicols}
+}
+% Fin Listas de Ejercicios-------------------------------------------
+
+
+% Fin mis entornos---------------------------------------------------------------
+
+
+%---------------------------------------------------------------------------------
+%  Código de programas (LaTeX en ese caso)
+%---------------------------------------------------------------------------------
+% Listings
+% Listings
+\usepackage{listings}
+% Puede usar lstlisting|texto| para código en el texto
+\captionsetup[lstlisting]{singlelinecheck=false, margin=0pt, font={sf,sl,footnotesize}}
+
+\usepackage{fancyvrb}
+
+
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstset{ %
+  language=R,                     % the language of the code
+  basicstyle=\bfseries\ttfamily,
+  backgroundcolor=\color{yellow!2!gray!2},
+  %numbers=left,                   % where to put the line-numbers
+  %numberstyle=\tiny\color{gray},  % the style that is used for the line-numbers
+%   stepnumber=1,                   % the step between two line-numbers. If it's 1, each line
+%                                   % will be numbered
+%   numbersep=5pt,                  % how far the line-numbers are from the code 
+  showspaces=false,               % show spaces adding particular underscores
+  showstringspaces=false,         % underline spaces within strings
+  showtabs=false,                 % show tabs within strings adding particular underscores
+  %frame=single,                   % adds a frame around the code
+  %rulecolor=\color{black},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. commens (green here))
+  tabsize=2,                      % sets default tabsize to 2 spaces
+  captionpos=t,                   % sets the caption-position to bottom
+  breaklines=true,                % sets automatic line breaking
+  breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+  title=\lstname,                 % show the filename of files included with \lstinputlisting;
+  frame=lines,
+  rulecolor=\color{gray!60},
+  framerule=0.1pt, 
+                                  % also try caption instead of title
+  keywordstyle=\color{blue},      % keyword style
+  commentstyle=\color{brown},   % comment style
+  stringstyle=\color{mauve},         % string literal style 
+  %escapeinside={\%*}{*)},         % if you want to add a comment within your code
+  morekeywords={*,...}            % if you want to add more keywords to the set
+}
+
+%--- Nombre corto-------------------------------------------------------
+%----
+\lstnewenvironment{code}
+  {\lstset{ %
+  language=R,                     % the language of the code
+  basicstyle=\bfseries\ttfamily,
+  backgroundcolor=\color{yellow!2!gray!2},
+  %numbers=left,                   % where to put the line-numbers
+  %numberstyle=\tiny\color{gray},  % the style that is used for the line-numbers
+%   stepnumber=1,                   % the step between two line-numbers. If it's 1, each line
+%                                   % will be numbered
+%   numbersep=5pt,                  % how far the line-numbers are from the code 
+  showspaces=false,               % show spaces adding particular underscores
+  showstringspaces=false,         % underline spaces within strings
+  showtabs=false,                 % show tabs within strings adding particular underscores
+  %frame=single,                   % adds a frame around the code
+  %rulecolor=\color{black},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. commens (green here))
+  tabsize=2,                      % sets default tabsize to 2 spaces
+  captionpos=t,                   % sets the caption-position to bottom
+  breaklines=true,                % sets automatic line breaking
+  breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+  title=\lstname,                 % show the filename of files included with \lstinputlisting;
+  frame=lines,
+  rulecolor=\color{gray!60},
+  framerule=0.1pt, 
+                                  % also try caption instead of title
+  keywordstyle=\color{blue},      % keyword style
+  commentstyle=\color{brown},   % comment style
+  stringstyle=\color{mauve},         % string literal style 
+  %escapeinside={\%*}{*)},         % if you want to add a comment within your code
+  morekeywords={*,...}            % if you want to add more keywords to the set
+}%fin lst
+  }{}
+%------------------------------------------------------------------------
+
+  
+%---Encabezado- de listing
+\newcommand{\cajaclr}[1]{\color{azulF}$\blacksquare\;$ \fontsize{12}{10}\ttfamily\fontseries{b}\fontshape{n}\selectfont{#1}}
+\renewcommand{\lstlistingname}{\cajaclr{Código}}
+\newcommand{\wRR}{\lstinline} 
+
+
+
+
+%---------------------------------------------------------------------------------
+%  Listas con Tikz 
+%---------------------------------------------------------------------------------
+% Puntos Tikz y  Enumerate con  Tikz 
+
+  \newcommand{\tpto}{\tikz \shadedraw [shading=ball] (0,0) circle (.1cm);}
+  \newcommand{\ttpto}[1]{\begin{tikzpicture}
+  	\node[scale=.5, circle, shade, ball color=blue]  {\color{white}\Large\textbf#1};
+  \end{tikzpicture}}
+  \newcommand{\ttptov}{\begin{tikzpicture}
+  	\node[scale=.5, circle, shade, ball color=green]  {\color{white}\Large\textbf.};
+  \end{tikzpicture}}
+  \newcommand{\ttptor}{\begin{tikzpicture}
+  	\node[scale=.5, circle, shade, ball color=red]  {\color{white}\Large\textbf.};
+  \end{tikzpicture}}
+  \newcommand{\ptoazul}[1]{\begin{tikzpicture}
+  	\node[scale=.5, circle, shade, ball color=blue]  {\color{white}\Large\textbf#1};
+  \end{tikzpicture}}
+ \newcommand{\ptomb}{\ptoazul$\;$}
+ \newcommand{\itempto}{\item[\tpto]}
+ \newcommand{\pto}{\tpto}
+ \newcommand{\ptom}{\tpto$\;$}
+ \newcommand{\ptomv}{\ttptov$\;$}
+ \newcommand{\ptomr}{\ttptor$\;$}
+
+ % Listas -- con puntos
+
+ %\usepackage{enumerate}
+ \newcommand{\witem}[1]{\item[{\bf #1)}]}
+ 
+ \newcommand*{\itembolasgrises}[1]{%
+ \footnotesize\protect\tikz[baseline=-3pt]%
+ \protect\node[fill=gray!50,shape=circle,draw,inner sep=1.2pt,line width=0.2mm](n1){#1};}
+ \newcommand*{\itembolasazules}[1]{%
+ \footnotesize\protect\tikz[baseline=-3pt]%
+ \protect\node[scale=.5, circle, shade, ball color=blue]  {\color{white}\Large\bf#1};}
+ \newcommand*{\itembolasverdes}[1]{%
+ \footnotesize\protect\tikz[baseline=-3pt]%
+ \protect\node[scale=.5, circle, shade, ball color=green]  {\color{white}\Large\bf#1};}
+ \newcommand*{\itembolasrojas}[1]{%
+  \footnotesize\protect\tikz[baseline=-3pt]%
+  \protect\node[scale=.5, circle, shade, ball color=red]  {\color{white}\Large\bf#1};}
+  
+%Comando para listas con bolas	
+\newcommand{\beaz}{\begin{enumerate}[label=\itembolasazules{\arabic*}]}
+\newcommand{\eeaz}{\end{enumerate}}
+\newcommand{\bea}{\begin{enumerate}[label=\alph*.)]}
+\newcommand{\eea}{\end{enumerate}}
+\newcommand{\cgr}[3]{#1 \equiv #2\;(\mbox{\rm mod}\;#3)}
+% ----------------------------------
+% Fin de cosas adicionales -
+
+
+%-----------------------------------------------------------------------------
+% TABLAS CON Tikz
+%----------------------------------------------------------------------------- 
+\usepackage{array}
+\usetikzlibrary{calc,fit,shadows,arrows,positioning}
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+%--
+%------------------------------------------------------------------------------
+% Data Table
+%------------------------------------------------------------------------------
+\newsavebox{\dataTableContent} % Box
+\newenvironment{dataTable}[1] % \new environment
+{%
+\begin{lrbox}{\dataTableContent}%
+\begin{tabular}{#1}}%
+%
+{%
+\end{tabular}
+\end{lrbox}
+\begin{tikzpicture}
+\node [inner xsep=0pt] (tbl){\usebox{\dataTableContent}};
+\begin{pgfonlayer}{background}
+% table
+\draw[rounded corners=1pt,top color=miverde,bottom color=miverde,draw=black]
+(tbl.north east) rectangle (tbl.south west);
+% top line
+\draw[rounded corners=1pt,top color=gray!10!black,bottom color=gray!50!black,draw=black]%
+($(tbl.north west)$) rectangle ($(tbl.north east)-(0,1.5\baselineskip)$);
+% bottom rule
+\draw[rounded corners=0.25pt,fill=gray,draw=black]%
+(tbl.south west) rectangle ($(tbl.south east)+(0,0.05)$);
+\end{pgfonlayer}
+\end{tikzpicture}}
+% --
+ 
+ 
+ 
+%----------------------------------------------------------------------------- 
+%- Modoficación de chapter para que abra y cierre archivos ans----------------
+%-----------------------------------------------------------------------------
+% Para escribir en answer sol, begindocument
+%-----------------------------------------------------
+\newcount\ansj % contador de listas ans i
+\ansj=\thechapter
+%           % -- Infiltrar \chapter --------------------------------------------
+\makeatletter
+\let\stdchapter\chapter % \stdchapter guarda la def original de \chapter
+\renewcommand*\chapter{ % -- Infiltrar: abrir y cerrar archivos ans j---
+\expandafter\ifx\csname Closesolutionfile\endcsname \relax\else
+\Closesolutionfile{ans}\fi
+\expandafter\ifx\csname Opensolutionfile\endcsname \relax\else
+\Opensolutionfile{ans}[ans\number\ansj]\advance\ansj by 1
+\fi
+                        %------------------------------------------------------
+                        % Volver a la def original de \chapter
+\@ifstar{\starchapter}{\@dblarg\nostarchapter}}
+\newcommand*\starchapter[1]{\stdchapter*{#1}}
+\def\nostarchapter[#1]#2{\stdchapter[{#1}]{#2}}
+\makeatother
+ % -- -------------------------------------------------------------------------
+ 
+
+ 
+ 
+%----------------------------------------------------------------------------------------
+% Comandos del libro
+%----------------------------------------------------------------------------------------
+%OJO
+%\usepackage{fontspec}
+%\newcommand*{\eye}{{\fontspec{symbola.ttf}\symbol{"1F441}}}
+%%
+\newcommand{\dd}[2]{\dfrac{d #1}{d #2}\;}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\raya}{\rule{2cm}{0.01cm}\\}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\sen}{\mathop{\rm sen}\nolimits}
+\newcommand{\senh}{\mathop{\rm senh}\nolimits}
+\newcommand{\arcsen}{\mathop{\rm arcsen}\nolimits}
+\newcommand{\arcsec}{\mathop{\rm arcsec}\nolimits}
+\newcommand{\bc}{\begin{center}}
+\newcommand{\ec}{\end{center}}
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\p}[1]{$\,#1\,$}
+\newcommand{\gfrac}{\dfrac}
+\newcommand{\dpr}[2]{\dfrac{\partial #1}{\partial #2}}
+\newcommand{\dep}[2]{\,\dfrac{\partial #1}{\partial #2}\,}
+\newcommand{\bv}[1]{\left.#1\right|}% uso \bv{}_P
+\newcommand{\es}{\,\in\,}
+\newcommand{\wred}[1]{{\red #1}}
+\newcommand{\nC}{\pmb{C}}
+\newcommand{\nN}{{\pmb{N}}}
+\newcommand{\nF}{{\pmb{F}}}
+\newcommand{\ndiv}{\mbox{\bf Div}\,}
+\newcommand{\nrot}{\mbox{\bf Rot}\,}
+\newcommand{\nni}{ \;\boldsymbol{\hat{\imath}}}
+\newcommand{\nj}{  \;\boldsymbol{\hat{\jmath}}}
+\newcommand{\nk}{  \;\boldsymbol{\hat{k}}}
+\newcommand{\nr}{\pmb{r}}
+\newcommand{\ndr}{\,\pmb{dr}}
+\newcommand{\nS}{\,\pmb{S}}
+\newcommand{\ndS}{\,\pmb{dS}}
+\newcommand{\ent}{\;\Longrightarrow\;}
+\newcommand{\imp}{\;\Longrightarrow\;}
+\newcommand{\wmbox}[1]{\;\mbox{#1}\;}
+\newcommand{\wstrut}{\rule[-.5\baselineskip]{0pt}{\baselineskip}}
+%% Check marck
+\usepackage{tikz}
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
+\def\wcheck{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
+ \newcommand{\wminipage}[2]{\begin{minipage}[t]{0.5\textwidth-0.25cm}
+ #1
+ \end{minipage}\hfill  \begin{minipage}[t][][b]{0.5\textwidth-0.25cm}
+ #2
+ \end{minipage}
+ }
+
+%-----------------------------------------------------------------------------------
+
+
+\definecolor{styrmitcrtitlecajainteriorDefTeosc}{RGB}{14,44,142}
+\newcommand{\wfnt}[1]{{\color{styrmitcrtitlecajainteriorDefTeosc} \fontfamily{pag}\fontsize{10}{1}\fontseries{b}\fontshape{n}\selectfont{#1}}}
+\newcommand{\wsolu}{ {\wfnt{Solución:}}\;\black}
+\newcommand{\exsolu}[1]{ { \azulf \wfnt{Solución.}\\ #1 }}
+\newcommand{\Fdr}{\pmb{F}\cdot \,d\pmb{r}}
+\newcommand{\FF}{\pmb{F}}
+\newcommand{\FN}{\pmb{F}\cdot \pmb{N}}
+ 
+ 
+
+\newcommandx\wparbox[4][1=9cm,2=9cm]{
+\parbox{#1}{#3}\parbox{#2}{#4}
+}
+\newcommand{\intd}[2]{\displaystyle{\iint_{#1} #2\,dA}}
+
+\newcommand{\dosfiguras}[2]{
+\begin{minipage}{\textheight}
+  \begin{minipage}[b]{.4\textheight}
+    \bc
+    #1
+    \ec
+  \end{minipage}%
+  \begin{minipage}[b]{.4\textheight}
+    \bc
+    #2
+    \ec
+  \end{minipage}%
+  \end{minipage}%
+}
+
+
+\newcommand{\figura}[2]{
+\begin{tabular}{lc}
+{\bf #1} & \\
+          & #2\\
+\end{tabular}
+}
+
+%\ndosfiguras{a}{fig 1}{b}{fig 2}
+\newcommand{\ndosfiguras}[4]{
+\bc
+\begin{tabular}{ccc}
+ \multicolumn{1}{l}{#1} & &\multicolumn{1}{l}{#3}\\
+ #2 & & #4\\
+\end{tabular}
+\ec
+}
+
+
+\newcommand{\Texersol}[3]{\wparbox{
+\exersol{ % primera columna
+#1
+}{% solucion
+#3
+} 
+}{%------- segunda columna
+#2
+}
+}
+
+\newcommand{\tresfiguras}[3]{
+\begin{minipage}{\textheight}
+  \begin{minipage}[b]{.28\textheight}
+    \bc
+    #1
+    \ec
+  \end{minipage}%
+  \begin{minipage}[b]{.28\textheight}
+    \bc
+    #2
+    \ec
+  \end{minipage}%
+  \begin{minipage}[b]{.28\textheight}
+    \bc
+    #3
+    \ec
+  \end{minipage}%
+  \end{minipage}%
+  }
+
+%----------------------------------------------------------------------------------------
+% Copypright final p\'agina
+\usepackage[absolute]{textpos}
+%set unit to be pagewidth and height, and increase inner margin of box
+\setlength{\TPHorizModule}{\paperwidth}\setlength{\TPVertModule}{\paperheight}
+\TPMargin{3pt}
+%define \copyrightstatement command for easier use
+\newcommand{\finalpagina}{
+    \begin{textblock}{0.84}(0.15,0.93)%{boxwidth}(leftposition,rightposition)
+         \noindent
+         \footnotesize
+\copyright\fntg[phv][9]{\black {\it Revista Digital Matem\'atica, Educaci\'on e 
+Internet.} \;
+\href{https://tecdigital.tec.ac.cr/revistamatematica/Libros/}{
+https://tecdigital.tec.ac.cr/revistamatematica/Libros/}}
+    \end{textblock}
+}
+
+\newcommand{\info}[1]{
+    \begin{textblock}{0.84}(0.1,0.93)%{boxwidth}(leftposition, rightposition)
+         \noindent
+         \footnotesize
+\fntg[phv][9]{\verde #1}
+    \end{textblock}
+}
+
+
+%----------------------------%enumeration----------------------------------
+% \usepackage{chemgreek,textgreek} 
+% \makeatletter
+% % commands to format a counter value as Greek letter to be used like 
+% % \arabic or \roman:
+% \newcommand*\alphgreek[1]{\expandafter\@alphgreek\csname c@#1\endcsname}
+% \newcommand*\@alphgreek[1]{\csname chemgreek_int_to_greek:n\endcsname{#1}}
+% \newcommand*\Alphgreek[1]{\expandafter\@Alphgreek\csname c@#1\endcsname}
+% \newcommand*\@Alphgreek[1]{\csname chemgreek_int_to_Greek:n\endcsname{#1}}
+% 
+% % register new counter formats to enumitem:
+% \AddEnumerateCounter*{\alphgreek}{\@alphgreek}{\chemalpha}
+% \AddEnumerateCounter*{\Alphgreek}{\@Alphgreek}{\chemAlpha}
+\makeatother
+%----------------------------------------------------------------------
+
+% Aquí podría cambiar el color de los entornos------------------------
+\newcommand{\bb}[1]{{\blue #1}}
+\newcommand{\rr}[1]{{\red #1}}
+\definecolor{colorejemplo}{RGB}{77,190,208}   % celestepastel
+\definecolor{colordefinicion}{RGB}{104,48,39} % café
+\definecolor{colorteorema}{RGB}{201,148,199}  % rosado pastel
+\definecolor{colorcaja}{RGB}{160,128,104}     % café claro
+\definecolor{colortitulo}{RGB}{0,133,202}
+\definecolor{styrmitcrseudoindigo}{rgb}{0.345,0.1176,0.5490}
+\newcommand{\clrv}{\color{styrmitcrseudoindigo}}
+%\newcommand{\fl}{\longrightarrow}
+\newcommand{\fl}{\pmb{\rightarrow}} %flec
+%composition
+\newcommand{\compcent}[1]{\vcenter{\hbox{$#1\circ$}}}
+\newcommand{\comp}{\mathbin{\mathchoice
+  {\compcent\scriptstyle}{\compcent\scriptstyle}
+  {\compcent\scriptscriptstyle}{\compcent\scriptscriptstyle}}}
+  \newcommand{\eq}{\;\pmb{\longleftrightarrow}\;}
+%-----------------------------------------------------------------------
+\usepackage{palatino}  % Fuente ppl buenas flechas, sin fourier
+%----------------------------------------------------------------------
+\usepackage{fourier} % usando fuentes "Fourier" en vez de "Palatino" 
+% Insertar portada
+\usepackage{pdfpages}
+
+\makeatletter %contadores griegos
+\newcommand{\greekalpha}[1]{\c@greekalpha{#1}}
+\newcommand{\c@greekalpha}[1]{%
+  {%
+    \ifcase\number\value{#1} %
+    \or
+    \textalpha
+    \or
+    \textbeta
+    \or
+    \textgamma
+    \or
+    \textdelta
+    \or
+    \textepsilon
+    \or
+    \textzeta
+    \or
+    \texteta
+    \or
+    \texttheta % or \straighttheta
+    \or
+    \textiota
+    \or
+    \textkappa
+    \or
+    \textlambda
+    \or
+    \textmu
+    \or
+    \textnu
+    \or
+    \textxi
+    \or
+    \textomikron
+    \or
+    \textrho
+    \or
+    \textpi
+    \or
+    \textsigma
+    \or
+    \texttau
+    \or
+    \textupsilon
+    \or
+    \textphi
+    \or
+    \textchi
+    \or
+    \textpsi
+    \or
+    \textomega
+    \fi
+  }%
+}
+\AddEnumerateCounter*{\greekalpha}{\c@greekalpha}{5}
+\makeatother
+
+%%Referencia de secciones, capitulos etc
+
+\newcommand{\y}{\boldsymbol{\;\wedge\;}}
+\newcommand{\sii}{\,\Longleftrightarrow\,}
+\newcommand{\llaves}[1]{\left\{#1 \right\}}
+\newcommand{\paren}[1]{\left(#1 \right)}
+\newcommand{\tq}{\wmbox{tal que}}
+\newcommand{\warr}[2]{\begin{array}{#1}
+#2
+ \end{array}}
+ \newcommand{\sys}[2]{\left\{\begin{array}{#1}
+#2
+ \end{array}\right.}
+\newcommand{\wmt}[2]{\left[\begin{array}{#1}
+#2
+ \end{array}\right]}
+%%CDFs
+%% Link a los cdf
+\newcommandx{\cfnte}[4][1=pag,2=9,3=n]{{\fontfamily{#1}\fontsize{#2}{1}\fontshape{#3}\selectfont{#4}}}
+
+
+
+\newcommand{\Pp}{\mathcal P}
+%\newcommand{\limite}[2]{\lim_{#1\fl #2}\;}
+
+\newcommand{\colorazul}{}
+\newcommand*\chancery{\fontfamily{pzc}\selectfont}
+\newcommand{\set}[1]{\big\{#1\big\}}
+%\renewcommand{\arraystretch}{1.5} % alto filas * 1.5
+
+%\def\sen{\mathop{\mbox{\normalfont sen}}\nolimits}
+%\newcommand{\tg}{\mathhop{\rm tg}\nolimits} %tangente
+\newcommand{\g}{{}^\circ}
+\renewcommand{\vector}[1]{\overrightarrow{#1}}
+%\newcommand{\R}{\mathbb{R}}
+%\newcommand{\Q}{\mathbb{Q}}
+%\newcommand{\N}{\mathbb{N}}
+%\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\rectaplanos}[2]{\left\lbrace \begin{array}{l} #1 \\
+      #2 \end{array} \right.}
+
+\newcommand{\recta}[6]{\dfrac{x#1}{#2}=\dfrac{y#3}{#4}=\dfrac{z#5}{#6}}
+\newcommand{\rectap}[3]{\left\lbrace \begin{array}{l}#1 \\ #2 \\ #3 \end{array} \right. }
+%Nuevos entornos
+\newenvironment{matrizgauss}{\left( \begin{array}{ccc|ccc}}{\end{array} \right)}
+\newenvironment{matrizampliada}{\left( \begin{array}{ccc|c}}{\end{array} \right)}
+\newenvironment{sistematres}{\left\lbrace \begin{array}{rrrrrrr}}{\end{array} \right.}
+\newenvironment{sistemados}{\left\lbrace \begin{array}{rrrr}}{\end{array} \right.}
+\newenvironment{adjunto}{\[ \begin{array}{lll}}{\end{array} \]}
+\newenvironment{sistema}{\left\lbrace \begin{array}{rrrrrr}}{\end{array} \right. }
+
+%nuevos comandos
+
+\newcommand{\limite}[2]{\displaystyle \lim_{x \rightarrow #1}{#2}}
+\newcommand{\limiteserie}[1]{\displaystyle \lim_{n \rightarrow +\infty}{#1}}
+\newcommand{\matrizdos}[4]{\begin{pmatrix} #1 & #2 \\  #3 & #4  \end{pmatrix}}
+\newcommand{\determinantedos}[4]{\begin{vmatrix} #1 & #2 \\ #3 & #4  \end{vmatrix}}
+\newcommand{\matriztres}[9]{\begin{pmatrix} #1 & #2 & #3 \\ #4 & #5 & #6 \\ #7 & #8 & #9 \end{pmatrix}}
+\newcommand{\determinantetres}[9]{\begin{vmatrix} #1 & #2 & #3 \\ #4 & #5 & #6 \\ #7 & #8 & #9 \end{vmatrix}}
+\newcommand{\filasistematres}[6]{#1 & #2 & #3 &#4 & #5 & = & #6}
+\newcommand{\integral}[1]{\displaystyle \int #1}
+\newcommand{\intdef}[3]{\displaystyle \int_#1^#2 #3}
+
+
+%%Comandos para abreviar los entornos%%
+
+\newcommand{\problema}[1]{\begin{ejer} #1  \end{ejer}}
+\newcommand{\sol}[1]{\begin{solu} #1 \end{solu}}
