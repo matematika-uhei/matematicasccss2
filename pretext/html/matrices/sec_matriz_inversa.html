@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-03-25T11:20:33+01:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="es-ES">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Matemáticas Inversa de una matriz</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['\\(','\\)']]
+    },
+    asciimath2jax: {
+        ignoreClass: ".*",
+        processClass: "has_am"
+    },
+    jax: ["input/AsciiMath"],
+    extensions: ["asciimath2jax.js"],
+    TeX: {
+        extensions: ["extpfeil.js", "autobold.js", "https://pretextbook.org/js/lib/mathjaxknowl.js", "AMScd.js", ],
+        // scrolling to fragment identifiers is controlled by other Javascript
+        positionToHash: false,
+        equationNumbers: { autoNumber: "none", useLabelIds: true, },
+        TagSide: "right",
+        TagIndent: ".8em",
+    },
+    // HTML-CSS output Jax to be dropped for MathJax 3.0
+    "HTML-CSS": {
+        scale: 88,
+        mtextFontInherit: true,
+    },
+    CommonHTML: {
+        scale: 88,
+        mtextFontInherit: true,
+    },
+});
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML-full"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<script src="https://cdn.geogebra.org/apps/deployggb.js"></script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/style_oscarlevin.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/colors_green_blue.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body id="pretext-SC" class="mathbook-article has-toc has-sidebar-left">
+<a class="assistive" href="#content">Salta al contenido principal</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content" style="display:none">\(\newcommand{\order}[1]{\left\lvert#1\right\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href="https://ived.eus" target="_blank"><img src="images/logoIVED.jpg" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="matrices.html"><span class="title">Matrices y Determinantes</span></a></h1>
+<p class="byline">Ricardo Mateos<br xmlns:svg="http://www.w3.org/2000/svg"> Cristina Gual<br xmlns:svg="http://www.w3.org/2000/svg"> Josu Beobide</p>
+</div>
+</div></div>
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Índice</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Índice alfabético">Índice alfabético</a><button id="calculator-toggle" class="toolbar-item button toggle" title="Show calculator" aria-expanded="false" aria-controls="calculator-container">Calc</button><div id="calculator-container" class="calculator-container" style="display: none; z-index:100;"><div id="geogebra-calculator"></div></div>
+<script>
+var ggbApp = new GGBApplet({"appName": "classic",
+    "width": 330,
+    "height": 600,
+    "showToolBar": true,
+    "showAlgebraInput": true,
+    "perspective": "G/A",
+    "algebraInputPosition": "bottom",
+    "scaleContainerClass": "calculator-container",
+    "allowUpscale": true,
+    "autoHeight": true,
+    "disableAutoScale": false},
+true);
+</script><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec_matriz-adjunta.html" title="Anterior">Anterior</a><a id="upbutton" class="up-button button toolbar-item" href="matrices.html" title="Arriba">Arriba</a><a id="nextbutton" class="next-button button toolbar-item" href="sec_rango_matriz.html" title="Siguiente">Siguiente</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Índice</button><a class="previous-button toolbar-item button" href="sec_matriz-adjunta.html" title="Anterior">Anterior</a><a class="up-button button toolbar-item" href="matrices.html" title="Arriba">Arriba</a><a class="next-button button toolbar-item" href="sec_rango_matriz.html" title="Siguiente">Siguiente</a>
+</div>
+</div></nav></header><div class="page">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter"><a href="frontmatter.html" data-scroll="frontmatter"><span class="title">Páginas preliminares</span></a></li>
+<li class="link"><a href="sec_definicion_matriz.html" data-scroll="sec_definicion_matriz"><span class="codenumber">1</span> <span class="title">Definiciones.</span></a></li>
+<li class="link">
+<a href="sec_tipos_matrices.html" data-scroll="sec_tipos_matrices"><span class="codenumber">2</span> <span class="title">Tipos de matrices.</span></a><ul><li><a href="sec_tipos_matrices.html#tipos_matrices_cuadradas" data-scroll="tipos_matrices_cuadradas">Tipos de matrices cuadradas</a></li></ul>
+</li>
+<li class="link"><a href="sec_operaciones_matrices.html" data-scroll="sec_operaciones_matrices"><span class="codenumber">3</span> <span class="title">Operaciones con matrices</span></a></li>
+<li class="link">
+<a href="sec_matriz_traspuesta.html" data-scroll="sec_matriz_traspuesta"><span class="codenumber">4</span> <span class="title">Tipos de matrices.</span></a><ul><li><a href="sec_matriz_traspuesta.html#matriz_simetrica_y_antisimetrica" data-scroll="matriz_simetrica_y_antisimetrica">Matriz simétrica y antisimétrica</a></li></ul>
+</li>
+<li class="link">
+<a href="determinantes.html" data-scroll="determinantes"><span class="codenumber">5</span> <span class="title">Determinantes</span></a><ul><li><a href="determinantes.html#propiedades-de-los-determinantes" data-scroll="propiedades-de-los-determinantes">Propiedades de los determinantes</a></li></ul>
+</li>
+<li class="link">
+<a href="sec_matriz-adjunta.html" data-scroll="sec_matriz-adjunta"><span class="codenumber">6</span> <span class="title">Matriz adjunta</span></a><ul>
+<li><a href="sec_matriz-adjunta.html#menor-complementario-y-adjunto" data-scroll="menor-complementario-y-adjunto">Menor complementario y adjunto</a></li>
+<li><a href="sec_matriz-adjunta.html#matriz-adjunta-1" data-scroll="matriz-adjunta-1">Matriz adjunta</a></li>
+</ul>
+</li>
+<li class="link active">
+<a href="sec_matriz_inversa.html" data-scroll="sec_matriz_inversa"><span class="codenumber">7</span> <span class="title">Inversa de una matriz</span></a><ul>
+<li><a href="sec_matriz_inversa.html#calculo_inversa_definicion" data-scroll="calculo_inversa_definicion">Calculo mediante la definición</a></li>
+<li><a href="sec_matriz_inversa.html#calculo_inversa_gaussjordan" data-scroll="calculo_inversa_gaussjordan">Calculo de la matriz inversa por el método de Gauss-Jordan</a></li>
+<li><a href="sec_matriz_inversa.html#calculo_inversa_determinantes" data-scroll="calculo_inversa_determinantes">Cálculo de la matriz inversa por determinantes</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="sec_rango_matriz.html" data-scroll="sec_rango_matriz"><span class="codenumber">8</span> <span class="title">Rango de una matriz</span></a><ul>
+<li><a href="sec_rango_matriz.html#rango_matriz_escalonando" data-scroll="rango_matriz_escalonando">Calculo del rango de una matriz escalonando la matriz</a></li>
+<li><a href="sec_rango_matriz.html#rango_matriz_determinantes" data-scroll="rango_matriz_determinantes">Calculo del rango de una matriz por determinantes</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter-1.html" data-scroll="backmatter-1"><span class="title">Apéndices</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1"><span class="title">Index</span></a></li>
+</ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Realizado con PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="sec_matriz_inversa"><h2 class="heading hide-type">
+<span class="type">Sección</span> <span class="codenumber">7</span> <span class="title">Inversa de una matriz</span>
+</h2>
+<section class="introduction" id="introduction-2"><p id="p-147">La matriz inversa de una matriz cuadrada \(A\) de orden \(n\) es otra matriz \(A^{-1}\) de orden \(n\) que verifica:</p>
+<div class="displaymath">
+\begin{equation*}
+A\cdot A^{-1}=A^{-1} \cdot A = I
+\end{equation*}
+</div>
+<p class="continuation">Las matrices que tienen inversa se llaman <dfn class="terminology">matrices regulares</dfn> y las que no tienen inversa se llaman <dfn class="terminology">matrices singulares</dfn>.</p>
+<p id="p-148">Para calcular la matriz inversa vamos a utilizar tres procedimientos:</p>
+<ol id="p-149" class="decimal">
+<li id="li-26"><p id="p-150">Mediante la definición.</p></li>
+<li id="li-27"><p id="p-151">Método de Gauss-Jordan.</p></li>
+<li id="li-28"><p id="p-152">Por determinantes.</p></li>
+</ol></section><section class="subsection" id="calculo_inversa_definicion"><h3 class="heading hide-type">
+<span class="type">Subsección</span> <span class="codenumber">7.1</span> <span class="title">Calculo mediante la definición</span>
+</h3>
+<p id="p-153">En este procedimiento escribiremos cada elemento de la matriz inversa como una incógnita y mediante la definición de matriz inversa plantearemos un sistema de ecuaciones que luego resolveremos calculando de esta manera cada uno de los elementos de la matriz inversa.</p>
+<article class="example example-like" id="exa_inve_defi1"><h6 class="heading">
+<span class="type">Ejemplo</span><span class="space"> </span><span class="codenumber">7.1</span><span class="period">.</span>
+</h6>
+<p id="p-154">Dada la matriz \(A= \begin{pmatrix} 
+2&amp; -1 \\
+-7&amp; 4 \\
+\end{pmatrix}
+\text{,}\) hallar su inversa, si existe.</p>
+<div class="solutions">
+<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-17" id="solution-17"><span class="type">Solución</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-17"><div class="solution solution-like">
+<p id="p-155">La matriz \(A\) es de orden \(2\text{,}\) por lo tanto, la inversa también será de orden \(2\text{.}\)</p>
+<p id="p-156">Es decir, \(A^{-1}=\begin{pmatrix} 
+x&amp; y \\
+z&amp; t \\ 
+\end{pmatrix}\)</p>
+<p id="p-157">Utilizaremos ahora la definición de matriz inversa y calcularemos las incógnitas y la matriz inversa.</p>
+<p id="p-158">\(A\cdot A^{-1}= I \Leftrightarrow \begin{pmatrix} 
+2&amp; -1 \\
+-7&amp; 4 \\
+\end{pmatrix} 
+\begin{pmatrix} 
+x&amp; y \\
+z&amp; t \\ 
+\end{pmatrix}
+=\begin{pmatrix} 
+1&amp; 0 \\
+0&amp; 1 \\ 
+\end{pmatrix}\)</p>
+<p id="p-159">Operando e igualando las dos matrices:</p>
+<p id="p-160">\(\begin{pmatrix} 
+2x-z&amp; 2y-t \\
+-7x+4z&amp; -7y+4t \\ 
+\end{pmatrix}=\begin{pmatrix} 
+1&amp; 0 \\
+0&amp; 1 \\ 
+\end{pmatrix} \Leftrightarrow
+\left. 
+\begin{array}{l}
+2x-z = 1 \\
+2y-t = 0 \\
+-7x+4z = 0 \\
+-7y+4t = 1 \\
+\end{array}
+\right\rbrace
+\Rightarrow 
+\begin{array}{l}
+x = 4 \\
+y =1 \\
+z =7 \\
+t = 2 \\
+\end{array}\)</p>
+<p id="p-161">Luego la matriz inversa de \(A=\begin{pmatrix} 
+2&amp; -1 \\
+-7&amp; 4 \\
+\end{pmatrix}\) es: \(A^{-1}= \begin{pmatrix}
+4&amp; 1 \\
+7&amp; 2 \\
+\end{pmatrix}\)</p>
+</div></div>
+</div></article></section><section class="subsection" id="calculo_inversa_gaussjordan"><h3 class="heading hide-type">
+<span class="type">Subsección</span> <span class="codenumber">7.2</span> <span class="title">Calculo de la matriz inversa por el método de Gauss-Jordan</span>
+</h3>
+<p id="p-162">En este método calcularemos la matriz inversa de una matriz mediante transformaciones elementales.</p>
+<p id="p-163">Este método consiste en lo siguiente:</p>
+<ul id="p-164" class="disc">
+<li id="li-29"><p id="p-165">Tomamos una matriz formada por la matriz \(A\) y la matriz identidad del mismo orden. Esta matriz la simbolizaremos por \(\left( \begin{array}{c | c}
+A &amp;  I 
+\end{array} \right)\)</p></li>
+<li id="li-30"><p id="p-166">Realizamos transformaciones elementales para llegar a la matriz: \(\left( \begin{array}{c | c} I &amp; B 
+\end{array} \right)\)</p></li>
+</ul>
+<p id="p-167">La matriz \(B\) es la inversa de la matriz \(A\text{,}\) es decir \(A^{-1}\)</p>
+<p id="p-168">Las transformaciones elementales son las siguientes:</p>
+<ol id="p-169" class="decimal">
+<li id="li-31"><p id="p-170">Intercambiar dos filas. \(F_i \leftrightarrow F_j\)</p></li>
+<li id="li-32"><p id="p-171">Multiplicar una fila por un número distinto de cero. \(F_i \rightarrow kF_i\)</p></li>
+<li id="li-33"><p id="p-172">Sumar dos filas multiplicadas por sendos números y sustituir una de estas filas por el resultado. \(F_i \rightarrow kF_i+tF_j\text{.}\)</p></li>
+</ol>
+<article class="example example-like" id="exa_inve_gauss1"><h6 class="heading">
+<span class="type">Ejemplo</span><span class="space"> </span><span class="codenumber">7.2</span><span class="period">.</span>
+</h6>
+<p id="p-173">Hallar la inversa de la matriz: \(\begin{pmatrix}
+1 &amp; 2  \\
+2 &amp; 3   \end{pmatrix}
+\text{.}\)</p>
+<div class="solutions">
+<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-18" id="solution-18"><span class="type">Solución</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-18"><div class="solution solution-like">
+<p id="p-174">\(\begin{gaussjordandos}
+1 &amp; 2  &amp; 1&amp; 0 \\
+2&amp; 3  &amp; 0&amp; 1 \\
+\end{gaussjordandos}
+\begin{array}{l}
+F_2=F_2-2F_1 \\
+F_2=F_2-2F_1
+\end{array}\)</p>
+<p id="p-175">\(\begin{gaussjordandos}
+1&amp; 2  &amp; 1&amp; 0 \\
+0&amp; -1  &amp; -2&amp; 1 \\
+\end{gaussjordandos}
+\begin{array}{l}
+F_1=F_1+2F_1 \\
+\\
+\end{array}
+\begin{gaussjordandos}
+1&amp; 0  &amp; -3&amp; 2 \\
+0&amp; -1  &amp; -2&amp; 1 \\
+\end{gaussjordandos}
+\begin{array}{l}
+\\
+F_2=-F_2 
+\end{array}\)</p>
+<p id="p-176">\(\begin{gaussjordandos}
+1&amp; 0 &amp;  -3&amp; 2 \\
+0&amp; 1  &amp; 2&amp; -1 \\
+\end{gaussjordandos}\)</p>
+<p id="p-177">Luego la matriz inversa de \(A\) es \(A^{-1}=\begin{pmatrix}
+-3&amp; 2 \\
+2&amp; -1 \\
+\end{pmatrix}\)</p>
+</div></div>
+</div></article><article class="example example-like" id="exa_inve_gauss2"><h6 class="heading">
+<span class="type">Ejemplo</span><span class="space"> </span><span class="codenumber">7.3</span><span class="period">.</span>
+</h6>
+<p id="p-178">Hallar la inversa de la matriz \(B=\begin{pmatrix}
+1 &amp; -1 &amp; 1 \\
+2 &amp; 0 &amp; 1 \\
+-1 &amp; 1 &amp; 1
+\end{pmatrix}\)</p>
+<div class="solutions">
+<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-19" id="solution-19"><span class="type">Solución</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-19"><div class="solution solution-like">&gt; <p id="p-179">\(\begin{gaussjordantres} 
+1 &amp; -1 &amp; 1 &amp; 1 &amp; 0 &amp;0 \\
+2 &amp; 0 &amp; 1 &amp; 0 &amp; 1 &amp; 0 \\
+-1 &amp; 1 &amp; 1 &amp; 0 &amp; 0 &amp; 1
+\end{gaussjordantres}\)</p>
+<p id="p-180">\(\begin{array}{l}  \\  \rightarrow f_2=f_2-2f_1 \\  \rightarrow f_3=f_3+f_1 \end{array}\)</p>
+<p id="p-181">\(\begin{gaussjordantres} 
+1 &amp; -1 &amp; 1 &amp; 1 &amp; 0 &amp;0 \\
+0 &amp; 2 &amp; -1 &amp; -2 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 2 &amp; 1 &amp; 0 &amp; 1
+\end{gaussjordantres}\) \(\begin{array}{l} \rightarrow f_1=2f_1+f_2 \\ \\ \\ \end{array}\)</p>
+<p id="p-182">\(\begin{gaussjordantres} 
+2 &amp; 0 &amp; 1 &amp; 0 &amp; 1 &amp;0 \\
+0 &amp; 2 &amp; -1 &amp; -2 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 2 &amp; 1 &amp; 0 &amp; 1
+\end{gaussjordantres}\)</p>
+<p id="p-183">\(\begin{array}{l} \rightarrow f_1=2f_1-f_3 \\ \rightarrow f_2=2f_2+f_3 \\ \\ \end{array}\)</p>
+<p id="p-184">\(\begin{gaussjordantres} 
+4 &amp; 0 &amp; 0 &amp; -1 &amp; 2 &amp; -1 \\
+0 &amp; 4 &amp; 0 &amp; -3 &amp; 2 &amp; 1 \\
+0 &amp; 0 &amp; 2 &amp; 1 &amp; 0 &amp; 1
+\end{gaussjordantres}\)</p>
+<p id="p-185">\(\begin{array}{l} \rightarrow f_1=f_1/4 \\ \rightarrow f_2=f_2/4 \\ \rightarrow f_3=f_3/2 \end{array}\)</p>
+<p id="p-186">\(\begin{gaussjordantres} 
+1 &amp; 0 &amp; 0 &amp; -1/4 &amp; 1/2 &amp; -1/4 \\
+0 &amp; 1 &amp; 0 &amp; -3/4 &amp; 1/2 &amp; 1/4 \\
+0 &amp; 0 &amp; 1 &amp; 1/2 &amp; 0 &amp; 1/2
+\end{gaussjordantres}\)</p>
+<p id="p-187">\(B^{-1}=\begin{pmatrix}
+-1/4 &amp; 1/2 &amp; -1/4 \\
+-3/4 &amp; 1/2 &amp; 1/4 \\
+1/2 &amp; 0 &amp; 1/2
+\end{pmatrix}\)</p>
+</div></div>
+</div></article></section><section class="subsection" id="calculo_inversa_determinantes"><h3 class="heading hide-type">
+<span class="type">Subsección</span> <span class="codenumber">7.3</span> <span class="title">Cálculo de la matriz inversa por determinantes</span>
+</h3>
+<p id="p-188">La condición necesaria y suficiente para que una matriz tenga inversa es que su determinante sea distinto de cero.</p>
+<div class="displaymath">
+\begin{equation*}
+\exists A^{-1} \Leftrightarrow |A| \neq 0
+\end{equation*}
+</div>
+<p id="p-189">Si existe la matriz inversa se puede calcular de la siguiente forma:</p>
+<p id="p-190">\(A^{-1}= \dfrac{1}{|A|}\cdot \left[ Adj (A) \right]^t = \dfrac{1}{|A|}\cdot Adj  \left( A^t \right) \)</p>
+<article class="example example-like" id="exa_inve_dete1"><h6 class="heading">
+<span class="type">Ejemplo</span><span class="space"> </span><span class="codenumber">7.4</span><span class="period">.</span>
+</h6>
+<p id="p-191">Hallar la matriz inversa de : \(A=\begin{pmatrix}
+1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; -1 \\
+2 &amp; -1 &amp; 1
+\end{pmatrix}\)</p>
+<div class="solutions">
+<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-20" id="solution-20"><span class="type">Solución</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-20"><div class="solution solution-like">
+<p id="p-192">Hallamos el determinante de \(A\text{.}\) \(|A|=0+0+0-0-1-0=-1\)</p>
+<p id="p-193">Como el determinante es distinto de cero la matriz tiene inversa.</p>
+<p id="p-194">Hallamos la matriz adjunta de \(A\text{.}\)</p>
+<p id="p-195">\(\begin{array}{lll}
+A_ {11}=\begin{vmatrix}
+0 &amp; -1 \\
+-1 &amp; 1
+\end{vmatrix}=-1 &amp;  
+A_ {12}=-\begin{vmatrix}
+0 &amp; -1 \\
+2 &amp; 1
+\end{vmatrix}=-2 &amp; 
+A_ {13}=\begin{vmatrix}
+0 &amp; 0 \\
+2 &amp; -1
+\end{vmatrix}=0 \\
+A_ {21}=-\begin{vmatrix}
+0 &amp; 0 \\
+-1 &amp; 1
+\end{vmatrix}=0 &amp; 
+A_ {22}=\begin{vmatrix}
+1 &amp; 0 \\
+2 &amp; 1
+\end{vmatrix}=1 &amp; 
+A_ {23}=-\begin{vmatrix}
+1 &amp; 0 \\
+2 &amp; -1
+\end{vmatrix}=1 \\
+A_ {31}=\begin{vmatrix}
+0 &amp; 0 \\
+0 &amp; -1
+\end{vmatrix}=0 &amp; 
+A_ {32}=-\begin{vmatrix}
+1 &amp; 0 \\
+0 &amp; -1
+\end{vmatrix}=1 &amp; 
+A_ {33}=\begin{vmatrix}
+1 &amp; 0 \\
+0 &amp; 0
+\end{vmatrix}=0
+\end{array}\)</p>
+<p id="p-196">\((Adj A)= 
+\begin{pmatrix}
+-1 &amp; -2 &amp; 0 \\
+0 &amp; 1 &amp; 1 \\
+0 &amp; 1 &amp; 0
+\end{pmatrix} \qquad 
+\left( Adj A \right)^t=
+\begin{pmatrix}
+-1 &amp; 0 &amp; 0 \\
+-2 &amp; 1 &amp; 1 \\
+0 &amp; 1 &amp; 0
+\end{pmatrix}\)</p>
+<p id="p-197">\(A^{-1}= \dfrac{\left( Adj A \right)^t}{|A|}=
+\begin{pmatrix}
+1 &amp; 0 &amp; 0 \\
+2 &amp; -1 &amp; -1 \\
+0 &amp; -1 &amp; 0
+\end{pmatrix}\)</p>
+</div></div>
+</div></article></section></section></div></main>
+</div>
+</body>
+</html>

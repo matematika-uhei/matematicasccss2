@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-03-25T11:20:33+01:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="es-ES">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Matemáticas Rango de una matriz</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['\\(','\\)']]
+    },
+    asciimath2jax: {
+        ignoreClass: ".*",
+        processClass: "has_am"
+    },
+    jax: ["input/AsciiMath"],
+    extensions: ["asciimath2jax.js"],
+    TeX: {
+        extensions: ["extpfeil.js", "autobold.js", "https://pretextbook.org/js/lib/mathjaxknowl.js", "AMScd.js", ],
+        // scrolling to fragment identifiers is controlled by other Javascript
+        positionToHash: false,
+        equationNumbers: { autoNumber: "none", useLabelIds: true, },
+        TagSide: "right",
+        TagIndent: ".8em",
+    },
+    // HTML-CSS output Jax to be dropped for MathJax 3.0
+    "HTML-CSS": {
+        scale: 88,
+        mtextFontInherit: true,
+    },
+    CommonHTML: {
+        scale: 88,
+        mtextFontInherit: true,
+    },
+});
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML-full"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<script src="https://cdn.geogebra.org/apps/deployggb.js"></script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/style_oscarlevin.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/colors_green_blue.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body id="pretext-SC" class="mathbook-article has-toc has-sidebar-left">
+<a class="assistive" href="#content">Salta al contenido principal</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content" style="display:none">\(\newcommand{\order}[1]{\left\lvert#1\right\rvert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href="https://ived.eus" target="_blank"><img src="images/logoIVED.jpg" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="matrices.html"><span class="title">Matrices y Determinantes</span></a></h1>
+<p class="byline">Ricardo Mateos<br xmlns:svg="http://www.w3.org/2000/svg"> Cristina Gual<br xmlns:svg="http://www.w3.org/2000/svg"> Josu Beobide</p>
+</div>
+</div></div>
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Índice</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Índice alfabético">Índice alfabético</a><button id="calculator-toggle" class="toolbar-item button toggle" title="Show calculator" aria-expanded="false" aria-controls="calculator-container">Calc</button><div id="calculator-container" class="calculator-container" style="display: none; z-index:100;"><div id="geogebra-calculator"></div></div>
+<script>
+var ggbApp = new GGBApplet({"appName": "classic",
+    "width": 330,
+    "height": 600,
+    "showToolBar": true,
+    "showAlgebraInput": true,
+    "perspective": "G/A",
+    "algebraInputPosition": "bottom",
+    "scaleContainerClass": "calculator-container",
+    "allowUpscale": true,
+    "autoHeight": true,
+    "disableAutoScale": false},
+true);
+</script><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec_matriz_inversa.html" title="Anterior">Anterior</a><a id="upbutton" class="up-button button toolbar-item" href="matrices.html" title="Arriba">Arriba</a><a id="nextbutton" class="next-button button toolbar-item" href="backmatter-1.html" title="Siguiente">Siguiente</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Índice</button><a class="previous-button toolbar-item button" href="sec_matriz_inversa.html" title="Anterior">Anterior</a><a class="up-button button toolbar-item" href="matrices.html" title="Arriba">Arriba</a><a class="next-button button toolbar-item" href="backmatter-1.html" title="Siguiente">Siguiente</a>
+</div>
+</div></nav></header><div class="page">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter"><a href="frontmatter.html" data-scroll="frontmatter"><span class="title">Páginas preliminares</span></a></li>
+<li class="link"><a href="sec_definicion_matriz.html" data-scroll="sec_definicion_matriz"><span class="codenumber">1</span> <span class="title">Definiciones.</span></a></li>
+<li class="link">
+<a href="sec_tipos_matrices.html" data-scroll="sec_tipos_matrices"><span class="codenumber">2</span> <span class="title">Tipos de matrices.</span></a><ul><li><a href="sec_tipos_matrices.html#tipos_matrices_cuadradas" data-scroll="tipos_matrices_cuadradas">Tipos de matrices cuadradas</a></li></ul>
+</li>
+<li class="link"><a href="sec_operaciones_matrices.html" data-scroll="sec_operaciones_matrices"><span class="codenumber">3</span> <span class="title">Operaciones con matrices</span></a></li>
+<li class="link">
+<a href="sec_matriz_traspuesta.html" data-scroll="sec_matriz_traspuesta"><span class="codenumber">4</span> <span class="title">Tipos de matrices.</span></a><ul><li><a href="sec_matriz_traspuesta.html#matriz_simetrica_y_antisimetrica" data-scroll="matriz_simetrica_y_antisimetrica">Matriz simétrica y antisimétrica</a></li></ul>
+</li>
+<li class="link">
+<a href="determinantes.html" data-scroll="determinantes"><span class="codenumber">5</span> <span class="title">Determinantes</span></a><ul><li><a href="determinantes.html#propiedades-de-los-determinantes" data-scroll="propiedades-de-los-determinantes">Propiedades de los determinantes</a></li></ul>
+</li>
+<li class="link">
+<a href="sec_matriz-adjunta.html" data-scroll="sec_matriz-adjunta"><span class="codenumber">6</span> <span class="title">Matriz adjunta</span></a><ul>
+<li><a href="sec_matriz-adjunta.html#menor-complementario-y-adjunto" data-scroll="menor-complementario-y-adjunto">Menor complementario y adjunto</a></li>
+<li><a href="sec_matriz-adjunta.html#matriz-adjunta-1" data-scroll="matriz-adjunta-1">Matriz adjunta</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="sec_matriz_inversa.html" data-scroll="sec_matriz_inversa"><span class="codenumber">7</span> <span class="title">Inversa de una matriz</span></a><ul>
+<li><a href="sec_matriz_inversa.html#calculo_inversa_definicion" data-scroll="calculo_inversa_definicion">Calculo mediante la definición</a></li>
+<li><a href="sec_matriz_inversa.html#calculo_inversa_gaussjordan" data-scroll="calculo_inversa_gaussjordan">Calculo de la matriz inversa por el método de Gauss-Jordan</a></li>
+<li><a href="sec_matriz_inversa.html#calculo_inversa_determinantes" data-scroll="calculo_inversa_determinantes">Cálculo de la matriz inversa por determinantes</a></li>
+</ul>
+</li>
+<li class="link active">
+<a href="sec_rango_matriz.html" data-scroll="sec_rango_matriz"><span class="codenumber">8</span> <span class="title">Rango de una matriz</span></a><ul>
+<li><a href="sec_rango_matriz.html#rango_matriz_escalonando" data-scroll="rango_matriz_escalonando">Calculo del rango de una matriz escalonando la matriz</a></li>
+<li><a href="sec_rango_matriz.html#rango_matriz_determinantes" data-scroll="rango_matriz_determinantes">Calculo del rango de una matriz por determinantes</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter-1.html" data-scroll="backmatter-1"><span class="title">Apéndices</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1"><span class="title">Index</span></a></li>
+</ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Realizado con PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="sec_rango_matriz"><h2 class="heading hide-type">
+<span class="type">Sección</span> <span class="codenumber">8</span> <span class="title">Rango de una matriz</span>
+</h2>
+<section class="introduction" id="introduction-3"><p id="p-198">Una fila (o columna) de una matriz \(F_i\) (o \(C_i\)) depende linealmente de otras si existen números reales \(a_1\text{,}\) \(a_2\text{,}\) \(\cdots\text{,}\) \(a_n\) tales que \(F_i\) (o \(C_i\)) se pueden expresar como:</p>
+<div class="displaymath">
+\begin{equation*}
+F_i=a_1 \cdot F_1+a_2 \cdot F_2+\cdots + a_n \cdot F_n \qquad C_i=a_1\cdot C_1+a_2 \cdot C_2+\cdots + a_n \cdot C_n
+\end{equation*}
+</div>
+<p id="p-199">El <dfn class="terminology">rango de una matriz</dfn> es el número de filas o de columnas linelamente independientes.</p>
+<p id="p-200">Se puede demostrar que el número de filas linealmente independientes coincide con el número de columnas linalmente independiente. Por lo tanto, el rango de una matriz de orden \(m \times n\) siempre será menor o igual que el número más pequeño entre \(m\) y \(n\text{.}\)</p>
+<article class="example example-like" id="example-21"><h6 class="heading">
+<span class="type">Ejemplo</span><span class="space"> </span><span class="codenumber">8.1</span><span class="period">.</span>
+</h6>
+<p id="p-201">Dada la matriz \(A=
+\begin{pmatrix}
+-1 &amp; 2 &amp; 4 &amp; 0 \\
+3 &amp; 2 &amp; 1 &amp; -2 \\
+7 &amp; 2 &amp; -2 &amp; -4 
+\end{pmatrix}
+\text{.}\)</p>
+<div class="solutions">
+<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-21" id="solution-21"><span class="type">Solución</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-21"><div class="solution solution-like">
+<p id="p-202">Comprueba que la tercera fila es combinación lineal de las dos primeras. ¿Cuál es el rango de \(A\text{?.}\) Si la tercera fila es combinación lineal de la primera entonces: \(F_3=aF_1+bF_1\text{.}\)</p>
+<p id="p-203">Aplicando la igualdad anterior tenemos:</p>
+<p id="p-204">\(\begin{cases} -a+3b=7 \\ 2a+2b=2 \\ 4a+b=-2 \\ -2b=-4 \end{cases}\)</p>
+<p id="p-205">Resolviendo el sistema obtenemos \(a=-1\text{,}\) \(b=2\text{.}\) Es decir, \(F_3=-F_1+2F_2\)</p>
+<p id="p-206">Como la primera fila y la segunda son independientes el rango de la matriz \(A\) será \(2\text{.}\)</p>
+</div></div>
+</div></article></section><section class="subsection" id="rango_matriz_escalonando"><h3 class="heading hide-type">
+<span class="type">Subsección</span> <span class="codenumber">8.1</span> <span class="title">Calculo del rango de una matriz escalonando la matriz</span>
+</h3>
+<p id="p-207">Una matriz se dice que es una <dfn class="terminology">matriz escalonada</dfn> si en ella se cumple:</p>
+<ul id="p-208" class="disc">
+<li id="li-34"><p id="p-209">Si hay filas nulas, están situadas en la parte inferior de la matriz.</p></li>
+<li id="li-35"><p id="p-210">En las filas no nulas, el primer elemento diferente de cero de una fila está situado más a la derecha que el primer elemento no nulo de la fila inmediatamente superior.</p></li>
+</ul>
+<p id="p-211">El rango de una matriz escalonada es el número de filas no nulas de ella. Lo denotaremos por \(\text{ran}(A)\text{.}\)</p>
+<p id="p-212">Las siguientes matrices son matrices escalonadas:</p>
+<p id="p-213">\(A=
+\begin{pmatrix}
+3 &amp; -1 &amp; 1 \\ 0 &amp; 2 &amp; 5 
+\end{pmatrix}
+\text{,}\) \(B=
+\begin{pmatrix}
+1 &amp; 2 &amp; 3 &amp; 4 \\
+0 &amp; 3 &amp; -2 &amp; 1 \\
+0 &amp; 0 &amp; -1 &amp; 2 \\
+0 &amp; 0 &amp; 0 &amp; 1 \\
+0 &amp; 0 &amp; 0 &amp; 0 
+\end{pmatrix}\)</p>
+<p id="p-214">Dos matrices son equivalentes si una de ellas se obtiene a partir de la otra mediante transformaciones elementales.</p>
+<p id="p-215">El rango de una matriz A es el rango de una matriz escalonada equivalente a ella.</p>
+<article class="example example-like" id="exa_rang_esca1"><h6 class="heading">
+<span class="type">Ejemplo</span><span class="space"> </span><span class="codenumber">8.2</span><span class="period">.</span>
+</h6>
+<p id="p-216">Calcula el rango de la matriz: \(\begin{pmatrix}
+1 &amp; 2 &amp; 5 &amp; 6 \\
+-1 &amp; -2 &amp; 0 &amp; 1 \\
+3 &amp; 4 &amp; 5 &amp; 3 \\
+-3 &amp; -4 &amp; 0 &amp; 0  
+\end{pmatrix}\)</p>
+<div class="solutions">
+<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-22" id="solution-22"><span class="type">Solución</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-22"><div class="solution solution-like">
+<p id="p-217">Escalonamos la matriz haciendo ceros en todos los elementos por debajo de la diagonal:</p>
+<div class="displaymath" id="p-218">
+\begin{equation*}
+\begin{pmatrix}
+1 &amp; 2 &amp; 5 &amp; 6 \\
+-1 &amp; -2 &amp; 0 &amp; 1 \\
+3 &amp; 4 &amp; 5 &amp; 3 \\
+-3 &amp; -4 &amp; 0 &amp; 0  
+\end{pmatrix} 
+\begin{array}{c} f_2=f_2+f_1 \\ f_3=f_3-3f_1 \\  f_4=f_4+3f_1 \end{array} \Longrightarrow
+\begin{pmatrix}
+1 &amp; 2 &amp; 5 &amp; 6 \\
+0 &amp; 0 &amp; 5 &amp; 7 \\
+0 &amp; -2 &amp; -10 &amp; -15 \\
+0 &amp; 2 &amp; 15 &amp; 18  
+\end{pmatrix}
+\end{equation*}
+</div>
+<div class="displaymath">
+\begin{equation*}
+\begin{pmatrix}
+1 &amp; 2 &amp; 5 &amp; 6 \\
+0 &amp; 0 &amp; 5 &amp; 7 \\
+0 &amp; -2 &amp; -10 &amp; -15 \\
+0 &amp; 2 &amp; 15 &amp; 18  
+\end{pmatrix}
+\begin{array}{c} f_2\leftrightarrow f_3  \end{array} \Longrightarrow
+\begin{pmatrix}
+1 &amp; 2 &amp; 5 &amp; 6 \\
+0 &amp; -2 &amp; -10 &amp; -15 \\
+0 &amp; 0 &amp; 5 &amp; 7 \\
+0 &amp; 2 &amp; 15 &amp; 18  
+\end{pmatrix}
+\end{equation*}
+</div>
+<div class="displaymath">
+\begin{equation*}
+\begin{pmatrix}
+1 &amp; 2 &amp; 5 &amp; 6 \\
+0 &amp; -2 &amp; -10 &amp; -15 \\
+0 &amp; 0 &amp; 5 &amp; 7 \\
+0 &amp; 2 &amp; 15 &amp; 18  
+\end{pmatrix}
+\begin{array}{c} f_4=f_4+f_2  \end{array} \Longrightarrow
+\begin{pmatrix}
+1 &amp; 2 &amp; 5 &amp; 6 \\
+0 &amp; -2 &amp; -10 &amp; -15 \\
+0 &amp; 0 &amp; 5 &amp; 7 \\
+0 &amp; 0 &amp; 5 &amp; 3 
+\end{pmatrix}
+\end{equation*}
+</div>
+<div class="displaymath">
+\begin{equation*}
+\begin{pmatrix}
+1 &amp; 2 &amp; 5 &amp; 6 \\
+0 &amp; -2 &amp; -10 &amp; -15 \\
+0 &amp; 0 &amp; 5 &amp; 7 \\
+0 &amp; 0 &amp; 5 &amp; 3 
+\end{pmatrix}
+\begin{array}{c} f_4=f_4-f_3  \end{array} \Longrightarrow
+\begin{pmatrix}
+1 &amp; 2 &amp; 5 &amp; 6 \\
+0 &amp; -2 &amp; -10 &amp; -15 \\
+0 &amp; 0 &amp; 5 &amp; 7 \\
+0 &amp; 0 &amp; 0 &amp; -4  
+\end{pmatrix}
+\end{equation*}
+</div>
+<p id="p-219">Nos quedan cuatro filas, por lo tanto, el rango es 4.</p>
+</div></div>
+</div></article></section><section class="subsection" id="rango_matriz_determinantes"><h3 class="heading hide-type">
+<span class="type">Subsección</span> <span class="codenumber">8.2</span> <span class="title">Calculo del rango de una matriz por determinantes</span>
+</h3>
+<p id="p-220">Se llama menor de orden \(k\) de una matriz \(A\text{,}\) de cualquier dimensión, al determinante de la matriz formada por elementos que perteneces a \(k\) filas y \(k\) columnas de la matriz A.</p>
+<article class="example example-like" id="example-23"><h6 class="heading">
+<span class="type">Ejemplo</span><span class="space"> </span><span class="codenumber">8.3</span><span class="period">.</span>
+</h6>
+<p id="p-221">Hallar un menor de orden 2 y otro de orden 3 de la matriz: \(A=
+\begin{pmatrix}
+1 &amp; 0 &amp; 2 &amp; -3 \\
+3 &amp; 3 &amp; 1 &amp; 2 \\
+0 &amp; -1 &amp; 2 &amp; -3
+\end{pmatrix}\)</p>
+<div class="solutions">
+<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-23" id="solution-23"><span class="type">Solución</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-23"><div class="solution solution-like">
+<p id="p-222">Para hallar un menor de orden 2 de esta matriz elegimos dos filas y dos columnas de dicha matriz. Por ejemplo, elegimos la fila 2 y la fila 3 y la columna 1 y la columna 4 y obtenemos:</p>
+<p id="p-223">\(\begin{vmatrix}
+3 &amp; 2 \\
+0 &amp; -3
+\end{vmatrix}= -9\)</p>
+<p id="p-224">Para hallar un menor de orden 3 cogemos tres filas, por ejemplo, las filas 1, 2 y 3 y tres columnas, por ejemplo las columnas 1,2 y 4. De esta manera obtenemso:</p>
+<p id="p-225">\(\begin{vmatrix}
+1 &amp; 0 &amp; -3 \\
+3 &amp; 3 &amp; 2 \\
+0 &amp; -1 &amp; -3
+\end{vmatrix}= 2\)</p>
+</div></div>
+</div></article><article class="assemblage assemblage-like" id="assemblage-10"><p id="p-226">El rango de una matriz es el orden del mayor menor no nulo de la matriz.</p></article><p id="p-227">Para calcular el rango de una matriz mediante determinantes procederemos de la siguiente forma:</p>
+<ul id="p-228" class="disc">
+<li id="li-36"><p id="p-229">Si la matriz \(A\) es la matriz nula el rango será 0. En caso contrario buscamos un menor de orden 2 que sea distinto de cero. Si no hay ninguno el rango será 1.</p></li>
+<li id="li-37"><p id="p-230">Si hay algún menor de orden 2 distinto de cero el rango será mayor o igual a 2. En este caso orlamos el menor de orden 2 distinto de cero añadiendole otra fila y otra columna utilizando todas las posibilidades. Si todos son cero el rango será 2 en caso contrario el rango será mayor o igual que 3 y se sigue orlando el menor de orden 3 distinto de cero si esto es posible, es decir, si hay filas y columnas para añadirle.</p></li>
+</ul>
+<p id="p-231">El rango de la matriz será el orden del mayor menor no nulo.</p>
+<article class="example example-like" id="exa_rang_dete1"><h6 class="heading">
+<span class="type">Ejemplo</span><span class="space"> </span><span class="codenumber">8.4</span><span class="period">.</span>
+</h6>
+<p id="p-232">Hallar el rango de la matriz \(A=
+\begin{pmatrix}
+-1 &amp; 0 &amp; 0 &amp; 2 &amp; -2 \\
+3 &amp; 1 &amp; -1 &amp; 4 &amp; 0 \\
+2 &amp; 1 &amp; -1 &amp; 6 &amp; -2 
+\end{pmatrix}\)</p>
+<div class="solutions">
+<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-24" id="solution-24"><span class="type">Solución</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-24"><div class="solution solution-like">
+<p id="p-233">Buscamos un menor de orden 2 no nulo. Para ello tomamos la primera y la segunda fila y la primera y la segunda columna.</p>
+<p id="p-234">\(\begin{vmatrix}
+-1 &amp; 0 \\ 3 &amp; 1
+\end{vmatrix}=-1 \neq 0 \Rightarrow \text{ran}(A) \geq 2\)</p>
+<p id="p-235">Orlamos este menor añadiéndole otra fila y otra columna hasta encontrar un menor de orden 3 distinto de cero si lo hay.</p>
+<p id="p-236">\(\begin{vmatrix}
+-1 &amp; 0 &amp; 0 \\
+3 &amp; 1 &amp; -1 \\
+2 &amp; 1 &amp; -1 
+\end{vmatrix}=0 \qquad  
+\begin{vmatrix}
+-1 &amp; 0 &amp; 2 \\
+3 &amp; 1 &amp; 4 \\
+2 &amp; 1 &amp; 6
+\end{vmatrix}=0 \qquad  
+\begin{vmatrix}
+-1 &amp; 0 &amp; -2 \\
+3 &amp; 1 &amp; 0 \\
+2 &amp; 1 &amp; -2
+\end{vmatrix}=0\)</p>
+<p id="p-237">Por lo tanto, el rango de la matriz es \(2\text{.}\)</p>
+</div></div>
+</div></article></section></section></div></main>
+</div>
+</body>
+</html>

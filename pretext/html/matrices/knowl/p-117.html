@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-03-25T11:20:33+01:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Párrafo</span></h6>
+<ol class="decimal">
+<li><p xmlns:svg="http://www.w3.org/2000/svg">Estas propiedades son válidas para determinantes de cualquier orden pero en los ejemplos usaremos determinantes de orden\(3\)</p></li>
+<li>
+<p>El determinante de una matriz y el de su traspuesta son iguales. Las propiedades valen indistintamente para filas o columnas.</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\vert A \vert =\vert A^t \vert
+\end{equation*}
+</div>
+</li>
+<li>
+<p>Si todos los elementos de una linea de un determinante son ceros, el determinante también es cero.</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\begin{vmatrix}
+1&amp;0&amp;2\\
+2&amp;0&amp;4\\
+-1&amp;0&amp;3
+\end{vmatrix}=0
+\end{equation*}
+</div>
+</li>
+<li>
+<p>Si en un determinante se intercambian dos lineas, el determinante cambia de signo.</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\begin{vmatrix}
+3&amp;-2&amp;5\\
+1&amp;7&amp;3\\
+4&amp;1&amp;0
+\end{vmatrix}=-168\longrightarrow \begin{vmatrix}
+1&amp;7&amp;3\\
+3&amp;-2&amp;5\\
+4&amp;1&amp;0
+\end{vmatrix}=-(-168)=168
+\end{equation*}
+</div>
+</li>
+<li>
+<p>Si en un determinante dos lineas son iguales, el determinante es cero.</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\begin{vmatrix}
+1&amp;2&amp;1\\
+3&amp;-5&amp;3\\
+-2&amp;6&amp;-2
+\end{vmatrix}=0\text{.}
+\end{equation*}
+</div>
+</li>
+<li>
+<p>Si los elementos de una linea se multiplican por un número, el determinante también se multiplica por ese número.</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\begin{vmatrix}
+1&amp;5\cdot 7&amp;0\\
+-2&amp;3\cdot 7 &amp;4\\
+3&amp;7\cdot 7&amp; -1
+\end{vmatrix}=7\begin{vmatrix}
+1&amp;5&amp;0\\
+-2&amp;3 &amp;4\\
+3&amp;7&amp; -1
+\end{vmatrix}
+\end{equation*}
+</div>
+</li>
+<li>
+<p>Si en un determinante dos lineas son proporcionales, el determinante es cero.</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\begin{vmatrix}
+1&amp;5&amp;0\\
+-2&amp;3 &amp;4\\
+2&amp;10&amp; 0
+\end{vmatrix} \stackrel{F_{3}=2 \cdot F_{1}}{=}0
+\end{equation*}
+</div>
+</li>
+<li>
+<p>Si los elementos de una línea se pueden descomponer en dos sumandos, su determinante es igual a la suma de dos determinantes que tienen iguales todas las líneas excepto la línea cuyos sumandos pasan, respectivamente, a cada uno de los determinantes.</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\begin{vmatrix}
+a_{11}&amp; a_{12}+ a'_{12} &amp;a_{13} \\
+a_{21} &amp; a_{22}+a'_{22}&amp;a_{23}\\
+a_{31} &amp; a_{32}+a'_{32}&amp;a_{33}
+\end{vmatrix}=\begin{vmatrix}
+a_{11}&amp; a_{12} &amp;a_{13} \\
+a_{21} &amp; a_{22}&amp;a_{23}\\
+a_{31} &amp; a_{32}&amp;a_{33}
+\end{vmatrix}+\begin{vmatrix}
+a_{11}&amp;  a'_{12} &amp;a_{13} \\
+a_{21} &amp; a'_{22}&amp;a_{23}\\
+a_{31} &amp; a'_{32}&amp;a_{33}
+\end{vmatrix}
+\end{equation*}
+</div>
+</li>
+<li>
+<p>Si a una linea de un determinante se le suma una combinación lineal de las demás lineas, el valor del determinante no varía.</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\begin{vmatrix}
+1&amp;5&amp;1\\
+-2&amp;3 &amp;4\\
+2&amp;10&amp; 3
+\end{vmatrix} \stackrel{C_{2}+C_{1}-C_{3}}{=}\begin{vmatrix}
+1&amp;5&amp;1\\
+-2&amp;-3 &amp;4\\
+2&amp;9&amp; 3
+\end{vmatrix}
+\end{equation*}
+</div>
+</li>
+<li>
+<p>Si en una determinante una linea es combinación lineal de las demás el valor del determinante es cero.</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\begin{vmatrix}
+1&amp;3&amp;4\\
+2&amp;3 &amp;5\\
+2&amp;-3&amp;-1
+\end{vmatrix} \stackrel{C_{3}=C_{1}+C_{2}}{=}0
+\end{equation*}
+</div>
+</li>
+<li>
+<p>El determinante del producto de dos matrices cuadradas es igual al producto de los determinantes de ambas matrices</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\vert A \cdot B\vert=\vert A \vert\cdot \vert B\vert
+\end{equation*}
+</div>
+</li>
+</ol>
+<span class="incontext"><a href="determinantes.html#p-117">en contexto</a></span>
+</body>
+</html>

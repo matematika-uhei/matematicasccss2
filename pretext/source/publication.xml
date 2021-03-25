@@ -22,7 +22,7 @@ along with PreTeXt.  If not, see <http://www.gnu.org/licenses/>.
 <publication>
 
     <html>
-        <knowl example="yes" />
+        <knowl example="no" />
         <knowl proof="no" />
         <knowl exercise-inline="no" />
         <calculator model="geogebra-classic"/>

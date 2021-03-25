@@ -21,6 +21,7 @@
       \usepackage{pstricks}
       \usepackage{phaistos}
       \usepackage{xcolor}
+      \usetikzlibrary{matrix}
     </latex-image-preamble>
 
     <initialism>Matemáticas</initialism>
@@ -69,11 +70,11 @@
     <xi:include href="sec_definicion_matriz.ptx" />
     <xi:include href="sec_tipos_matrices.ptx" />
     <xi:include href="sec_operaciones_matrices.ptx" />
-    <!--<xi:include href="sec_calculo_probabilidades.ptx" />-->
-    <!--<xi:include href="sec_tablas_de_contingencia.ptx" />-->
-    <!--<xi:include href="sec_experimentos_compuestos.ptx" />-->
-    <!--<xi:include href="sec_probabilidad_total.ptx" />-->
-    <!--<xi:include href="sec_teorema_de_bayes.ptx" />-->
+    <xi:include href="sec_matriz_traspuesta.ptx" />
+    <xi:include href="sec_determinantes.ptx" />-->
+    <xi:include href="sec_matriz_adjunta.ptx" />-->
+    <xi:include href="sec_matriz_inversa.ptx" />-->
+    <xi:include href="sec_rango_matriz.ptx" />-->
     <!--<xi:include href="sec_problemas.ptx" />-->
 
     <backmatter><title>Apéndices</title>
